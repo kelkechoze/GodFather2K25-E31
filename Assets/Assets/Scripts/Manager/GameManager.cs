@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
@@ -28,6 +29,12 @@ public class GameManager : MonoBehaviour
                 break;
             case GameState.Labyrinth:
                 break;
+            case GameState.Rope:
+                break;
+            case GameState.ImageMalus:
+                break;
+            case GameState.Bonneteau:
+                break;
             case GameState.Win:
                 break;
             case GameState.Loose:
@@ -37,6 +44,16 @@ public class GameManager : MonoBehaviour
         }
         
         OnGameStateChanged?.Invoke(newState);
+        Debug.Log(newState.ToString());
+    }
+
+    public void RandomizeNextState()
+    {
+        GameState newState = (GameState)Random.Range(0, (int)GameState.Loose);
+        if (newState != CurrentState && newState != GameState.MainMenu && newState != GameState.Loose &&  newState != GameState.Win &&  newState != GameState.MainState)
+        {
+            UpdateGameState(newState);
+        }
     }
 }
 
@@ -45,6 +62,9 @@ public enum GameState
     MainMenu,
     MainState,
     Labyrinth,
+    Rope,
+    Bonneteau,
+    ImageMalus,
     Win,
     Loose   
 }
