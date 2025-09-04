@@ -1,7 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+<<<<<<< HEAD
+=======
 using UnityEngine.Scripting.APIUpdating;
+>>>>>>> origin/Dev
 
 namespace MoreMountains.Feedbacks
 {
@@ -10,7 +13,10 @@ namespace MoreMountains.Feedbacks
 	/// </summary>
 	[AddComponentMenu("")]
 	[FeedbackHelp("This feedback will allow you to send to an animator (bound in its inspector) a bool, int, float or trigger parameter, allowing you to trigger an animation, with or without randomness.")]
+<<<<<<< HEAD
+=======
 	[MovedFrom(false, null, "MoreMountains.Feedbacks")]
+>>>>>>> origin/Dev
 	[FeedbackPath("Animation/Animation Parameter")]
 	public class MMF_Animation : MMF_Feedback 
 	{
@@ -41,9 +47,12 @@ namespace MoreMountains.Feedbacks
 		/// the animator whose parameters you want to update
 		[Tooltip("the animator whose parameters you want to update")]
 		public Animator BoundAnimator;
+<<<<<<< HEAD
+=======
 		/// the list of extra animators whose parameters you want to update
 		[Tooltip("the list of extra animators whose parameters you want to update")]
 		public List<Animator> ExtraBoundAnimators;
+>>>>>>> origin/Dev
 		/// the duration for the player to consider. This won't impact your animation, but is a way to communicate to the MMF Player the duration of this feedback. Usually you'll want it to match your actual animation, and setting it can be useful to have this feedback work with holding pauses.
 		[Tooltip("the duration for the player to consider. This won't impact your animation, but is a way to communicate to the MMF Player the duration of this feedback. Usually you'll want it to match your actual animation, and setting it can be useful to have this feedback work with holding pauses.")]
 		public float DeclaredDuration = 0f;
@@ -148,6 +157,8 @@ namespace MoreMountains.Feedbacks
 		[MMFEnumCondition("FloatValueMode", (int)ValueModes.Incremental)]
 		public float FloatIncrement = 1;
 
+<<<<<<< HEAD
+=======
 		[MMFInspectorGroup("Layer Weights", true, 22)]
 		/// whether or not to set layer weights on the specified layer when playing this feedback
 		[Tooltip("whether or not to set layer weights on the specified layer when playing this feedback")]
@@ -161,6 +172,7 @@ namespace MoreMountains.Feedbacks
 		[MMFCondition("SetLayerWeight", true)]
 		public float NewWeight = 0.5f;
 
+>>>>>>> origin/Dev
 		protected int _triggerParameter;
 		protected int _boolParameter;
 		protected int _intParameter;
@@ -213,6 +225,8 @@ namespace MoreMountains.Feedbacks
 
 			float intensityMultiplier = ComputeIntensity(feedbacksIntensity, position);
 
+<<<<<<< HEAD
+=======
 			ApplyValue(BoundAnimator, intensityMultiplier);
 			foreach (Animator animator in ExtraBoundAnimators)
 			{
@@ -227,15 +241,24 @@ namespace MoreMountains.Feedbacks
 		/// <param name="intensityMultiplier"></param>
 		protected virtual void ApplyValue(Animator targetAnimator, float intensityMultiplier)
 		{
+>>>>>>> origin/Dev
 			if (UpdateTrigger)
 			{
 				if (TriggerMode == TriggerModes.SetTrigger)
 				{
+<<<<<<< HEAD
+					BoundAnimator.SetTrigger(_triggerParameter);
+				}
+				if (TriggerMode == TriggerModes.ResetTrigger)
+				{
+					BoundAnimator.ResetTrigger(_triggerParameter);
+=======
 					targetAnimator.SetTrigger(_triggerParameter);
 				}
 				if (TriggerMode == TriggerModes.ResetTrigger)
 				{
 					targetAnimator.ResetTrigger(_triggerParameter);
+>>>>>>> origin/Dev
 				}
 			}
             
@@ -245,29 +268,56 @@ namespace MoreMountains.Feedbacks
                 
 				if (RandomTriggerMode == TriggerModes.SetTrigger)
 				{
+<<<<<<< HEAD
+					BoundAnimator.SetTrigger(randomParameter);
+				}
+				if (RandomTriggerMode == TriggerModes.ResetTrigger)
+				{
+					BoundAnimator.ResetTrigger(randomParameter);
+=======
 					targetAnimator.SetTrigger(randomParameter);
 				}
 				if (RandomTriggerMode == TriggerModes.ResetTrigger)
 				{
 					targetAnimator.ResetTrigger(randomParameter);
+>>>>>>> origin/Dev
 				}
 			}
 
 			if (UpdateBool)
 			{
+<<<<<<< HEAD
+				BoundAnimator.SetBool(_boolParameter, BoolParameterValue);
+=======
 				targetAnimator.SetBool(_boolParameter, BoolParameterValue);
+>>>>>>> origin/Dev
 			}
 
 			if (UpdateRandomBool)
 			{
 				int randomParameter = _randomBoolParameters[Random.Range(0, _randomBoolParameters.Count)];
                 
+<<<<<<< HEAD
+				BoundAnimator.SetBool(randomParameter, RandomBoolParameterValue);
+=======
 				targetAnimator.SetBool(randomParameter, RandomBoolParameterValue);
+>>>>>>> origin/Dev
 			}
 
 			switch (IntValueMode)
 			{
 				case ValueModes.Constant:
+<<<<<<< HEAD
+					BoundAnimator.SetInteger(_intParameter, IntValue);
+					break;
+				case ValueModes.Incremental:
+					int newValue = BoundAnimator.GetInteger(_intParameter) + IntIncrement;
+					BoundAnimator.SetInteger(_intParameter, newValue);
+					break;
+				case ValueModes.Random:
+					int randomValue = Random.Range(IntValueMin, IntValueMax);
+					BoundAnimator.SetInteger(_intParameter, randomValue);
+=======
 					targetAnimator.SetInteger(_intParameter, IntValue);
 					break;
 				case ValueModes.Incremental:
@@ -277,12 +327,27 @@ namespace MoreMountains.Feedbacks
 				case ValueModes.Random:
 					int randomValue = Random.Range(IntValueMin, IntValueMax);
 					targetAnimator.SetInteger(_intParameter, randomValue);
+>>>>>>> origin/Dev
 					break;
 			}
 
 			switch (FloatValueMode)
 			{
 				case ValueModes.Constant:
+<<<<<<< HEAD
+					BoundAnimator.SetFloat(_floatParameter, FloatValue * intensityMultiplier);
+					break;
+				case ValueModes.Incremental:
+					float newValue = BoundAnimator.GetFloat(_floatParameter) + FloatIncrement * intensityMultiplier;
+					BoundAnimator.SetFloat(_floatParameter, newValue);
+					break;
+				case ValueModes.Random:
+					float randomValue = Random.Range(FloatValueMin, FloatValueMax) * intensityMultiplier;
+					BoundAnimator.SetFloat(_floatParameter, randomValue);
+					break;
+			}
+            
+=======
 					targetAnimator.SetFloat(_floatParameter, FloatValue * intensityMultiplier);
 					break;
 				case ValueModes.Incremental:
@@ -299,6 +364,7 @@ namespace MoreMountains.Feedbacks
 			{
 				targetAnimator.SetLayerWeight(TargetLayerIndex, NewWeight);
 			}
+>>>>>>> origin/Dev
 		}
         
 		/// <summary>
@@ -314,10 +380,13 @@ namespace MoreMountains.Feedbacks
 			}
             
 			BoundAnimator.SetBool(_boolParameter, false);
+<<<<<<< HEAD
+=======
 			foreach (Animator animator in ExtraBoundAnimators)
 			{
 				animator.SetBool(_boolParameter, false);
 			}
+>>>>>>> origin/Dev
 		}
 	}
 }

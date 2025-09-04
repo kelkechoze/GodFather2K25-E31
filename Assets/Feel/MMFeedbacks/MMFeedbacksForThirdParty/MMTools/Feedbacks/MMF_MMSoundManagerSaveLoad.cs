@@ -5,7 +5,10 @@ using UnityEngine;
 using System.Threading.Tasks;
 using MoreMountains.Tools;
 using UnityEngine.Audio;
+<<<<<<< HEAD
+=======
 using UnityEngine.Scripting.APIUpdating;
+>>>>>>> origin/Dev
 
 namespace MoreMountains.Feedbacks
 {
@@ -13,7 +16,10 @@ namespace MoreMountains.Feedbacks
 	/// This feedback will let you trigger save, load, and reset on MMSoundManager settings. You will need a MMSoundManager in your scene for this to work.
 	/// </summary>
 	[AddComponentMenu("")]
+<<<<<<< HEAD
+=======
 	[MovedFrom(false, null, "MoreMountains.Feedbacks.MMTools")]
+>>>>>>> origin/Dev
 	[FeedbackPath("Audio/MMSoundManager Save and Load")]
 	[FeedbackHelp("This feedback will let you trigger save, load, and reset on MMSoundManager settings. You will need a MMSoundManager in your scene for this to work.")]
 	public class MMF_MMSoundManagerSaveLoad : MMF_Feedback

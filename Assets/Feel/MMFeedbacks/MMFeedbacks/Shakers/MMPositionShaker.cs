@@ -53,6 +53,8 @@ namespace MoreMountains.Feedbacks
 		[Tooltip("if this is true, a new direction will be randomized every time a shake happens")]
 		public bool RandomizeDirectionOnPlay = false;
 
+<<<<<<< HEAD
+=======
 		/// whether or not to randomize the x value of the main direction
 		[Tooltip("whether or not to randomize the x value of the main direction")]
 		public bool RandomizeDirectionX = true;
@@ -63,6 +65,7 @@ namespace MoreMountains.Feedbacks
 		[Tooltip("whether or not to randomize the z value of the main direction")]
 		public bool RandomizeDirectionZ= true;
 
+>>>>>>> origin/Dev
 		[MMInspectorGroup("Directional Noise", true, 47)]
 		/// whether or not to add noise to the main direction
 		[Tooltip("whether or not to add noise to the main direction")]
@@ -121,7 +124,11 @@ namespace MoreMountains.Feedbacks
 			GrabInitialPosition();
 		}
 
+<<<<<<< HEAD
+		protected virtual void GrabInitialPosition()
+=======
 		public virtual void GrabInitialPosition()
+>>>>>>> origin/Dev
 		{
 			switch (Mode)
 			{
@@ -153,6 +160,13 @@ namespace MoreMountains.Feedbacks
 
 			if (RandomizeDirectionOnPlay)
 			{
+<<<<<<< HEAD
+				ShakeMainDirection = Random.insideUnitSphere;
+				ShakeAltDirection = Random.insideUnitSphere;
+			}
+           
+			_randomizedDirection = RandomizeDirection ? MMMaths.RandomVector3(ShakeMainDirection, ShakeAltDirection) : ShakeMainDirection;
+=======
 				ShakeMainDirection.x = RandomizeDirectionX ? Random.insideUnitSphere.x : ShakeMainDirection.x;
 				ShakeMainDirection.y = RandomizeDirectionY ? Random.insideUnitSphere.y : ShakeMainDirection.y;
 				ShakeMainDirection.z = RandomizeDirectionZ ? Random.insideUnitSphere.z : ShakeMainDirection.z;
@@ -165,6 +179,7 @@ namespace MoreMountains.Feedbacks
 			if (!RandomizeDirectionX) { _randomizedDirection.x = ShakeMainDirection.x; }
 			if (!RandomizeDirectionY) { _randomizedDirection.y = ShakeMainDirection.y; }
 			if (!RandomizeDirectionZ) { _randomizedDirection.z = ShakeMainDirection.z; }
+>>>>>>> origin/Dev
 		}
         
 		protected override void Shake()
@@ -236,9 +251,12 @@ namespace MoreMountains.Feedbacks
 		protected bool _originalRandomizeDirection;
 		protected Vector3 _originalShakeAltDirection;
 		protected bool _originalRandomizeDirectionOnPlay;
+<<<<<<< HEAD
+=======
 		protected bool _originalRandomizeDirectionX;
 		protected bool _originalRandomizeDirectionY;
 		protected bool _originalRandomizeDirectionZ;
+>>>>>>> origin/Dev
 		protected bool _originalAddDirectionalNoise;
 		protected Vector3 _originalDirectionalNoiseStrengthMin;
 		protected Vector3 _originalDirectionalNoiseStrengthMax;
@@ -247,8 +265,12 @@ namespace MoreMountains.Feedbacks
 		protected bool _originalUseAttenuation;
 		protected AnimationCurve _originalAttenuationCurve;
 
+<<<<<<< HEAD
+		public virtual void OnMMPositionShakeEvent(float duration, float shakeSpeed, float shakeRange, Vector3 shakeMainDirection, bool randomizeDirection, Vector3 shakeAltDirection, bool randomizeDirectionOnPlay, bool addDirectionalNoise, 
+=======
 		public virtual void OnMMPositionShakeEvent(float duration, float shakeSpeed, float shakeRange, Vector3 shakeMainDirection, bool randomizeDirection, Vector3 shakeAltDirection, bool randomizeDirectionOnPlay, 
 			bool randomizeDirectionX, bool randomizeDirectionY, bool randomizeDirectionZ, bool addDirectionalNoise, 
+>>>>>>> origin/Dev
 			Vector3 directionalNoiseStrengthMin, Vector3 directionalNoiseStrengthMax, Vector3 randomnessSeed, bool randomizeSeedOnShake, bool useAttenuation, AnimationCurve attenuationCurve,
 			bool useRange = false, float rangeDistance = 0f, bool useRangeFalloff = false, AnimationCurve rangeFalloff = null, Vector2 remapRangeFalloff = default(Vector2), Vector3 rangePosition = default(Vector3),
 			float feedbacksIntensity = 1.0f, MMChannelData channelData = null, bool resetShakerValuesAfterShake = true, 
@@ -283,9 +305,12 @@ namespace MoreMountains.Feedbacks
 				_originalRandomizeDirection = RandomizeDirection;
 				_originalShakeAltDirection = ShakeAltDirection;
 				_originalRandomizeDirectionOnPlay = RandomizeDirectionOnPlay;
+<<<<<<< HEAD
+=======
 				_originalRandomizeDirectionX = RandomizeDirectionX;
 				_originalRandomizeDirectionY = RandomizeDirectionY;
 				_originalRandomizeDirectionZ = RandomizeDirectionZ;
+>>>>>>> origin/Dev
 				_originalAddDirectionalNoise = AddDirectionalNoise;
 				_originalDirectionalNoiseStrengthMin = DirectionalNoiseStrengthMin;
 				_originalDirectionalNoiseStrengthMax = DirectionalNoiseStrengthMax;
@@ -295,6 +320,24 @@ namespace MoreMountains.Feedbacks
 				_originalAttenuationCurve = AttenuationCurve;
 			}
 
+<<<<<<< HEAD
+			TimescaleMode = timescaleMode;
+			ShakeDuration = duration;
+			ShakeSpeed = shakeSpeed;
+			ShakeRange = shakeRange * feedbacksIntensity * ComputeRangeIntensity(useRange, rangeDistance, useRangeFalloff, rangeFalloff, remapRangeFalloff, rangePosition);
+			ShakeMainDirection = shakeMainDirection;
+			RandomizeDirection = randomizeDirection;
+			ShakeAltDirection = shakeAltDirection;
+			RandomizeDirectionOnPlay = randomizeDirectionOnPlay;
+			AddDirectionalNoise = addDirectionalNoise;
+			DirectionalNoiseStrengthMin = directionalNoiseStrengthMin;
+			DirectionalNoiseStrengthMax = directionalNoiseStrengthMax;
+			RandomnessSeed = randomnessSeed;
+			RandomizeSeedOnShake = randomizeSeedOnShake;
+			UseAttenuation = useAttenuation;
+			AttenuationCurve = attenuationCurve;
+			ForwardDirection = forwardDirection;
+=======
 			if (!OnlyUseShakerValues)
 			{
 				TimescaleMode = timescaleMode;
@@ -317,6 +360,7 @@ namespace MoreMountains.Feedbacks
 				AttenuationCurve = attenuationCurve;
 				ForwardDirection = forwardDirection;	
 			}
+>>>>>>> origin/Dev
 
 			Play();
 		}
@@ -351,9 +395,12 @@ namespace MoreMountains.Feedbacks
 			RandomizeDirection = _originalRandomizeDirection;
 			ShakeAltDirection = _originalShakeAltDirection;
 			RandomizeDirectionOnPlay = _originalRandomizeDirectionOnPlay;
+<<<<<<< HEAD
+=======
 			RandomizeDirectionX = _originalRandomizeDirectionX;
 			RandomizeDirectionY = _originalRandomizeDirectionY;
 			RandomizeDirectionZ = _originalRandomizeDirectionZ;
+>>>>>>> origin/Dev
 			AddDirectionalNoise = _originalAddDirectionalNoise;
 			DirectionalNoiseStrengthMin = _originalDirectionalNoiseStrengthMin;
 			DirectionalNoiseStrengthMax = _originalDirectionalNoiseStrengthMax;
@@ -389,22 +436,34 @@ namespace MoreMountains.Feedbacks
 		static public void Register(Delegate callback) { OnEvent += callback; }
 		static public void Unregister(Delegate callback) { OnEvent -= callback; }
 
+<<<<<<< HEAD
+		public delegate void Delegate(float duration, float shakeSpeed, float shakeRange, Vector3 shakeMainDirection, bool randomizeDirection, Vector3 shakeAltDirection, bool randomizeDirectionOnPlay, bool addDirectionalNoise, 
+=======
 		public delegate void Delegate(float duration, float shakeSpeed, float shakeRange, Vector3 shakeMainDirection, bool randomizeDirection, Vector3 shakeAltDirection, bool randomizeDirectionOnPlay, 
 			bool randomizeDirectionX, bool randomizeDirectionY, bool randomizeDirectionZ, bool addDirectionalNoise, 
+>>>>>>> origin/Dev
 			Vector3 directionalNoiseStrengthMin, Vector3 directionalNoiseStrengthMax, Vector3 randomnessSeed, bool randomizeSeedOnShake, bool useAttenuation, AnimationCurve attenuationCurve,
 			bool useRange = false, float rangeDistance = 0f, bool useRangeFalloff = false, AnimationCurve rangeFalloff = null, Vector2 remapRangeFalloff = default(Vector2), Vector3 rangePosition = default(Vector3),
 			float feedbacksIntensity = 1.0f, MMChannelData channelData = null, bool resetShakerValuesAfterShake = true, 
 			bool resetTargetValuesAfterShake = true, bool forwardDirection = true, TimescaleModes timescaleMode = TimescaleModes.Scaled, bool stop = false, bool restore = false);
 
+<<<<<<< HEAD
+		static public void Trigger(float duration, float shakeSpeed, float shakeRange, Vector3 shakeMainDirection, bool randomizeDirection, Vector3 shakeAltDirection, bool randomizeDirectionOnPlay, bool addDirectionalNoise, 
+=======
 		static public void Trigger(float duration, float shakeSpeed, float shakeRange, Vector3 shakeMainDirection, bool randomizeDirection, Vector3 shakeAltDirection, bool randomizeDirectionOnPlay, 
 			bool randomizeDirectionX, bool randomizeDirectionY, bool randomizeDirectionZ, bool addDirectionalNoise, 
+>>>>>>> origin/Dev
 			Vector3 directionalNoiseStrengthMin, Vector3 directionalNoiseStrengthMax, Vector3 randomnessSeed, bool randomizeSeedOnShake, bool useAttenuation, AnimationCurve attenuationCurve,
 			bool useRange = false, float rangeDistance = 0f, bool useRangeFalloff = false, AnimationCurve rangeFalloff = null, Vector2 remapRangeFalloff = default(Vector2), Vector3 rangePosition = default(Vector3),
 			float feedbacksIntensity = 1.0f, MMChannelData channelData = null, bool resetShakerValuesAfterShake = true, 
 			bool resetTargetValuesAfterShake = true, bool forwardDirection = true, TimescaleModes timescaleMode = TimescaleModes.Scaled, bool stop = false, bool restore = false)
 		{
+<<<<<<< HEAD
+			OnEvent?.Invoke( duration, shakeSpeed,  shakeRange,  shakeMainDirection,  randomizeDirection,  shakeAltDirection,  randomizeDirectionOnPlay,  addDirectionalNoise, 
+=======
 			OnEvent?.Invoke( duration, shakeSpeed,  shakeRange,  shakeMainDirection,  randomizeDirection,  shakeAltDirection,  randomizeDirectionOnPlay,  
 				randomizeDirectionX, randomizeDirectionY, randomizeDirectionZ, addDirectionalNoise, 
+>>>>>>> origin/Dev
 				directionalNoiseStrengthMin,  directionalNoiseStrengthMax,  randomnessSeed,  randomizeSeedOnShake,  useAttenuation,  attenuationCurve,
 				useRange, rangeDistance, useRangeFalloff, rangeFalloff, remapRangeFalloff, rangePosition,
 				feedbacksIntensity, channelData, resetShakerValuesAfterShake, resetTargetValuesAfterShake, forwardDirection, timescaleMode, stop, restore);

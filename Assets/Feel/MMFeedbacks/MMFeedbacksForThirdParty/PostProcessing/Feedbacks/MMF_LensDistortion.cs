@@ -1,9 +1,17 @@
+<<<<<<< HEAD
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using MoreMountains.Feedbacks;
+using MoreMountains.Tools;
+=======
 ﻿using UnityEngine;
 using MoreMountains.Feedbacks;
 using UnityEngine.Scripting.APIUpdating;
 #if MM_POSTPROCESSING
 using UnityEngine.Rendering.PostProcessing;
 #endif
+>>>>>>> origin/Dev
 
 namespace MoreMountains.FeedbacksForThirdParty
 {
@@ -16,7 +24,10 @@ namespace MoreMountains.FeedbacksForThirdParty
 	#if MM_POSTPROCESSING
 	[FeedbackPath("PostProcess/Lens Distortion")]
 	#endif
+<<<<<<< HEAD
+=======
 	[MovedFrom(false, null, "MoreMountains.Feedbacks.PostProcessing")]
+>>>>>>> origin/Dev
 	[FeedbackHelp("This feedback allows you to control lens distortion intensity over time. " +
 	              "It requires you have in your scene an object with a PostProcessVolume " +
 	              "with Lens Distortion active, and a MMLensDistortionShaker component.")]
@@ -28,8 +39,11 @@ namespace MoreMountains.FeedbacksForThirdParty
 		#if UNITY_EDITOR
 		public override Color FeedbackColor { get { return MMFeedbacksInspectorColors.PostProcessColor; } }
 		public override string RequiredTargetText => RequiredChannelText;
+<<<<<<< HEAD
+=======
 		public override bool HasCustomInspectors => true;
 		public override bool HasAutomaticShakerSetup => true;
+>>>>>>> origin/Dev
 		#endif
 
 		/// the duration of this feedback is the duration of the shake
@@ -117,6 +131,8 @@ namespace MoreMountains.FeedbacksForThirdParty
 			
 			MMLensDistortionShakeEvent.Trigger(Intensity, FeedbackDuration, RemapIntensityZero, RemapIntensityOne, RelativeIntensity, restore:true);
 		}
+<<<<<<< HEAD
+=======
 		
 		/// <summary>
 		/// Automaticall sets up the post processing profile and shaker
@@ -127,5 +143,6 @@ namespace MoreMountains.FeedbacksForThirdParty
 			MMPostProcessingHelpers.GetOrCreateVolume<LensDistortion, MMLensDistortionShaker>(Owner, "Lens Distortion");
 			#endif
 		}
+>>>>>>> origin/Dev
 	}
 }

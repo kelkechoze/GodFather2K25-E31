@@ -113,6 +113,15 @@ namespace MoreMountains.Feedbacks
 				_originalRelativeDistortion = RelativeDistortion;
 			}
 
+<<<<<<< HEAD
+			TimescaleMode = timescaleMode;
+			ShakeDuration = duration;
+			ShakeDistortion = distortionCurve;
+			RemapDistortionZero = remapMin * feedbacksIntensity;
+			RemapDistortionOne = remapMax * feedbacksIntensity;
+			RelativeDistortion = relativeDistortion;
+			ForwardDirection = forwardDirection;
+=======
 			if (!OnlyUseShakerValues)
 			{
 				TimescaleMode = timescaleMode;
@@ -123,6 +132,7 @@ namespace MoreMountains.Feedbacks
 				RelativeDistortion = relativeDistortion;
 				ForwardDirection = forwardDirection;
 			}
+>>>>>>> origin/Dev
 
 			Play();
 		}

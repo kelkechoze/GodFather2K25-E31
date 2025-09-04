@@ -1,6 +1,9 @@
 ﻿using MoreMountains.Tools;
 using UnityEngine;
+<<<<<<< HEAD
+=======
 using UnityEngine.Scripting.APIUpdating;
+>>>>>>> origin/Dev
 
 namespace MoreMountains.Feedbacks
 {
@@ -9,7 +12,10 @@ namespace MoreMountains.Feedbacks
 	/// </summary>
 	[AddComponentMenu("")]
 	[FeedbackHelp("This feedback lets you control the offset of the lower left corner of the rectangle relative to the lower left anchor, and the offset of the upper right corner of the rectangle relative to the upper right anchor.")]
+<<<<<<< HEAD
+=======
 	[MovedFrom(false, null, "MoreMountains.Feedbacks.MMTools")]
+>>>>>>> origin/Dev
 	[FeedbackPath("UI/RectTransform Offset")]
 	public class MMF_RectTransformOffset : MMF_FeedbackBase
 	{
@@ -21,7 +27,10 @@ namespace MoreMountains.Feedbacks
 		public override string RequiresSetupText { get { return "This feedback requires that a TargetRectTransform be set to be able to work properly. You can set one below."; } }
 		#endif
 		public override bool HasAutomatedTargetAcquisition => true;
+<<<<<<< HEAD
+=======
 		public override bool CanForceInitialValue => true;
+>>>>>>> origin/Dev
 		protected override void AutomateTargetAcquisition() => TargetRectTransform = FindAutomatedTarget<RectTransform>();
 
 		[MMFInspectorGroup("Target RectTransform", true, 37, true)]

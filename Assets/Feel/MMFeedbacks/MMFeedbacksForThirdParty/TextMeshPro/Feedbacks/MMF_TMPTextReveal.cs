@@ -1,5 +1,13 @@
 ﻿using System;
 using System.Collections;
+<<<<<<< HEAD
+using UnityEngine;
+using UnityEngine.Events;
+#if MM_TEXTMESHPRO
+using MoreMountains.Tools;
+using TMPro;
+#endif
+=======
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -9,6 +17,7 @@ using MoreMountains.Tools;
 using TMPro;
 #endif
 using UnityEngine.Scripting.APIUpdating;
+>>>>>>> origin/Dev
 
 namespace MoreMountains.Feedbacks
 {
@@ -17,10 +26,16 @@ namespace MoreMountains.Feedbacks
 	/// </summary>
 	[AddComponentMenu("")]
 	[FeedbackHelp("This feedback will let you reveal words, lines, or characters in a target TMP, one at a time")]
+<<<<<<< HEAD
+	#if MM_TEXTMESHPRO
+	[FeedbackPath("TextMesh Pro/TMP Text Reveal")]
+	#endif
+=======
 	#if (MM_TEXTMESHPRO || MM_UGUI2)
 	[FeedbackPath("TextMesh Pro/TMP Text Reveal")]
 	#endif
 	[MovedFrom(false, null, "MoreMountains.Feedbacks.TextMeshPro")]
+>>>>>>> origin/Dev
 	public class MMF_TMPTextReveal : MMF_Feedback
 	{
 		/// a static bool used to disable all feedbacks of this type at once
@@ -29,14 +44,22 @@ namespace MoreMountains.Feedbacks
 		public override Color FeedbackColor { get { return MMFeedbacksInspectorColors.TMPColor; } }
 		public override string RequiresSetupText { get { return "This feedback requires that a TargetTMPText be set to be able to work properly. You can set one below."; } }
 		#endif
+<<<<<<< HEAD
+		#if UNITY_EDITOR && MM_TEXTMESHPRO
+=======
 		#if UNITY_EDITOR && (MM_TEXTMESHPRO || MM_UGUI2)
+>>>>>>> origin/Dev
 		public override bool EvaluateRequiresSetup() { return (TargetTMPText == null); }
 		public override string RequiredTargetText { get { return TargetTMPText != null ? TargetTMPText.name : "";  } }
 		#endif
 
 		protected string _originalText;
 		
+<<<<<<< HEAD
+		#if MM_TEXTMESHPRO
+=======
 		#if (MM_TEXTMESHPRO || MM_UGUI2)
+>>>>>>> origin/Dev
 		public override bool HasAutomatedTargetAcquisition => true;
 		protected override void AutomateTargetAcquisition() => TargetTMPText = FindAutomatedTarget<TMP_Text>();
 
@@ -53,6 +76,9 @@ namespace MoreMountains.Feedbacks
 				}
 				else
 				{
+<<<<<<< HEAD
+					if ((TargetTMPText == null) || (TargetTMPText.textInfo == null))
+=======
 					if (TargetTMPText == null)
 					{
 						return 0f;
@@ -75,6 +101,7 @@ namespace MoreMountains.Feedbacks
 					}
 
 					if (TargetTMPText.textInfo == null)
+>>>>>>> origin/Dev
 					{
 						return 0f;
 					}
@@ -143,7 +170,10 @@ namespace MoreMountains.Feedbacks
 				}
 			}
 		}
+<<<<<<< HEAD
+=======
 		
+>>>>>>> origin/Dev
 		#endif
 
 		/// the possible ways to reveal the text
@@ -151,7 +181,11 @@ namespace MoreMountains.Feedbacks
 		/// whether to define duration by the time interval between two unit reveals, or by the total duration the reveal should take
 		public enum DurationModes { Interval, TotalDuration }
 
+<<<<<<< HEAD
+		#if MM_TEXTMESHPRO
+=======
 		#if (MM_TEXTMESHPRO || MM_UGUI2)
+>>>>>>> origin/Dev
 		[MMFInspectorGroup("Target", true, 12, true)]
 		/// the target TMP_Text component we want to change the text on
 		[Tooltip("the target TMP_Text component we want to change the text on")]
@@ -186,9 +220,12 @@ namespace MoreMountains.Feedbacks
 		/// a UnityEvent to invoke every time a reveal happens (word, line or character)
 		[Tooltip("a UnityEvent to invoke every time a reveal happens (word, line or character)")]
 		public UnityEvent OnReveal;
+<<<<<<< HEAD
+=======
 		/// alright so that one will be weird : for reasons, TextMeshPro won't let you read the length of a disabled text, so to do so, we need to enable it, even if it's just to disable it again right after. If you're targeting a disabled text, or a text that is part of a disabled hierarchy, you'll probably want to set this to true so that the system can proceed with accurate duration computation. If you don't, and your target transform is disabled, duration won't be computed correctly.
 		[Tooltip("alright so that one will be weird : for reasons, TextMeshPro won't let you read the length of a disabled text, so to do so, we need to enable it, even if it's just to disable it again right after. If you're targeting a disabled text, or a text that is part of a disabled hierarchy, you'll probably want to set this to true so that the system can proceed with accurate duration computation. If you don't, and your target transform is disabled, duration won't be computed correctly.")]
 		public bool AllowHierarchyActivationForDurationComputation = false;
+>>>>>>> origin/Dev
 
 		protected float _delay;
 		protected Coroutine _coroutine;
@@ -212,7 +249,11 @@ namespace MoreMountains.Feedbacks
 				return;
 			}
 
+<<<<<<< HEAD
+			#if MM_TEXTMESHPRO
+=======
 			#if (MM_TEXTMESHPRO || MM_UGUI2)
+>>>>>>> origin/Dev
             
 			if (TargetTMPText == null)
 			{
@@ -228,7 +269,10 @@ namespace MoreMountains.Feedbacks
 				TargetTMPText.ForceMeshUpdate();
 			}
 			_richTextLength = RichTextLength(TargetTMPText.text);
+<<<<<<< HEAD
+=======
 			if (_coroutine != null) { Owner.StopCoroutine(_coroutine); }
+>>>>>>> origin/Dev
 			switch (RevealMode)
 			{
 				case RevealModes.Character:
@@ -250,7 +294,11 @@ namespace MoreMountains.Feedbacks
 			#endif
 		}
 
+<<<<<<< HEAD
+		#if MM_TEXTMESHPRO
+=======
 		#if (MM_TEXTMESHPRO || MM_UGUI2)
+>>>>>>> origin/Dev
 
 		/// <summary>
 		/// Reveals characters one at a time
@@ -481,7 +529,11 @@ namespace MoreMountains.Feedbacks
 			{
 				return;
 			}
+<<<<<<< HEAD
+			#if MM_TEXTMESHPRO
+=======
 			#if (MM_TEXTMESHPRO || MM_UGUI2)
+>>>>>>> origin/Dev
 			TargetTMPText.text = _initialText;
 			#endif
 		}

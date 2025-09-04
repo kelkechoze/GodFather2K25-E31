@@ -3,13 +3,19 @@ using System.Collections.Generic;
 using MoreMountains.Tools;
 using UnityEngine;
 using UnityEngine.Serialization;
+<<<<<<< HEAD
+=======
 using UnityEngine.Scripting.APIUpdating;
+>>>>>>> origin/Dev
 
 namespace MoreMountains.Feedbacks
 {
 	[AddComponentMenu("")]
 	[FeedbackHelp("This feedback will let you change the material of the target renderer everytime it's played.")]
+<<<<<<< HEAD
+=======
 	[MovedFrom(false, null, "MoreMountains.Feedbacks")]
+>>>>>>> origin/Dev
 	[FeedbackPath("Renderer/Material")]
 	public class MMF_Material : MMF_Feedback
 	{
@@ -142,7 +148,10 @@ namespace MoreMountains.Feedbacks
 			{
 				for (int i = 0; i < RendererMaterialIndexes.Length; i++)
 				{
+<<<<<<< HEAD
+=======
 					if (_coroutines[i] != null) { Owner.StopCoroutine(_coroutines[i]); }
+>>>>>>> origin/Dev
 					_coroutines[i] = Owner.StartCoroutine(TransitionMaterial(TargetRenderer.materials[RendererMaterialIndexes[i]], Materials[newIndex], RendererMaterialIndexes[i]));
 				}
 			}

@@ -1,7 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+<<<<<<< HEAD
+=======
 using UnityEngine.Scripting.APIUpdating;
+>>>>>>> origin/Dev
 
 namespace MoreMountains.Feedbacks
 {
@@ -10,7 +13,10 @@ namespace MoreMountains.Feedbacks
 	/// </summary>
 	[AddComponentMenu("")]
 	[FeedbackHelp("This feedback will let you apply forces and torques (relative or not) to a Rigidbody.")]
+<<<<<<< HEAD
+=======
 	[MovedFrom(false, null, "MoreMountains.Feedbacks")]
+>>>>>>> origin/Dev
 	[FeedbackPath("GameObject/Rigidbody")]
 	public class MMF_Rigidbody : MMF_Feedback
 	{
@@ -31,9 +37,12 @@ namespace MoreMountains.Feedbacks
 		/// the rigidbody to target on play
 		[Tooltip("the rigidbody to target on play")]
 		public Rigidbody TargetRigidbody;
+<<<<<<< HEAD
+=======
 		/// a list of extra rigidbodies to target on play
 		[Tooltip("a list of extra rigidbodies to target on play")]
 		public List<Rigidbody> ExtraTargetRigidbodies;
+>>>>>>> origin/Dev
 		/// the selected mode for this feedback
 		[Tooltip("the selected mode for this feedback")]
 		public Modes Mode = Modes.AddForce;
@@ -46,12 +55,15 @@ namespace MoreMountains.Feedbacks
 		/// the force mode to apply
 		[Tooltip("the force mode to apply")]
 		public ForceMode AppliedForceMode = ForceMode.Impulse;
+<<<<<<< HEAD
+=======
 		/// if this is true, the velocity of the rigidbody will be reset before applying the new force
 		[Tooltip("if this is true, the velocity of the rigidbody will be reset before applying the new force")]
 		public bool ResetVelocityOnPlay = false;
 		/// if this is true, the magnitude of the min/max force will be applied in the target transform's forward direction
 		[Tooltip("if this is true, the magnitude of the min/max force will be applied in the target transform's forward direction")] 
 		public bool ForwardForce = false;
+>>>>>>> origin/Dev
 
 		protected Vector3 _force;
 
@@ -75,6 +87,22 @@ namespace MoreMountains.Feedbacks
 			{
 				_force *= feedbacksIntensity;
 			}
+<<<<<<< HEAD
+            
+			switch (Mode)
+			{
+				case Modes.AddForce:
+					TargetRigidbody.AddForce(_force, AppliedForceMode);
+					break;
+				case Modes.AddRelativeForce:
+					TargetRigidbody.AddRelativeForce(_force, AppliedForceMode);
+					break;
+				case Modes.AddTorque:
+					TargetRigidbody.AddTorque(_force, AppliedForceMode);
+					break;
+				case Modes.AddRelativeTorque:
+					TargetRigidbody.AddRelativeTorque(_force, AppliedForceMode);
+=======
 			
 			ApplyForce(TargetRigidbody);
 			foreach (Rigidbody rb in ExtraTargetRigidbodies)
@@ -112,6 +140,7 @@ namespace MoreMountains.Feedbacks
 					break;
 				case Modes.AddRelativeTorque:
 					rb.AddRelativeTorque(_force, AppliedForceMode);
+>>>>>>> origin/Dev
 					break;
 			}
 		}

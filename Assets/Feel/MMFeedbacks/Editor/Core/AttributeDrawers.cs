@@ -1,4 +1,10 @@
 ﻿using UnityEngine;
+<<<<<<< HEAD
+using UnityEngine.UI;
+using System.Collections;
+using System;
+=======
+>>>>>>> origin/Dev
 #if UNITY_EDITOR
 using UnityEditor;
 #endif

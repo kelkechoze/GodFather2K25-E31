@@ -1,7 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
+<<<<<<< HEAD
+=======
 using UnityEngine.Scripting.APIUpdating;
+>>>>>>> origin/Dev
 
 namespace MoreMountains.Feedbacks
 {
@@ -10,7 +13,10 @@ namespace MoreMountains.Feedbacks
 	/// </summary>
 	[AddComponentMenu("")]
 	[FeedbackHelp("This feedback allows you to instantiate the object specified in its inspector, at the feedback's position (plus an optional offset). You can also optionally (and automatically) create an object pool at initialization to save on performance. In that case you'll need to specify a pool size (usually the maximum amount of these instantiated objects you plan on having in your scene at each given time).")]
+<<<<<<< HEAD
+=======
 	[MovedFrom(false, null, "MoreMountains.Feedbacks")]
+>>>>>>> origin/Dev
 	[FeedbackPath("GameObject/Instantiate Object")]
 	public class MMF_InstantiateObject : MMF_Feedback
 	{
@@ -66,15 +72,24 @@ namespace MoreMountains.Feedbacks
 		/// the minimum value we'll randomize our position with
 		[Tooltip("the minimum value we'll randomize our position with")]
 		[MMFCondition("RandomizePosition", true)]
+<<<<<<< HEAD
+		public Vector3 RandomizedPositionMin = Vector3.zero;
+=======
 		public Vector3 RandomizedPositionMin = Vector3.zero; 
+>>>>>>> origin/Dev
 		/// the maximum value we'll randomize our position with
 		[Tooltip("the maximum value we'll randomize our position with")]
 		[MMFCondition("RandomizePosition", true)]
 		public Vector3 RandomizedPositionMax = Vector3.one;
 
 		[MMFInspectorGroup("Parent", true, 47)]
+<<<<<<< HEAD
+		/// if specified, the instantiated object (or the pool of objects) will be parented to this transform 
+		[Tooltip("if specified, the instantiated object (or the pool of objects) will be parented to this transform ")]
+=======
 		/// if specified, the instantiated object will be parented to this transform 
 		[Tooltip("if specified, the instantiated object will be parented to this transform ")]
+>>>>>>> origin/Dev
 		public Transform ParentTransform;
 
 		[MMFInspectorGroup("Object Pool", true, 40)]
@@ -91,10 +106,13 @@ namespace MoreMountains.Feedbacks
 		[Tooltip("whether or not to create a new pool even if one already exists for that same prefab")]
 		[MMFCondition("CreateObjectPool", true)] 
 		public bool MutualizePools = false;
+<<<<<<< HEAD
+=======
 		/// the transform the pool of objects will be parented to
 		[Tooltip("the transform the pool of objects will be parented to")]
 		[MMFCondition("CreateObjectPool", true)] 
 		public Transform PoolParentTransform;
+>>>>>>> origin/Dev
 
 		protected MMMiniObjectPooler _objectPooler; 
 		protected GameObject _newGameObject;
@@ -122,9 +140,19 @@ namespace MoreMountains.Feedbacks
 				_objectPooler = objectPoolGo.AddComponent<MMMiniObjectPooler>();
 				_objectPooler.GameObjectToPool = GameObjectToInstantiate;
 				_objectPooler.PoolSize = ObjectPoolSize;
+<<<<<<< HEAD
+				if (ParentTransform != null)
+				{
+					_objectPooler.transform.SetParent(ParentTransform);
+				}
+				else
+				{
+					_objectPooler.transform.SetParent(Owner.transform);
+=======
 				if (PoolParentTransform != null)
 				{
 					_objectPooler.transform.SetParent(PoolParentTransform);
+>>>>>>> origin/Dev
 				}
 				_objectPooler.MutualizeWaitingPools = MutualizePools;
 				_objectPooler.FillObjectPool();
@@ -179,7 +207,11 @@ namespace MoreMountains.Feedbacks
 			{
 				_newGameObject.transform.localScale = GetScale();    
 			}
+<<<<<<< HEAD
+			if (!CreateObjectPool && (ParentTransform != null))
+=======
 			if (ParentTransform != null)
+>>>>>>> origin/Dev
 			{
 				_newGameObject.transform.SetParent(ParentTransform);
 			}

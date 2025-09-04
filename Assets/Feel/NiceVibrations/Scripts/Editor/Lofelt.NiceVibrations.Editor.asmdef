@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
     "name": "Lofelt.NiceVibrations.Editor",
     "references": [
@@ -14,4 +15,22 @@
     "defineConstraints": [],
     "versionDefines": [],
     "noEngineReferences": false
+=======
+{
+    "name": "Lofelt.NiceVibrations.Editor",
+    "references": [
+        "GUID:57a0b9bc628ab4740af4b6f1f0b2e134"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+>>>>>>> origin/Dev
 }

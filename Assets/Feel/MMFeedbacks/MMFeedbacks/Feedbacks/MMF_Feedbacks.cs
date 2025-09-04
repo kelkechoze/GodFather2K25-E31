@@ -1,7 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+<<<<<<< HEAD
+=======
 using UnityEngine.Scripting.APIUpdating;
+>>>>>>> origin/Dev
 
 namespace MoreMountains.Feedbacks
 {
@@ -10,7 +13,10 @@ namespace MoreMountains.Feedbacks
 	/// </summary>
 	[AddComponentMenu("")]
 	[FeedbackHelp("This feedback allows you to trigger a target MMFeedbacks, or any MMFeedbacks on the specified Channel within a certain range. You'll need an MMFeedbacksShaker on them.")]
+<<<<<<< HEAD
+=======
 	[MovedFrom(false, null, "MoreMountains.Feedbacks")]
+>>>>>>> origin/Dev
 	[FeedbackPath("Feedbacks/Feedbacks Player")]
 	public class MMF_Feedbacks : MMF_Feedback
 	{
@@ -21,7 +27,11 @@ namespace MoreMountains.Feedbacks
 		public override Color FeedbackColor { get { return MMFeedbacksInspectorColors.FeedbacksColor; } }
 		public override string RequiredTargetText => RequiredChannelText;
 		#endif
+<<<<<<< HEAD
+		/// the duration of this feedback is the duration of the light, or 0 if instant
+=======
 		/// the duration of this feedback is the duration of our target feedback
+>>>>>>> origin/Dev
 		public override float FeedbackDuration 
 		{
 			get
@@ -83,7 +93,11 @@ namespace MoreMountains.Feedbacks
 		}
 
 		/// <summary>
+<<<<<<< HEAD
+		/// On Play we turn our light on and start an over time coroutine if needed
+=======
 		/// On Play we trigger our target feedback or trigger a feedback shake event to shake feedbacks in the area
+>>>>>>> origin/Dev
 		/// </summary>
 		/// <param name="position"></param>
 		/// <param name="feedbacksIntensity"></param>

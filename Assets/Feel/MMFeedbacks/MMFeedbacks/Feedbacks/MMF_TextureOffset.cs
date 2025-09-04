@@ -1,7 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+<<<<<<< HEAD
+=======
 using UnityEngine.Scripting.APIUpdating;
+>>>>>>> origin/Dev
 
 namespace MoreMountains.Feedbacks
 {
@@ -10,7 +13,10 @@ namespace MoreMountains.Feedbacks
 	/// </summary>
 	[AddComponentMenu("")]
 	[FeedbackHelp("This feedback will let you control the texture offset of a target material over time.")]
+<<<<<<< HEAD
+=======
 	[MovedFrom(false, null, "MoreMountains.Feedbacks")]
+>>>>>>> origin/Dev
 	[FeedbackPath("Renderer/Texture Offset")]
 	public class MMF_TextureOffset : MMF_Feedback
 	{
@@ -61,6 +67,15 @@ namespace MoreMountains.Feedbacks
 		[Tooltip("the curve to tween the offset on")]
 		[MMFEnumCondition("Mode", (int)Modes.OverTime)]
 		public AnimationCurve OffsetCurve = new AnimationCurve(new Keyframe(0, 0), new Keyframe(0.3f, 1f), new Keyframe(1, 0));
+<<<<<<< HEAD
+		/// the value to remap the offset curve's 0 to
+		[Tooltip("the value to remap the offset curve's 0 to")]
+		[MMFEnumCondition("Mode", (int)Modes.OverTime)]
+		public Vector2 RemapZero = Vector2.zero;
+		/// the value to remap the offset curve's 1 to
+		[Tooltip("the value to remap the offset curve's 1 to")]
+		[MMFEnumCondition("Mode", (int)Modes.OverTime)]
+=======
 		/// the value to remap the offset curve's 0 to, randomized between its min and max - put the same value in both min and max if you don't want any randomness
 		[Tooltip("the value to remap the offset curve's 0 to, randomized between its min and max - put the same value in both min and max if you don't want any randomness")]
 		[MMFEnumCondition("Mode", (int)Modes.OverTime)]
@@ -70,6 +85,7 @@ namespace MoreMountains.Feedbacks
 		[Tooltip("the value to remap the offset curve's 1 to, randomized between its min and max - put the same value in both min and max if you don't want any randomness")]
 		[MMFEnumCondition("Mode", (int)Modes.OverTime)]
 		[MMFVector("Min", "Max")]
+>>>>>>> origin/Dev
 		public Vector2 RemapOne = Vector2.one;
 		/// the value to move the intensity to in instant mode
 		[Tooltip("the value to move the intensity to in instant mode")]
@@ -133,7 +149,10 @@ namespace MoreMountains.Feedbacks
 					{
 						return;
 					}
+<<<<<<< HEAD
+=======
 					if (_coroutine != null) { Owner.StopCoroutine(_coroutine); }
+>>>>>>> origin/Dev
 					_coroutine = Owner.StartCoroutine(TransitionCo(intensityMultiplier));
 					break;
 			}

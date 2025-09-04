@@ -7,7 +7,10 @@ namespace MoreMountains.Feedbacks
 	/// <summary>
 	/// A class used on the MMFeedback's demo ghost
 	/// </summary>
+<<<<<<< HEAD
+=======
 	[AddComponentMenu("")]
+>>>>>>> origin/Dev
 	public class DemoGhost : MonoBehaviour
 	{
 		/// <summary>

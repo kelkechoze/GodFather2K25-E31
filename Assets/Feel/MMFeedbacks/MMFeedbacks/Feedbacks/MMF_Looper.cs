@@ -1,9 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+<<<<<<< HEAD
+using UnityEngine;
+=======
 using MoreMountains.Tools;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Scripting.APIUpdating;
+>>>>>>> origin/Dev
 
 namespace MoreMountains.Feedbacks
 {
@@ -16,7 +20,10 @@ namespace MoreMountains.Feedbacks
 	[FeedbackHelp("This feedback will move the current 'head' of an MMFeedbacks sequence back to another feedback above in the list. " +
 	              "What feedback the head lands on depends on your settings : you can decide to have it loop at last pause, " +
 	              "or at the last LoopStart feedback in the list (or both). Furthermore, you can decide to have it loop multiple times and cause a pause when met.")]
+<<<<<<< HEAD
+=======
 	[MovedFrom(false, null, "MoreMountains.Feedbacks")]
+>>>>>>> origin/Dev
 	[FeedbackPath("Loop/Looper")]
 	public class MMF_Looper : MMF_Pause
 	{
@@ -36,7 +43,10 @@ namespace MoreMountains.Feedbacks
 		public bool InfiniteLoop = false;
 		/// how many times this loop should run
 		[Tooltip("how many times this loop should run")]
+<<<<<<< HEAD
+=======
 		[MMCondition("InfiniteLoop", true, true)]
+>>>>>>> origin/Dev
 		public int NumberOfLoops = 2;
 		/// the amount of loops left (updated at runtime)
 		[Tooltip("the amount of loops left (updated at runtime)")]
@@ -46,6 +56,8 @@ namespace MoreMountains.Feedbacks
 		[Tooltip("whether we are in an infinite loop at this time or not")]
 		[MMFReadOnly]
 		public bool InInfiniteLoop = false;
+<<<<<<< HEAD
+=======
 		/// whether or not to trigger a Loop MMFeedbacksEvent when this looper is reached
 		[Tooltip("whether or not to trigger a Loop MMFeedbacksEvent when this looper is reached")]
 		public bool TriggerMMFeedbacksEvents = true;
@@ -54,6 +66,7 @@ namespace MoreMountains.Feedbacks
 		/// a Unity Event to invoke when the looper is reached
 		[Tooltip("a Unity Event to invoke when the looper is reached")]
 		public UnityEvent OnLoop;
+>>>>>>> origin/Dev
 
 		/// sets the color of this feedback in the inspector
 		#if UNITY_EDITOR
@@ -84,6 +97,11 @@ namespace MoreMountains.Feedbacks
 		{
 			if (Active)
 			{
+<<<<<<< HEAD
+				InInfiniteLoop = InfiniteLoop;
+				NumberOfLoopsLeft--;
+				Owner.StartCoroutine(PlayPause());
+=======
 				ProcessNewPauseDuration();
 				InInfiniteLoop = InfiniteLoop;
 				NumberOfLoopsLeft--;
@@ -103,6 +121,7 @@ namespace MoreMountains.Feedbacks
 			if (TriggerMMFeedbacksEvents)
 			{
 				MMFeedbacksEvent.Trigger(source, MMFeedbacksEvent.EventTypes.Loop);
+>>>>>>> origin/Dev
 			}
 		}
 

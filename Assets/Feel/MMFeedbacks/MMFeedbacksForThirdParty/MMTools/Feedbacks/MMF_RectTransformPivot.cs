@@ -1,6 +1,9 @@
 ﻿using MoreMountains.Tools;
 using UnityEngine;
+<<<<<<< HEAD
+=======
 using UnityEngine.Scripting.APIUpdating;
+>>>>>>> origin/Dev
 
 namespace MoreMountains.Feedbacks
 {
@@ -9,7 +12,10 @@ namespace MoreMountains.Feedbacks
 	/// </summary>
 	[AddComponentMenu("")]
 	[FeedbackHelp("This feedback lets you control the position of a RectTransform's pivot over time")]
+<<<<<<< HEAD
+=======
 	[MovedFrom(false, null, "MoreMountains.Feedbacks.MMTools")]
+>>>>>>> origin/Dev
 	[FeedbackPath("UI/RectTransform Pivot")]
 	public class MMF_RectTransformPivot : MMF_FeedbackBase
 	{
@@ -21,7 +27,10 @@ namespace MoreMountains.Feedbacks
 		public override string RequiresSetupText { get { return "This feedback requires that a TargetRectTransform be set to be able to work properly. You can set one below."; } }
 		#endif
 		public override bool HasAutomatedTargetAcquisition => true;
+<<<<<<< HEAD
+=======
 		public override bool CanForceInitialValue => true;
+>>>>>>> origin/Dev
 		protected override void AutomateTargetAcquisition() => TargetRectTransform = FindAutomatedTarget<RectTransform>();
 
 		[MMFInspectorGroup("Target RectTransform", true, 37, true)]
@@ -34,6 +43,15 @@ namespace MoreMountains.Feedbacks
 		[Tooltip("The curve along which to evaluate the position of the RectTransform's pivot")]
 		[MMFEnumCondition("Mode", (int)MMFeedbackBase.Modes.OverTime)]
 		public MMTweenType SpeedCurve = new MMTweenType(new AnimationCurve(new Keyframe(0, 0), new Keyframe(1, 1)));
+<<<<<<< HEAD
+		/// the position to remap the curve's 0 to 
+		[Tooltip("the position to remap the curve's 0 to")]
+		[MMFEnumCondition("Mode", (int)MMFeedbackBase.Modes.OverTime)]
+		public Vector2 RemapZero = Vector2.zero;
+		/// the position to remap the curve's 1 to
+		[Tooltip("the position to remap the curve's 1 to")]
+		[MMFEnumCondition("Mode", (int)MMFeedbackBase.Modes.OverTime, (int)MMFeedbackBase.Modes.Instant)]
+=======
 		/// the position to remap the curve's 0 to, randomized between its min and max - put the same value in both min and max if you don't want any randomness
 		[Tooltip("the position to remap the curve's 0 to, randomized between its min and max - put the same value in both min and max if you don't want any randomness")]
 		[MMFEnumCondition("Mode", (int)MMFeedbackBase.Modes.OverTime)]
@@ -43,6 +61,7 @@ namespace MoreMountains.Feedbacks
 		[Tooltip("the position to remap the curve's 1 to, randomized between its min and max - put the same value in both min and max if you don't want any randomness")]
 		[MMFEnumCondition("Mode", (int)MMFeedbackBase.Modes.OverTime, (int)MMFeedbackBase.Modes.Instant)]
 		[MMFVector("Min", "Max")]
+>>>>>>> origin/Dev
 		public Vector2 RemapOne = Vector2.one;
         
 		protected override void FillTargets()

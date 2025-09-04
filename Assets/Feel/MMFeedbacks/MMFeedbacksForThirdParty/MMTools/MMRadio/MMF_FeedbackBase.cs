@@ -41,9 +41,12 @@ namespace MoreMountains.Feedbacks
 		/// whether or not that target property should be turned off on start
 		[Tooltip("whether or not that target property should be turned off on start")]
 		public bool StartsOff = false;
+<<<<<<< HEAD
+=======
 		/// whether or not that target property should be turned off once the feedback is done playing
 		[Tooltip("whether or not that target property should be turned off once the feedback is done playing")]
 		public bool EndsOff = false;
+>>>>>>> origin/Dev
 		/// whether or not the values should be relative or not
 		[Tooltip("whether or not the values should be relative or not")]
 		public bool RelativeValues = true;
@@ -150,7 +153,10 @@ namespace MoreMountains.Feedbacks
 						{
 							return;
 						}
+<<<<<<< HEAD
+=======
 						if (_coroutine != null) { Owner.StopCoroutine(_coroutine); }
+>>>>>>> origin/Dev
 						_coroutine = Owner.StartCoroutine(UpdateValueSequence(feedbacksIntensity, position));
 						break;
 				}
@@ -210,7 +216,11 @@ namespace MoreMountains.Feedbacks
 				yield return null;
 			}
 			SetValues(FinalNormalizedTime, feedbacksIntensity, position);
+<<<<<<< HEAD
+			if (StartsOff)
+=======
 			if (EndsOff)
+>>>>>>> origin/Dev
 			{
 				Turn(false);
 			}

@@ -1,8 +1,14 @@
+<<<<<<< HEAD
+﻿using MoreMountains.Tools;
+using UnityEngine;
+using UnityEngine.UI;
+=======
 ﻿#if MM_UI
 using MoreMountains.Tools;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Scripting.APIUpdating;
+>>>>>>> origin/Dev
 
 namespace MoreMountains.Feedbacks
 {
@@ -11,7 +17,10 @@ namespace MoreMountains.Feedbacks
 	/// </summary>
 	[AddComponentMenu("")]
 	[FeedbackHelp("This feedback lets you control the font size of a target Text over time.")]
+<<<<<<< HEAD
+=======
 	[MovedFrom(false, null, "MoreMountains.Feedbacks.MMTools")]
+>>>>>>> origin/Dev
 	[FeedbackPath("UI/Text Font Size")]
 	public class MMF_TextFontSize : MMF_FeedbackBase
 	{
@@ -23,7 +32,10 @@ namespace MoreMountains.Feedbacks
 		public override string RequiresSetupText { get { return "This feedback requires that a TargetText be set to be able to work properly. You can set one below."; } }
 		#endif
 		public override bool HasAutomatedTargetAcquisition => true;
+<<<<<<< HEAD
+=======
 		public override bool CanForceInitialValue => true;
+>>>>>>> origin/Dev
 		protected override void AutomateTargetAcquisition() => TargetText = FindAutomatedTarget<Text>();
 
 		[MMFInspectorGroup("Target", true, 58, true)]
@@ -71,5 +83,9 @@ namespace MoreMountains.Feedbacks
 			_targets.Add(target);
 		}
 	}
+<<<<<<< HEAD
+}
+=======
 }
 #endif
+>>>>>>> origin/Dev

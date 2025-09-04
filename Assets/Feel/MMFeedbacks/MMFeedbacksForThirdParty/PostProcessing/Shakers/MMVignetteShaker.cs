@@ -156,6 +156,20 @@ namespace MoreMountains.FeedbacksForThirdParty
 				_originalTargetColor = TargetColor;
 			}
 
+<<<<<<< HEAD
+			TimescaleMode = timescaleMode;
+			ShakeDuration = duration;
+			ShakeIntensity = intensity;
+			RemapIntensityZero = remapMin * feedbacksIntensity;
+			RemapIntensityOne = remapMax * feedbacksIntensity;
+			RelativeIntensity = relativeIntensity;
+			ForwardDirection = forwardDirection;
+			InterpolateColor = interpolateColor;
+			ColorCurve = colorCurve;
+			RemapColorZero = remapColorZero;
+			RemapColorOne = remapColorOne;
+			TargetColor = targetColor;
+=======
 			if (!OnlyUseShakerValues)
 			{
 				TimescaleMode = timescaleMode;
@@ -171,6 +185,7 @@ namespace MoreMountains.FeedbacksForThirdParty
 				RemapColorOne = remapColorOne;
 				TargetColor = targetColor;
 			}
+>>>>>>> origin/Dev
 
 			Play();
 		}

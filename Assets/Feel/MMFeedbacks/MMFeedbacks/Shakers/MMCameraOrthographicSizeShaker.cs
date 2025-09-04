@@ -79,7 +79,11 @@ namespace MoreMountains.Feedbacks
 		/// <param name="channel"></param>
 		public virtual void OnMMCameraOrthographicSizeShakeEvent(AnimationCurve distortionCurve, float duration, float remapMin, float remapMax, bool relativeDistortion = false,
 			float feedbacksIntensity = 1.0f, MMChannelData channelData = null, bool resetShakerValuesAfterShake = true, bool resetTargetValuesAfterShake = true, 
+<<<<<<< HEAD
+			bool forwardDirection = true, bool stop = false, bool restore = false)
+=======
 			bool forwardDirection = true, TimescaleModes timescaleMode = TimescaleModes.Scaled, bool stop = false, bool restore = false)
+>>>>>>> origin/Dev
 		{
 			if (!CheckEventAllowed(channelData))
 			{
@@ -115,6 +119,14 @@ namespace MoreMountains.Feedbacks
 				_originalRelativeOrthographicSize = RelativeOrthographicSize;
 			}
 
+<<<<<<< HEAD
+			ShakeDuration = duration;
+			ShakeOrthographicSize = distortionCurve;
+			RemapOrthographicSizeZero = remapMin * feedbacksIntensity;
+			RemapOrthographicSizeOne = remapMax * feedbacksIntensity;
+			RelativeOrthographicSize = relativeDistortion;
+			ForwardDirection = forwardDirection;
+=======
 			if (!OnlyUseShakerValues)
 			{
 				TimescaleMode = timescaleMode;
@@ -125,6 +137,7 @@ namespace MoreMountains.Feedbacks
 				RelativeOrthographicSize = relativeDistortion;
 				ForwardDirection = forwardDirection;
 			}
+>>>>>>> origin/Dev
 
 			Play();
 		}
@@ -181,6 +194,15 @@ namespace MoreMountains.Feedbacks
 		static public void Unregister(Delegate callback) { OnEvent -= callback; }
 
 		public delegate void Delegate(AnimationCurve animCurve, float duration, float remapMin, float remapMax, bool relativeValue = false,
+<<<<<<< HEAD
+			float feedbacksIntensity = 1.0f, MMChannelData channelData = null, bool resetShakerValuesAfterShake = true, bool resetTargetValuesAfterShake = true, bool forwardDirection = true, bool stop = false, bool restore = false);
+
+		static public void Trigger(AnimationCurve animCurve, float duration, float remapMin, float remapMax, bool relativeValue = false,
+			float feedbacksIntensity = 1.0f, MMChannelData channelData = null, bool resetShakerValuesAfterShake = true, bool resetTargetValuesAfterShake = true, bool forwardDirection = true, bool stop = false, bool restore = false)
+		{
+			OnEvent?.Invoke(animCurve, duration, remapMin, remapMax, relativeValue,
+				feedbacksIntensity, channelData, resetShakerValuesAfterShake, resetTargetValuesAfterShake, forwardDirection, stop, restore);
+=======
 			float feedbacksIntensity = 1.0f, MMChannelData channelData = null, bool resetShakerValuesAfterShake = true, bool resetTargetValuesAfterShake = true, bool forwardDirection = true, 
 			TimescaleModes timescaleMode = TimescaleModes.Scaled, bool stop = false, bool restore = false);
 
@@ -190,6 +212,7 @@ namespace MoreMountains.Feedbacks
 		{
 			OnEvent?.Invoke(animCurve, duration, remapMin, remapMax, relativeValue,
 				feedbacksIntensity, channelData, resetShakerValuesAfterShake, resetTargetValuesAfterShake, forwardDirection, timescaleMode, stop, restore);
+>>>>>>> origin/Dev
 		}
 	}
 }

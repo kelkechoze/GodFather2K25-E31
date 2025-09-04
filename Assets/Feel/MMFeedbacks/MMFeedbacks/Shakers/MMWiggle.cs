@@ -19,6 +19,14 @@ namespace MoreMountains.Feedbacks
 
 		[Header("Type")]
 		/// the position mode : none, random or ping pong - none won't do anything, random will randomize min and max bounds, ping pong will oscillate between min and max bounds
+<<<<<<< HEAD
+		public WiggleTypes WiggleType = WiggleTypes.Random;
+		/// if this is true, unscaled delta time, otherwise regular delta time
+		public bool UseUnscaledTime = false;
+		/// whether or not this object should start wiggling automatically on Start()
+		public bool StartWigglingAutomatically = true;
+		/// if this is true, position will be ping ponged with an ease in/out curve
+=======
 		[Tooltip("the position mode : none, random or ping pong - none won't do anything, random will randomize min and max bounds, ping pong will oscillate between min and max bounds")]
 		public WiggleTypes WiggleType = WiggleTypes.Random;
 		/// if this is true, unscaled delta time, otherwise regular delta time
@@ -33,26 +41,61 @@ namespace MoreMountains.Feedbacks
 		public bool StartWigglingAutomatically = true;
 		/// if this is true, position will be ping ponged with an ease in/out curve
 		[Tooltip("if this is true, position will be ping ponged with an ease in/out curve")]
+>>>>>>> origin/Dev
 		public bool SmoothPingPong = true;
 
 		[Header("Speed")]
 		/// Whether or not the position's speed curve will be used
+<<<<<<< HEAD
+		public bool UseSpeedCurve = false;
+		/// an animation curve to define the speed over time from one position to the other (x), and the actual position (y), allowing for overshoot
+=======
 		[Tooltip("Whether or not the position's speed curve will be used")]
 		public bool UseSpeedCurve = false;
 		/// an animation curve to define the speed over time from one position to the other (x), and the actual position (y), allowing for overshoot
 		[Tooltip("an animation curve to define the speed over time from one position to the other (x), and the actual position (y), allowing for overshoot")]
+>>>>>>> origin/Dev
 		public AnimationCurve SpeedCurve = AnimationCurve.Linear(0f, 0f, 1f, 1f);
 
 		[Header("Frequency")]
 		/// the minimum time (in seconds) between two position changes
+<<<<<<< HEAD
+		public float FrequencyMin = 0f;
+		/// the maximum time (in seconds) between two position changes
+=======
 		[Tooltip("the minimum time (in seconds) between two position changes")]
 		public float FrequencyMin = 0f;
 		/// the maximum time (in seconds) between two position changes
 		[Tooltip("the maximum time (in seconds) between two position changes")]
+>>>>>>> origin/Dev
 		public float FrequencyMax = 1f;
 
 		[Header("Amplitude")]
 		/// the minimum position the object can have
+<<<<<<< HEAD
+		public Vector3 AmplitudeMin = Vector3.zero;
+		/// the maximum position the object can have
+		public Vector3 AmplitudeMax = Vector3.one;
+		/// if this is true, amplitude will be relative, otherwise world space
+		public bool RelativeAmplitude = true;
+		/// if this is true, all amplitude values will match the x amplitude value
+		public bool UniformValues = false;
+
+		[Header("Curve")]
+		/// a curve to animate this property on
+		public AnimationCurve Curve = AnimationCurve.Linear(0f, 0f, 1f, 1f);
+		/// the minimum value to randomize the curve's zero remap to
+		public Vector3 RemapCurveZeroMin = Vector3.zero;
+		/// the maximum value to randomize the curve's zero remap to
+		public Vector3 RemapCurveZeroMax = Vector3.zero;
+		/// the minimum value to randomize the curve's one remap to
+		public Vector3 RemapCurveOneMin = Vector3.one;
+		/// the maximum value to randomize the curve's one remap to
+		public Vector3 RemapCurveOneMax = Vector3.one;
+		/// whether or not to add the initial value of this property to the curve's outcome
+		public bool RelativeCurveAmplitude = true;
+		/// whether or not the curve should be read from left to right, then right to left
+=======
 		[Tooltip("the minimum position the object can have")]
 		public Vector3 AmplitudeMin = Vector3.zero;
 		/// the maximum position the object can have
@@ -93,18 +136,34 @@ namespace MoreMountains.Feedbacks
 		public bool RelativeCurveAmplitude = true;
 		/// whether or not the curve should be read from left to right, then right to left
 		[Tooltip("whether or not the curve should be read from left to right, then right to left")]
+>>>>>>> origin/Dev
 		public bool CurvePingPong = false;
 
 		[Header("Pause")]
 		/// the minimum time to spend between two random positions
+<<<<<<< HEAD
+		public float PauseMin = 0f;
+		/// the maximum time to spend between two random positions
+=======
 		[Tooltip("the minimum time to spend between two random positions")]
 		public float PauseMin = 0f;
 		/// the maximum time to spend between two random positions
 		[Tooltip("the maximum time to spend between two random positions")]
+>>>>>>> origin/Dev
 		public float PauseMax = 0f;
 
 		[Header("Limited Time")]
 		/// if this is true, this property will only animate for the specified time
+<<<<<<< HEAD
+		public bool LimitedTime = false;
+		/// the maximum time left
+		public float LimitedTimeTotal;
+		/// the animation curve to use to decrease the effect of the wiggle as time goes
+		public AnimationCurve LimitedTimeFalloff = AnimationCurve.Linear(0f, 1f, 1f, 0f);
+		/// if this is true, original position will be restored when time left reaches zero
+		public bool LimitedTimeResetValue = true;
+		/// the actual time left
+=======
 		[Tooltip("if this is true, this property will only animate for the specified time")]
 		public bool LimitedTime = false;
 		/// the maximum time left
@@ -118,23 +177,34 @@ namespace MoreMountains.Feedbacks
 		public bool LimitedTimeResetValue = true;
 		/// the actual time left
 		[Tooltip("the actual time left")]
+>>>>>>> origin/Dev
 		[MMFReadOnly]
 		public float LimitedTimeLeft;        
 
 		[Header("Noise Frequency")]
 		/// the minimum time between two changes of noise frequency
+<<<<<<< HEAD
+		public Vector3 NoiseFrequencyMin = Vector3.zero;
+		/// the maximum time between two changes of noise frequency
+=======
 		[Tooltip("the minimum time between two changes of noise frequency")]
 		public Vector3 NoiseFrequencyMin = Vector3.zero;
 		/// the maximum time between two changes of noise frequency
 		[Tooltip("the maximum time between two changes of noise frequency")]
+>>>>>>> origin/Dev
 		public Vector3 NoiseFrequencyMax = Vector3.one;
 
 		[Header("Noise Shift")]
 		/// how much the noise should be shifted at minimum
+<<<<<<< HEAD
+		public Vector3 NoiseShiftMin = Vector3.zero;
+		/// how much the noise should be shifted at maximum
+=======
 		[Tooltip("how much the noise should be shifted at minimum")]
 		public Vector3 NoiseShiftMin = Vector3.zero;
 		/// how much the noise should be shifted at maximum
 		[Tooltip("how much the noise should be shifted at maximum")]
+>>>>>>> origin/Dev
 		public Vector3 NoiseShiftMax = Vector3.zero;
 
 
@@ -144,9 +214,13 @@ namespace MoreMountains.Feedbacks
 		/// <returns></returns>
 		public float GetDeltaTime()
 		{
+<<<<<<< HEAD
+			return UseUnscaledTime ? Time.unscaledDeltaTime : Time.deltaTime;
+=======
 			float deltaTime = UseUnscaledTime ? Time.unscaledDeltaTime : Time.deltaTime;
 			deltaTime *= TimeMultiplier;
 			return deltaTime;
+>>>>>>> origin/Dev
 		}
 
 		/// <summary>
@@ -155,9 +229,13 @@ namespace MoreMountains.Feedbacks
 		/// <returns></returns>
 		public float GetTime()
 		{
+<<<<<<< HEAD
+			return UseUnscaledTime ? Time.unscaledTime : Time.time;
+=======
 			float time = UseUnscaledTime ? Time.unscaledTime : Time.time;
 			time *= TimeMultiplier;
 			return time;
+>>>>>>> origin/Dev
 		}
 	}
 
@@ -297,6 +375,12 @@ namespace MoreMountains.Feedbacks
 			RandomizeVector3(ref internalProperties.randomAmplitude, properties.AmplitudeMin, properties.AmplitudeMax);
 			RandomizeVector3(ref internalProperties.randomNoiseFrequency, properties.NoiseFrequencyMin, properties.NoiseFrequencyMax);
 			RandomizeVector3(ref internalProperties.randomNoiseShift, properties.NoiseShiftMin, properties.NoiseShiftMax);
+<<<<<<< HEAD
+
+			RandomizeVector3(ref internalProperties.remapZero, properties.RemapCurveZeroMin, properties.RemapCurveZeroMax);
+			RandomizeVector3(ref internalProperties.remapOne, properties.RemapCurveOneMin, properties.RemapCurveOneMax);
+
+=======
 			RandomizeVector3(ref internalProperties.remapZero, properties.RemapCurveZeroMin, properties.RemapCurveZeroMax);
 			RandomizeVector3(ref internalProperties.remapOne, properties.RemapCurveOneMin, properties.RemapCurveOneMax);
 
@@ -305,6 +389,7 @@ namespace MoreMountains.Feedbacks
 				internalProperties.randomAmplitude = internalProperties.randomAmplitude.normalized * properties.ForcedVectorLength; 
 			}
 
+>>>>>>> origin/Dev
 			internalProperties.newValue = DetermineNewValue(properties, internalProperties.newValue, internalProperties.initialValue, ref internalProperties.startValue, 
 				ref internalProperties.randomAmplitude, ref internalProperties.randomFrequency, ref internalProperties.pauseDuration, true);
 		}

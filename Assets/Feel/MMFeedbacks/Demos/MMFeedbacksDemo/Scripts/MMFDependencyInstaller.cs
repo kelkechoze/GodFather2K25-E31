@@ -5,7 +5,10 @@ using UnityEditor.PackageManager;
 #endif
 using UnityEngine;
 using System.Threading.Tasks;
+<<<<<<< HEAD
+=======
 using MoreMountains.Tools;
+>>>>>>> origin/Dev
 
 namespace MoreMountains.Feedbacks
 {
@@ -36,7 +39,11 @@ namespace MoreMountains.Feedbacks
 			_listRequest = null;
 			_addRequest = null;
             
+<<<<<<< HEAD
+			Debug.Log("[MMFDependencyInstaller] Installation start");
+=======
 			MMDebug.DebugLogInfo("[MMFDependencyInstaller] Installation start");
+>>>>>>> origin/Dev
 			_listRequest = Client.List();    
             
 			EditorApplication.update += ListProgress;
@@ -89,7 +96,11 @@ namespace MoreMountains.Feedbacks
 					if (package.name == _packages[_currentIndex])
 					{
 						packageFound = true;
+<<<<<<< HEAD
+						Debug.Log("[MMFDependencyInstaller] "+package.name+" is already installed");
+=======
 						MMDebug.DebugLogInfo("[MMFDependencyInstaller] "+package.name+" is already installed");
+>>>>>>> origin/Dev
 						_currentIndex++;
 						InstallNext();
 						return;
@@ -98,15 +109,24 @@ namespace MoreMountains.Feedbacks
 
 				if (!packageFound)
 				{
+<<<<<<< HEAD
+					Debug.Log("[MMFDependencyInstaller] installing "+_packages[_currentIndex]);
+=======
 					MMDebug.DebugLogInfo("[MMFDependencyInstaller] installing "+_packages[_currentIndex]);
+>>>>>>> origin/Dev
 					_addRequest = Client.Add(_packages[_currentIndex]);
 					EditorApplication.update += AddProgress;
 				}
 			}
 			else
 			{
+<<<<<<< HEAD
+				Debug.Log("[MMFDependencyInstaller] Installation complete");
+				Debug.Log("[MMFDependencyInstaller] It's recommended to now close that scene and reopen it before playing it.");
+=======
 				MMDebug.DebugLogInfo("[MMFDependencyInstaller] Installation complete");
 				MMDebug.DebugLogInfo("[MMFDependencyInstaller] It's recommended to now close that scene and reopen it before playing it.");
+>>>>>>> origin/Dev
 			}
 		}
 
@@ -124,7 +144,11 @@ namespace MoreMountains.Feedbacks
 				}
 				else if (_listRequest.Status >= StatusCode.Failure)
 				{
+<<<<<<< HEAD
+					Debug.Log(_listRequest.Error.message);
+=======
 					MMDebug.DebugLogInfo(_listRequest.Error.message);
+>>>>>>> origin/Dev
 				}
 			}
 		}
@@ -138,13 +162,21 @@ namespace MoreMountains.Feedbacks
 			{
 				if (_addRequest.Status == StatusCode.Success)
 				{
+<<<<<<< HEAD
+					Debug.Log("[MMFDependencyInstaller] "+_addRequest.Result.packageId+" has been installed");
+=======
 					MMDebug.DebugLogInfo("[MMFDependencyInstaller] "+_addRequest.Result.packageId+" has been installed");
+>>>>>>> origin/Dev
 					_currentIndex++;
 					InstallNext();
 				}
 				else if (_addRequest.Status >= StatusCode.Failure)
 				{
+<<<<<<< HEAD
+					Debug.Log(_addRequest.Error.message);
+=======
 					MMDebug.DebugLogInfo(_addRequest.Error.message);
+>>>>>>> origin/Dev
 				}
 				EditorApplication.update -= AddProgress;
 			}

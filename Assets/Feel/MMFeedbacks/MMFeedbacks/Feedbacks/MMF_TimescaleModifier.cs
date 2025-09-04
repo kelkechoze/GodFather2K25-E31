@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using MoreMountains.Tools;
 using UnityEngine;
+<<<<<<< HEAD
+=======
 using UnityEngine.Scripting.APIUpdating;
+>>>>>>> origin/Dev
 
 namespace MoreMountains.Feedbacks
 {
@@ -11,7 +14,10 @@ namespace MoreMountains.Feedbacks
 	/// </summary>
 	[AddComponentMenu("")]
 	[FeedbackHelp("This feedback triggers a MMTimeScaleEvent, which, if you have a MMTimeManager object in your scene, will be caught and used to modify the timescale according to the specified settings. These settings are the new timescale (0.5 will be twice slower than normal, 2 twice faster, etc), the duration of the timescale modification, and the optional speed at which to transition between normal and altered time scale.")]
+<<<<<<< HEAD
+=======
 	[MovedFrom(false, null, "MoreMountains.Feedbacks")]
+>>>>>>> origin/Dev
 	[FeedbackPath("Time/Timescale Modifier")]
 	public class MMF_TimescaleModifier : MMF_Feedback
 	{
@@ -23,14 +29,22 @@ namespace MoreMountains.Feedbacks
 		/// - change : sets the timescale to a new value, forever (until you change it again)
 		/// - reset : resets the timescale to its previous value
 		/// </summary>
+<<<<<<< HEAD
+		public enum Modes { Shake, Change, Reset }
+=======
 		public enum Modes { Shake, Change, Reset, Unfreeze }
+>>>>>>> origin/Dev
 
 		/// sets the inspector color for this feedback
 		#if UNITY_EDITOR
 		public override Color FeedbackColor { get { return MMFeedbacksInspectorColors.TimeColor; } }
 		public override string RequiredTargetText { get { return Mode.ToString() + " x" + TimeScale ;  } }
+<<<<<<< HEAD
+		public override bool HasCustomInspectors { get { return true; } }
+=======
 		public override bool HasCustomInspectors => true;
 		public override bool HasAutomaticShakerSetup => true;
+>>>>>>> origin/Dev
 		#endif
 
 		[MMFInspectorGroup("Timescale Modifier", true, 63)]
@@ -108,9 +122,12 @@ namespace MoreMountains.Feedbacks
 				case Modes.Reset:
 					MMTimeScaleEvent.Trigger(MMTimeScaleMethods.Reset, TimeScale, 0f, false, 0f, true);
 					break;
+<<<<<<< HEAD
+=======
 				case Modes.Unfreeze:
 					MMTimeScaleEvent.Trigger(MMTimeScaleMethods.Unfreeze, TimeScale, 0f, false, 0f, true);
 					break;
+>>>>>>> origin/Dev
 			}     
 		}
 
@@ -139,6 +156,8 @@ namespace MoreMountains.Feedbacks
 			}
 			MMTimeScaleEvent.Trigger(MMTimeScaleMethods.Reset, TimeScale, 0f, false, 0f, true);
 		}
+<<<<<<< HEAD
+=======
 		
 		/// <summary>
 		/// Automatically adds a MMTimeManager to the scene
@@ -151,5 +170,6 @@ namespace MoreMountains.Feedbacks
 				MMDebug.DebugLogInfo("Added a MMTimeManager to the scene. You're all set.");	
 			}
 		}
+>>>>>>> origin/Dev
 	}
 }

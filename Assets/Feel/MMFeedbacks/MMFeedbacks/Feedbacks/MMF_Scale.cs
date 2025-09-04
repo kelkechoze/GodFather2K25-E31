@@ -4,7 +4,10 @@ using System.Collections.Generic;
 using MoreMountains.Tools;
 using UnityEngine;
 using UnityEngine.Serialization;
+<<<<<<< HEAD
+=======
 using UnityEngine.Scripting.APIUpdating;
+>>>>>>> origin/Dev
 
 namespace MoreMountains.Feedbacks
 {
@@ -12,7 +15,10 @@ namespace MoreMountains.Feedbacks
 	/// This feedback will animate the scale of the target object over time when played
 	/// </summary>
 	[AddComponentMenu("")]
+<<<<<<< HEAD
+=======
 	[MovedFrom(false, null, "MoreMountains.Feedbacks")]
+>>>>>>> origin/Dev
 	[FeedbackPath("Transform/Scale")]
 	[FeedbackHelp("This feedback will animate the target's scale on the 3 specified animation curves, for the specified duration (in seconds). You can apply a multiplier, that will multiply each animation curve value.")]
 	public class MMF_Scale : MMF_Feedback
@@ -32,7 +38,10 @@ namespace MoreMountains.Feedbacks
 		public override bool HasCustomInspectors { get { return true; } }
 		#endif
 		public override bool HasAutomatedTargetAcquisition => true;
+<<<<<<< HEAD
+=======
 		public override bool CanForceInitialValue => true;
+>>>>>>> origin/Dev
 		protected override void AutomateTargetAcquisition() => AnimateScaleTarget = FindAutomatedTarget<Transform>();
 
 		[MMFInspectorGroup("Scale Mode", true, 12, true)]
@@ -160,7 +169,10 @@ namespace MoreMountains.Feedbacks
 					{
 						return;
 					}
+<<<<<<< HEAD
+=======
 					if (_coroutine != null) { Owner.StopCoroutine(_coroutine); }
+>>>>>>> origin/Dev
 					_coroutine = Owner.StartCoroutine(AnimateScale(AnimateScaleTarget, Vector3.zero, FeedbackDuration, AnimateScaleTweenX, AnimateScaleTweenY, AnimateScaleTweenZ, RemapCurveZero * intensityMultiplier, RemapCurveOne * intensityMultiplier));
 				}
 				if (Mode == Modes.ToDestination)
@@ -169,7 +181,10 @@ namespace MoreMountains.Feedbacks
 					{
 						return;
 					}
+<<<<<<< HEAD
+=======
 					if (_coroutine != null) { Owner.StopCoroutine(_coroutine); }
+>>>>>>> origin/Dev
 					_coroutine = Owner.StartCoroutine(ScaleToDestination());
 				}                   
 			}

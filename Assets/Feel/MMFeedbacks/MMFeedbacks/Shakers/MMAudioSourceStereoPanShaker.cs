@@ -113,6 +113,15 @@ namespace MoreMountains.Feedbacks
 				_originalRelativeValues = RelativeStereoPan;
 			}
 
+<<<<<<< HEAD
+			TimescaleMode = timescaleMode;
+			ShakeDuration = duration;
+			ShakeStereoPan = stereoPanCurve;
+			RemapStereoPanZero = remapMin * feedbacksIntensity;
+			RemapStereoPanOne = remapMax * feedbacksIntensity;
+			RelativeStereoPan = relativeStereoPan;
+			ForwardDirection = forwardDirection;
+=======
 			if (!OnlyUseShakerValues)
 			{
 				TimescaleMode = timescaleMode;
@@ -123,6 +132,7 @@ namespace MoreMountains.Feedbacks
 				RelativeStereoPan = relativeStereoPan;
 				ForwardDirection = forwardDirection;
 			}
+>>>>>>> origin/Dev
 
 			Play();
 		}

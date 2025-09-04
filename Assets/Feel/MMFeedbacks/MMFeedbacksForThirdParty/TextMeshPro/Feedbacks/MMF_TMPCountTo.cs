@@ -2,10 +2,16 @@
 using System.Collections.Generic;
 using MoreMountains.Tools;
 using UnityEngine;
+<<<<<<< HEAD
+#if MM_TEXTMESHPRO
+using TMPro;
+#endif
+=======
 #if (MM_TEXTMESHPRO || MM_UGUI2)
 using TMPro;
 #endif
 using UnityEngine.Scripting.APIUpdating;
+>>>>>>> origin/Dev
 
 namespace MoreMountains.Feedbacks
 {
@@ -14,10 +20,16 @@ namespace MoreMountains.Feedbacks
 	/// </summary>
 	[AddComponentMenu("")]
 	[FeedbackHelp("This feedback will let you update a TMP text value over time, with a value going from A to B over time, on a curve")]
+<<<<<<< HEAD
+	#if MM_TEXTMESHPRO
+	[FeedbackPath("TextMesh Pro/TMP Count To")]
+	#endif
+=======
 	#if (MM_TEXTMESHPRO || MM_UGUI2)
 	[FeedbackPath("TextMesh Pro/TMP Count To")]
 	#endif
 	[MovedFrom(false, null, "MoreMountains.Feedbacks.TextMeshPro")]
+>>>>>>> origin/Dev
 	public class MMF_TMPCountTo : MMF_Feedback
 	{
 		/// a static bool used to disable all feedbacks of this type at once
@@ -26,7 +38,11 @@ namespace MoreMountains.Feedbacks
 		public override Color FeedbackColor { get { return MMFeedbacksInspectorColors.TMPColor; } }
 		public override string RequiresSetupText { get { return "This feedback requires that a TargetTMPText be set to be able to work properly. You can set one below."; } }
 		#endif
+<<<<<<< HEAD
+		#if UNITY_EDITOR && MM_TEXTMESHPRO
+=======
 		#if UNITY_EDITOR && (MM_TEXTMESHPRO || MM_UGUI2)
+>>>>>>> origin/Dev
 		public override bool EvaluateRequiresSetup() { return (TargetTMPText == null); }
 		public override string RequiredTargetText { get { return TargetTMPText != null ? TargetTMPText.name : "";  } }
 		#endif
@@ -34,7 +50,11 @@ namespace MoreMountains.Feedbacks
 		/// the duration of this feedback is the duration of the scale animation
 		public override float FeedbackDuration { get { return ApplyTimeMultiplier(Duration); } set { Duration = value; } }
         
+<<<<<<< HEAD
+		#if MM_TEXTMESHPRO
+=======
 		#if (MM_TEXTMESHPRO || MM_UGUI2)
+>>>>>>> origin/Dev
 		public override bool HasAutomatedTargetAcquisition => true;
 		protected override void AutomateTargetAcquisition() => TargetTMPText = FindAutomatedTarget<TMP_Text>();
 
@@ -71,7 +91,10 @@ namespace MoreMountains.Feedbacks
 		protected float _startTime;
 		protected float _lastRefreshAt;
 		protected string _initialText;
+<<<<<<< HEAD
+=======
 		protected Coroutine _coroutine;
+>>>>>>> origin/Dev
         
 		/// <summary>
 		/// On play we change the text of our target TMPText over time
@@ -85,7 +108,11 @@ namespace MoreMountains.Feedbacks
 				return;
 			}
 
+<<<<<<< HEAD
+			#if MM_TEXTMESHPRO
+=======
 			#if (MM_TEXTMESHPRO || MM_UGUI2)
+>>>>>>> origin/Dev
 			if (TargetTMPText == null)
 			{
 				return;
@@ -93,7 +120,11 @@ namespace MoreMountains.Feedbacks
 
 			_initialText = TargetTMPText.text;
 			#endif
+<<<<<<< HEAD
+			Owner.StartCoroutine(CountCo());
+=======
 			_coroutine = Owner.StartCoroutine(CountCo());
+>>>>>>> origin/Dev
 		}
 
 		/// <summary>
@@ -135,7 +166,11 @@ namespace MoreMountains.Feedbacks
 				_newText = currentValue.ToString(Format);
 			}
 	        
+<<<<<<< HEAD
+			#if MM_TEXTMESHPRO
+=======
 			#if (MM_TEXTMESHPRO || MM_UGUI2)
+>>>>>>> origin/Dev
 			TargetTMPText.text = _newText;
 			#endif
 		}
@@ -153,6 +188,8 @@ namespace MoreMountains.Feedbacks
 		}
 		
 		/// <summary>
+<<<<<<< HEAD
+=======
 		/// On stop, we interrupt counting if it was active
 		/// </summary>
 		/// <param name="position"></param>
@@ -169,6 +206,7 @@ namespace MoreMountains.Feedbacks
 		}
 		
 		/// <summary>
+>>>>>>> origin/Dev
 		/// On restore, we put our object back at its initial position
 		/// </summary>
 		protected override void CustomRestoreInitialValues()
@@ -177,7 +215,11 @@ namespace MoreMountains.Feedbacks
 			{
 				return;
 			}
+<<<<<<< HEAD
+			#if MM_TEXTMESHPRO
+=======
 			#if (MM_TEXTMESHPRO || MM_UGUI2)
+>>>>>>> origin/Dev
 			TargetTMPText.text = _initialText;
 			#endif
 		}

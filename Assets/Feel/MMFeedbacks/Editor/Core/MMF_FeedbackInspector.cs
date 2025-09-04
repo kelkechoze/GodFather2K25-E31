@@ -171,11 +171,14 @@ namespace MoreMountains.Feedbacks
 				skip = true;
 			}
 
+<<<<<<< HEAD
+=======
 			if (groupName == MMF_Feedback._automaticSetupGroupName && !_feedback.HasAutomaticShakerSetup)
 			{
 				skip = true;
 			}
 
+>>>>>>> origin/Dev
 			return skip;
 		}
 
@@ -402,10 +405,14 @@ namespace MoreMountains.Feedbacks
 						return true;
 					case _customTweenTypePropertyName: 
 						// if we're displaying a tween type, we need to handle conditions manually
+<<<<<<< HEAD
+						// 
+=======
 
 						_animationCurveGUIContent.tooltip = currentProperty.tooltip;
 						_tweenCurveGUIContent.tooltip = currentProperty.tooltip;
 						
+>>>>>>> origin/Dev
 						_mmTweenTypeProperty = currentProperty.FindPropertyRelative(_findPropertyRelativeMMTweenDefinitionType);
 						if (_conditionDictionary.TryGetValue(currentProperty.name, out _conditionAttribute))
 						{
@@ -437,8 +444,13 @@ namespace MoreMountains.Feedbacks
 								}
 							}
 						}
+<<<<<<< HEAD
+ 
+						EditorGUILayout.PropertyField(_mmTweenTypeProperty, new GUIContent(currentProperty.displayName));
+=======
 						
 						EditorGUILayout.PropertyField(_mmTweenTypeProperty, new GUIContent(currentProperty.displayName, currentProperty.tooltip));
+>>>>>>> origin/Dev
 						if (_mmTweenTypeProperty.enumValueIndex == 0)
 						{
 							EditorGUILayout.PropertyField(currentProperty.FindPropertyRelative(_mmTweenCurvePropertyName), _tweenCurveGUIContent);

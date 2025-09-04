@@ -3,7 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using MoreMountains.Tools;
 using UnityEngine;
+<<<<<<< HEAD
+=======
 using UnityEngine.Scripting.APIUpdating;
+>>>>>>> origin/Dev
 
 namespace MoreMountains.Feedbacks
 {
@@ -12,7 +15,10 @@ namespace MoreMountains.Feedbacks
 	/// </summary>
 	[AddComponentMenu("")]
 	[FeedbackHelp("This feedback allows you to chain any number of target MMF Players and play them in sequence, with optional delays before and after")]
+<<<<<<< HEAD
+=======
 	[MovedFrom(false, null, "MoreMountains.Feedbacks")]
+>>>>>>> origin/Dev
 	[FeedbackPath("Feedbacks/MMF Player Chain")]
 	public class MMF_PlayerChain : MMF_Feedback
 	{
@@ -32,9 +38,12 @@ namespace MoreMountains.Feedbacks
 			/// whether this player is active in the list or not. Inactive players will be skipped when playing the chain of players
 			[Tooltip("whether this player is active in the list or not. Inactive players will be skipped when playing the chain of players")]
 			public bool Inactive = false;
+<<<<<<< HEAD
+=======
 			/// if this is true, the sequence will be blocked until this player has completed playing
 			[Tooltip("if this is true, the sequence will be blocked until this player has completed playing")]
 			public bool WaitUntilComplete = true;
+>>>>>>> origin/Dev
 		}
 		
 		/// a static bool used to disable all feedbacks of this type at once
@@ -43,7 +52,11 @@ namespace MoreMountains.Feedbacks
 		#if UNITY_EDITOR
 		public override Color FeedbackColor { get { return MMFeedbacksInspectorColors.FeedbacksColor; } }
 		#endif
+<<<<<<< HEAD
+		/// the duration of this feedback is the duration of the light, or 0 if instant
+=======
 		/// the duration of this feedback is the duration of the chain
+>>>>>>> origin/Dev
 		public override float FeedbackDuration 
 		{
 			get
@@ -75,7 +88,11 @@ namespace MoreMountains.Feedbacks
 		public List<PlayerChainItem> Players;
 
 		/// <summary>
+<<<<<<< HEAD
+		/// On Play we turn our light on and start an over time coroutine if needed
+=======
 		/// On Play we start our chain
+>>>>>>> origin/Dev
 		/// </summary>
 		/// <param name="position"></param>
 		/// <param name="feedbacksIntensity"></param>
@@ -100,7 +117,10 @@ namespace MoreMountains.Feedbacks
 		/// <returns></returns>
 		protected virtual IEnumerator PlayChain()
 		{
+<<<<<<< HEAD
+=======
 			IsPlaying = true;
+>>>>>>> origin/Dev
 			foreach (PlayerChainItem item in Players)
 			{
 				if ((item == null) || (item.TargetPlayer == null) || item.Inactive)
@@ -110,6 +130,13 @@ namespace MoreMountains.Feedbacks
 
 				if (item.Delay.x > 0) { yield return WaitFor(item.Delay.x); }
 				
+<<<<<<< HEAD
+				item.TargetPlayer.PlayFeedbacks();
+				yield return WaitFor(item.TargetPlayer.TotalDuration);
+				
+				if (item.Delay.y > 0) { yield return WaitFor(item.Delay.y); }
+			}
+=======
 				if (item.WaitUntilComplete) 
 				{
 					item.TargetPlayer.PlayFeedbacks();
@@ -140,6 +167,7 @@ namespace MoreMountains.Feedbacks
 				}
 			}
 			return feedbacksStillPlaying;
+>>>>>>> origin/Dev
 		}
 
 		/// <summary>

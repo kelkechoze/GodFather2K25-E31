@@ -1,9 +1,16 @@
+<<<<<<< HEAD
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using MoreMountains.Feedbacks;
+=======
 ﻿using UnityEngine;
 using MoreMountains.Feedbacks;
 #if MM_POSTPROCESSING
 using UnityEngine.Rendering.PostProcessing;
 #endif
 using UnityEngine.Scripting.APIUpdating;
+>>>>>>> origin/Dev
 
 namespace MoreMountains.FeedbacksForThirdParty
 {
@@ -15,7 +22,10 @@ namespace MoreMountains.FeedbacksForThirdParty
 	#if MM_POSTPROCESSING
 	[FeedbackPath("PostProcess/Chromatic Aberration")]
 	#endif
+<<<<<<< HEAD
+=======
 	[MovedFrom(false, null, "MoreMountains.Feedbacks.PostProcessing")]
+>>>>>>> origin/Dev
 	[FeedbackHelp("This feedback allows you to control chromatic aberration intensity over time. It requires you have in your scene an object with a PostProcessVolume " +
 	              "with Chromatic Aberration active, and a MMChromaticAberrationShaker component.")]
 	public class MMF_ChromaticAberration : MMF_Feedback
@@ -26,8 +36,11 @@ namespace MoreMountains.FeedbacksForThirdParty
 		#if UNITY_EDITOR
 		public override Color FeedbackColor { get { return MMFeedbacksInspectorColors.PostProcessColor; } }
 		public override string RequiredTargetText => RequiredChannelText;
+<<<<<<< HEAD
+=======
 		public override bool HasCustomInspectors => true;
 		public override bool HasAutomaticShakerSetup => true;
+>>>>>>> origin/Dev
 		#endif
 
 		/// the duration of this feedback is the duration of the shake
@@ -108,6 +121,8 @@ namespace MoreMountains.FeedbacksForThirdParty
 			}
 			MMChromaticAberrationShakeEvent.Trigger(Intensity, FeedbackDuration, RemapIntensityZero, RemapIntensityOne, RelativeIntensity, restore:true);
 		}
+<<<<<<< HEAD
+=======
 		
 		/// <summary>
 		/// Automaticall sets up the post processing profile and shaker
@@ -118,5 +133,6 @@ namespace MoreMountains.FeedbacksForThirdParty
 			MMPostProcessingHelpers.GetOrCreateVolume<ChromaticAberration, MMChromaticAberrationShaker>(Owner, "Chromatic Aberration");
 			#endif
 		}
+>>>>>>> origin/Dev
 	}
 }

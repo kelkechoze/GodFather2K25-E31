@@ -1,7 +1,14 @@
+<<<<<<< HEAD
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Audio;
+=======
 ﻿using MoreMountains.FeedbacksForThirdParty;
 using MoreMountains.Tools;
 using UnityEngine;
 using UnityEngine.Scripting.APIUpdating;
+>>>>>>> origin/Dev
 
 namespace MoreMountains.Feedbacks
 {
@@ -9,14 +16,29 @@ namespace MoreMountains.Feedbacks
 	/// This feedback lets you control a camera's field of view over time. You'll need a MMCameraFieldOfViewShaker on your camera.
 	/// </summary>
 	[AddComponentMenu("")]
+<<<<<<< HEAD
+	[FeedbackPath("Camera/Field of View")]
+	[FeedbackHelp("This feedback lets you control a camera's field of view over time. You'll need a MMCameraFieldOfViewShaker on your camera.")]
+=======
 	[MovedFrom(false, null, "MoreMountains.Feedbacks")]
 	[FeedbackPath("Camera/Field of View")]
 	[FeedbackHelp(
 		"This feedback lets you control a camera's field of view over time. You'll need a MMCameraFieldOfViewShaker on your camera.")]
+>>>>>>> origin/Dev
 	public class MMF_CameraFieldOfView : MMF_Feedback
 	{
 		/// a static bool used to disable all feedbacks of this type at once
 		public static bool FeedbackTypeAuthorized = true;
+<<<<<<< HEAD
+		/// sets the inspector color for this feedback
+		#if UNITY_EDITOR
+		public override Color FeedbackColor { get { return MMFeedbacksInspectorColors.CameraColor; } }
+		public override string RequiredTargetText => RequiredChannelText;
+		#endif
+		/// returns the duration of the feedback
+		public override float FeedbackDuration { get { return ApplyTimeMultiplier(Duration); } set { Duration = value; } }
+		public override bool HasChannel => true;
+=======
 
 		/// sets the inspector color for this feedback
 		#if UNITY_EDITOR
@@ -35,12 +57,34 @@ namespace MoreMountains.Feedbacks
 		public override bool HasChannel => true;
 		public override bool CanForceInitialValue => true;
 		public override bool ForceInitialValueDelayed => true;
+>>>>>>> origin/Dev
 		public override bool HasRandomness => true;
 
 		[MMFInspectorGroup("Field of View", true, 37)]
 		/// the duration of the shake, in seconds
 		[Tooltip("the duration of the shake, in seconds")]
 		public float Duration = 2f;
+<<<<<<< HEAD
+		/// whether or not to reset shaker values after shake
+		[Tooltip("whether or not to reset shaker values after shake")]
+		public bool ResetShakerValuesAfterShake = true;
+		/// whether or not to reset the target's values after shake
+		[Tooltip("whether or not to reset the target's values after shake")]
+		public bool ResetTargetValuesAfterShake = true;
+		/// whether or not to add to the initial value
+		[Tooltip("whether or not to add to the initial value")]
+		public bool RelativeFieldOfView = false;
+		/// the curve used to animate the intensity value on
+		[Tooltip("the curve used to animate the intensity value on")]
+		public AnimationCurve ShakeFieldOfView = new AnimationCurve(new Keyframe(0, 0), new Keyframe(0.5f, 1), new Keyframe(1, 0));
+		/// the value to remap the curve's 0 to
+		[Tooltip("the value to remap the curve's 0 to")]
+		[Range(0f, 179f)]
+		public float RemapFieldOfViewZero = 60f;
+		/// the value to remap the curve's 1 to
+		[Tooltip("the value to remap the curve's 1 to")]
+		[Range(0f, 179f)]
+=======
 
 		/// whether or not to reset shaker values after shake
 		[Tooltip("whether or not to reset shaker values after shake")]
@@ -65,6 +109,7 @@ namespace MoreMountains.Feedbacks
 
 		/// the value to remap the curve's 1 to
 		[Tooltip("the value to remap the curve's 1 to")] [Range(0f, 179f)]
+>>>>>>> origin/Dev
 		public float RemapFieldOfViewOne = 120f;
 
 		/// <summary>
@@ -78,12 +123,18 @@ namespace MoreMountains.Feedbacks
 			{
 				return;
 			}
+<<<<<<< HEAD
+			float intensityMultiplier = ComputeIntensity(feedbacksIntensity, position);
+			MMCameraFieldOfViewShakeEvent.Trigger(ShakeFieldOfView, FeedbackDuration, RemapFieldOfViewZero, RemapFieldOfViewOne, RelativeFieldOfView,
+				intensityMultiplier, ChannelData, ResetShakerValuesAfterShake, ResetTargetValuesAfterShake, NormalPlayDirection, ComputedTimescaleMode);
+=======
 
 			float intensityMultiplier = ComputeIntensity(feedbacksIntensity, position);
 			MMCameraFieldOfViewShakeEvent.Trigger(ShakeFieldOfView, FeedbackDuration, RemapFieldOfViewZero,
 				RemapFieldOfViewOne, RelativeFieldOfView,
 				intensityMultiplier, ChannelData, ResetShakerValuesAfterShake, ResetTargetValuesAfterShake,
 				NormalPlayDirection, ComputedTimescaleMode);
+>>>>>>> origin/Dev
 		}
 
 		/// <summary>
@@ -97,12 +148,19 @@ namespace MoreMountains.Feedbacks
 			{
 				return;
 			}
+<<<<<<< HEAD
+			base.CustomStopFeedback(position, feedbacksIntensity);
+			MMCameraFieldOfViewShakeEvent.Trigger(ShakeFieldOfView, FeedbackDuration, RemapFieldOfViewZero, RemapFieldOfViewOne, stop: true);
+		}
+		
+=======
 
 			base.CustomStopFeedback(position, feedbacksIntensity);
 			MMCameraFieldOfViewShakeEvent.Trigger(ShakeFieldOfView, FeedbackDuration, RemapFieldOfViewZero,
 				RemapFieldOfViewOne, stop: true);
 		}
 
+>>>>>>> origin/Dev
 		/// <summary>
 		/// On restore, we restore our initial state
 		/// </summary>
@@ -112,6 +170,9 @@ namespace MoreMountains.Feedbacks
 			{
 				return;
 			}
+<<<<<<< HEAD
+			MMCameraFieldOfViewShakeEvent.Trigger(ShakeFieldOfView, FeedbackDuration, RemapFieldOfViewZero, RemapFieldOfViewOne, restore: true);
+=======
 
 			MMCameraFieldOfViewShakeEvent.Trigger(ShakeFieldOfView, FeedbackDuration, RemapFieldOfViewZero,
 				RemapFieldOfViewOne, restore: true);
@@ -150,6 +211,7 @@ namespace MoreMountains.Feedbacks
 
 			Camera.main.gameObject.MMGetOrAddComponent<MMCameraFieldOfViewShaker>(); 
 			MMDebug.DebugLogInfo( "Added a MMCameraFieldOfViewShaker to the main camera. You're all set.");
+>>>>>>> origin/Dev
 		}
 	}
 }

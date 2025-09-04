@@ -3,7 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+<<<<<<< HEAD
+=======
 using MoreMountains.Tools;
+>>>>>>> origin/Dev
 using UnityEditor;
 using UnityEngine;
 
@@ -266,9 +269,14 @@ namespace MoreMountains.Feedbacks
 
 			if (MMFeedbacksConfiguration.Instance.ShowInspectorTips)
 			{
+<<<<<<< HEAD
+				EditorGUILayout.HelpBox("The MMFeedbacks component is getting replaced by the new and improved MMF_Player, which will improve performance, let you keep runtime changes, and much more! The MMF_Player works just like MMFeedbacks. " +
+				                        "Consider using it instead, and don't hesitate to check the documentation to learn all about it.", MessageType.Warning);    
+=======
 				EditorGUILayout.HelpBox("The MMFeedbacks component got deprecated with the introduction of the MMF Player, in v3.0. " +
 				                        "The MMF Player improves performance, lets you keep runtime changes, and much more! And it works just like MMFeedbacks. " +
 				                        "With the release of v4.0, the MMF Player is now completely removed from Feel and phased out.", MessageType.Warning);    
+>>>>>>> origin/Dev
 			}
 
 			Rect helpBoxRect = GUILayoutUtility.GetLastRect();
@@ -423,6 +431,20 @@ namespace MoreMountains.Feedbacks
 				{
 					pause = true;
 				}
+<<<<<<< HEAD
+				if ((feedback.LooperPause == true) && (Application.isPlaying))
+				{
+					if ((feedback as MMFeedbackLooper).InfiniteLoop)
+					{
+						label = label + "[Infinite Loop] ";
+					}
+					else
+					{
+						label = label + "[ " + (feedback as MMFeedbackLooper).NumberOfLoopsLeft + " loops left ] ";
+					}                    
+				}
+=======
+>>>>>>> origin/Dev
 
 				Rect headerRect = MMFeedbackStyling.DrawHeader(
 					ref isExpanded,
@@ -965,7 +987,11 @@ namespace MoreMountains.Feedbacks
 			_canDisplayInspector = false;
 			serializedObject.Update();
 			Undo.RegisterCompleteObjectUndo(target, "Convert to MMF_Player");
+<<<<<<< HEAD
+			Debug.Log("Starting conversion to MMF_Player --------");
+=======
 			MMDebug.DebugLogInfo("Starting conversion to MMF_Player --------");
+>>>>>>> origin/Dev
 
 			if (generateOnly)
 			{
@@ -1044,7 +1070,11 @@ namespace MoreMountains.Feedbacks
 				DestroyImmediate(temporaryHost);    
 			}
 
+<<<<<<< HEAD
+			Debug.Log("Conversion complete --------");
+=======
 			MMDebug.DebugLogInfo("Conversion complete --------");
+>>>>>>> origin/Dev
 		}
 
 		protected virtual void CopyFromMMFeedbacksToMMF_Player(MMF_Player newPlayer)
@@ -1079,7 +1109,11 @@ namespace MoreMountains.Feedbacks
                 
 				if (newType == null)
 				{
+<<<<<<< HEAD
+					Debug.Log("<color=red>Couldn't find any MMF_Feedback matching "+oldTypeName+"</color>");
+=======
 					MMDebug.DebugLogInfo("<color=red>Couldn't find any MMF_Feedback matching "+oldTypeName+"</color>");
+>>>>>>> origin/Dev
 				}
 				else
 				{
@@ -1113,7 +1147,11 @@ namespace MoreMountains.Feedbacks
 							}    
 						}
 					}
+<<<<<<< HEAD
+					Debug.Log("Added new feedback of type "+newTypeName);
+=======
 					MMDebug.DebugLogInfo("Added new feedback of type "+newTypeName);
+>>>>>>> origin/Dev
 				}
 			}
 			newPlayer.RefreshCache();

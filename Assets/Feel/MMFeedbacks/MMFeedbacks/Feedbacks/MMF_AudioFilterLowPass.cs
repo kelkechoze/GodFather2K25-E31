@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+<<<<<<< HEAD
+=======
 using UnityEngine.Scripting.APIUpdating;
+>>>>>>> origin/Dev
 
 namespace MoreMountains.Feedbacks
 {
@@ -10,10 +13,15 @@ namespace MoreMountains.Feedbacks
 	/// This feedback lets you control the cutoff frequency of a low pass filter. You'll need a MMAudioFilterLowPassShaker on your filter.
 	/// </summary>
 	[AddComponentMenu("")]
+<<<<<<< HEAD
+	[FeedbackPath("Audio/Audio Filter Low Pass")]
+	[FeedbackHelp("This feedback lets you control a low pass audio filter over time. You'll need a MMAudioFilterLowPassShaker on your filter.")]
+=======
 	[MovedFrom(false, null, "MoreMountains.Feedbacks")]
 	[FeedbackPath("Audio/Audio Filter Low Pass")]
 	[FeedbackHelp(
 		"This feedback lets you control a low pass audio filter over time. You'll need a MMAudioFilterLowPassShaker on your filter.")]
+>>>>>>> origin/Dev
 	public class MMF_AudioFilterLowPass : MMF_Feedback
 	{
 		/// a static bool used to disable all feedbacks of this type at once

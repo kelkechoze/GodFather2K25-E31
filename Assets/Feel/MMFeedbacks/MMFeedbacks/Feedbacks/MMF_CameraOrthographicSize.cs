@@ -1,10 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+<<<<<<< HEAD
+using UnityEngine;
+using UnityEngine.Audio;
+=======
 using MoreMountains.FeedbacksForThirdParty;
 using MoreMountains.Tools;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Scripting.APIUpdating;
+>>>>>>> origin/Dev
 
 namespace MoreMountains.Feedbacks
 {
@@ -12,7 +17,10 @@ namespace MoreMountains.Feedbacks
 	/// This feedback lets you control a camera's orthographic size over time. You'll need a MMCameraOrthographicSizeShaker on your camera.
 	/// </summary>
 	[AddComponentMenu("")]
+<<<<<<< HEAD
+=======
 	[MovedFrom(false, null, "MoreMountains.Feedbacks")]
+>>>>>>> origin/Dev
 	[FeedbackPath("Camera/Orthographic Size")]
 	[FeedbackHelp("This feedback lets you control a camera's orthographic size over time. You'll need a MMCameraOrthographicSizeShaker on your camera.")]
 	public class MMF_CameraOrthographicSize : MMF_Feedback
@@ -21,10 +29,15 @@ namespace MoreMountains.Feedbacks
 		public static bool FeedbackTypeAuthorized = true;
 		/// sets the inspector color for this feedback
 		#if UNITY_EDITOR
+<<<<<<< HEAD
+		public override Color FeedbackColor { get { return MMFeedbacksInspectorColors.CameraColor; } }
+		public override string RequiredTargetText => RequiredChannelText;
+=======
 		public override Color FeedbackColor => MMFeedbacksInspectorColors.CameraColor; 
 		public override string RequiredTargetText => RequiredChannelText;
 		public override bool HasCustomInspectors => true; 
 		public override bool HasAutomaticShakerSetup => true;
+>>>>>>> origin/Dev
 		#endif
 		/// returns the duration of the feedback
 		public override float FeedbackDuration { get { return ApplyTimeMultiplier(Duration); } set { Duration = value; } }
@@ -65,7 +78,11 @@ namespace MoreMountains.Feedbacks
 				return;
 			}
 			MMCameraOrthographicSizeShakeEvent.Trigger(ShakeOrthographicSize, FeedbackDuration, RemapOrthographicSizeZero, RemapOrthographicSizeOne, RelativeOrthographicSize,
+<<<<<<< HEAD
+				feedbacksIntensity, ChannelData, ResetShakerValuesAfterShake, ResetTargetValuesAfterShake, NormalPlayDirection);
+=======
 				feedbacksIntensity, ChannelData, ResetShakerValuesAfterShake, ResetTargetValuesAfterShake, NormalPlayDirection, ComputedTimescaleMode);
+>>>>>>> origin/Dev
 		}
 
 		/// <summary>
@@ -96,6 +113,8 @@ namespace MoreMountains.Feedbacks
 			MMCameraOrthographicSizeShakeEvent.Trigger(ShakeOrthographicSize, FeedbackDuration,
 				RemapOrthographicSizeZero, RemapOrthographicSizeOne, restore: true);
 		}
+<<<<<<< HEAD
+=======
 		
 		/// <summary>
 		/// Automatically tries to add a MMCameraFieldOfViewShaker to the main camera, if none are present
@@ -132,5 +151,6 @@ namespace MoreMountains.Feedbacks
 			Camera.main.gameObject.MMGetOrAddComponent<MMCameraOrthographicSizeShaker>(); 
 			MMDebug.DebugLogInfo( "Added a MMCameraOrthographicSizeShaker to the main camera. You're all set.");
 		}
+>>>>>>> origin/Dev
 	}
 }

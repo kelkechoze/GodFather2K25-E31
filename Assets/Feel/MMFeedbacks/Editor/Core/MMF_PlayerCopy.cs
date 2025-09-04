@@ -1,8 +1,19 @@
 ﻿using System;
+<<<<<<< HEAD
+using System.Collections;
+using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
+using UnityEditor;
+using Object = UnityEngine.Object;
+
+=======
 using System.Collections.Generic;
 using UnityEditor;
 using System.Linq;
 using UnityEngine;
+>>>>>>> origin/Dev
 
 namespace MoreMountains.Feedbacks
 {
@@ -11,9 +22,20 @@ namespace MoreMountains.Feedbacks
 	/// </summary>
 	static class MMF_PlayerCopy
 	{
+<<<<<<< HEAD
+		// Single Copy --------------------------------------------------------------------
+
+		static public System.Type Type { get; private set; }
+		static List<SerializedProperty> Properties = new List<SerializedProperty>();
+        
+		public static readonly List<MMF_Feedback> CopiedFeedbacks = new List<MMF_Feedback>();
+
+		public static List<MMF_Player> ShouldKeepChanges = new List<MMF_Player>();
+=======
 		static public System.Type Type { get; private set; }
 		public static readonly List<MMF_Feedback> CopiedFeedbacks = new List<MMF_Feedback>();
 		public static readonly Dictionary<MMF_Player, List<MMF_Feedback>> RuntimeChanges = new Dictionary<MMF_Player, List<MMF_Feedback>>();
+>>>>>>> origin/Dev
 
 		static string[] IgnoreList = new string[]
 		{
@@ -28,6 +50,8 @@ namespace MoreMountains.Feedbacks
 			"m_Name",
 			"m_EditorClassIdentifier"
 		};
+<<<<<<< HEAD
+=======
 		
 		static MMF_PlayerCopy()
 		{
@@ -63,6 +87,7 @@ namespace MoreMountains.Feedbacks
 				MMF_PlayerCopy.ApplyRuntimeChanges(player);
 			}
 		}
+>>>>>>> origin/Dev
 
 		static public bool HasCopy()
 		{
@@ -97,6 +122,10 @@ namespace MoreMountains.Feedbacks
 
 		// Multiple Copy ----------------------------------------------------------
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> origin/Dev
 		static public void PasteAll(MMF_PlayerEditor targetEditor)
 		{
 			foreach (MMF_Feedback feedback in MMF_PlayerCopy.CopiedFeedbacks)
@@ -105,6 +134,8 @@ namespace MoreMountains.Feedbacks
 			}
 			CopiedFeedbacks.Clear();
 		}
+<<<<<<< HEAD
+=======
 		
 		// Runtime Changes
 
@@ -140,5 +171,6 @@ namespace MoreMountains.Feedbacks
 			}
 			player.RefreshCache();
 		}
+>>>>>>> origin/Dev
 	}
 }

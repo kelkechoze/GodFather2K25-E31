@@ -1,11 +1,16 @@
 ﻿using UnityEngine;
 #if MM_CINEMACHINE
 using Cinemachine;
+<<<<<<< HEAD
+#endif
+using MoreMountains.Feedbacks;
+=======
 #elif MM_CINEMACHINE3
 using Unity.Cinemachine;
 #endif
 using MoreMountains.Feedbacks;
 using MoreMountains.Tools;
+>>>>>>> origin/Dev
 
 namespace MoreMountains.FeedbacksForThirdParty
 {
@@ -15,8 +20,11 @@ namespace MoreMountains.FeedbacksForThirdParty
 	[AddComponentMenu("More Mountains/Feedbacks/Shakers/Cinemachine/MMCinemachineFreeLookZoom")]
 	#if MM_CINEMACHINE
 	[RequireComponent(typeof(Cinemachine.CinemachineFreeLook))]
+<<<<<<< HEAD
+=======
 	#elif MM_CINEMACHINE3
 	[RequireComponent(typeof(CinemachineCamera))]
+>>>>>>> origin/Dev
 	#endif
 	public class MMCinemachineFreeLookZoom : MonoBehaviour
 	{
@@ -41,7 +49,11 @@ namespace MoreMountains.FeedbacksForThirdParty
 		[Header("Transition Speed")]
 		/// the animation curve to apply to the zoom transition
 		[Tooltip("the animation curve to apply to the zoom transition")]
+<<<<<<< HEAD
+		public AnimationCurve ZoomCurve = new AnimationCurve(new Keyframe(0f, 0f), new Keyframe(1f, 1f));
+=======
 		public MMTweenType ZoomTween = new MMTweenType( new AnimationCurve(new Keyframe(0f, 0f), new Keyframe(1f, 1f)));
+>>>>>>> origin/Dev
 
 		[Header("Test Zoom")]
 		/// the mode to apply the zoom in when using the test button in the inspector
@@ -60,6 +72,11 @@ namespace MoreMountains.FeedbacksForThirdParty
 		[MMFInspectorButton("TestZoom")]
 		/// an inspector button to test the zoom in play mode
 		public bool TestZoomButton;
+<<<<<<< HEAD
+
+		#if MM_CINEMACHINE
+		protected Cinemachine.CinemachineFreeLook _freeLookCamera;
+=======
         
 		public virtual float GetTime() { return (TimescaleMode == TimescaleModes.Scaled) ? Time.time : Time.unscaledTime; }
 		public virtual float GetDeltaTime() { return (TimescaleMode == TimescaleModes.Scaled) ? Time.deltaTime : Time.unscaledDeltaTime; }
@@ -71,6 +88,7 @@ namespace MoreMountains.FeedbacksForThirdParty
 		#elif MM_CINEMACHINE3
 		protected CinemachineCamera _freeLookCamera;
 		#endif
+>>>>>>> origin/Dev
 		protected float _initialFieldOfView;
 		protected MMCameraZoomModes _mode;
 		protected bool _zooming = false;
@@ -82,14 +100,21 @@ namespace MoreMountains.FeedbacksForThirdParty
 		protected int _direction = 1;
 		protected float _reachedDestinationTimestamp;
 		protected bool _destinationReached = false;
+<<<<<<< HEAD
+=======
 		protected float _elapsedTime = 0f;
 		protected float _zoomStartedAt = 0f;
+>>>>>>> origin/Dev
 
 		/// <summary>
 		/// On Awake we grab our virtual camera
 		/// </summary>
 		protected virtual void Awake()
 		{
+<<<<<<< HEAD
+			_freeLookCamera = this.gameObject.GetComponent<Cinemachine.CinemachineFreeLook>();
+			_initialFieldOfView = _freeLookCamera.m_Lens.FieldOfView;
+=======
 			#if MM_CINEMACHINE
 			_freeLookCamera = this.gameObject.GetComponent<Cinemachine.CinemachineFreeLook>();
 			_initialFieldOfView = _freeLookCamera.m_Lens.FieldOfView;
@@ -97,6 +122,7 @@ namespace MoreMountains.FeedbacksForThirdParty
 			_freeLookCamera = this.gameObject.GetComponent<CinemachineCamera>();
 			_initialFieldOfView = _freeLookCamera.Lens.FieldOfView;
 			#endif
+>>>>>>> origin/Dev
 		}	
         
 		/// <summary>
@@ -108,6 +134,13 @@ namespace MoreMountains.FeedbacksForThirdParty
 			{
 				return;
 			}
+<<<<<<< HEAD
+
+			if (_freeLookCamera.m_Lens.FieldOfView != _targetFieldOfView)
+			{
+				_delta += Time.deltaTime / _transitionDuration;
+				_freeLookCamera.m_Lens.FieldOfView = Mathf.LerpUnclamped(_startFieldOfView, _targetFieldOfView, ZoomCurve.Evaluate(_delta));
+=======
 			
 			_elapsedTime = GetTime() - _zoomStartedAt;
 			if (_elapsedTime <= _transitionDuration)
@@ -118,11 +151,26 @@ namespace MoreMountains.FeedbacksForThirdParty
 				#elif MM_CINEMACHINE3
 				_freeLookCamera.Lens.FieldOfView = Mathf.LerpUnclamped(_startFieldOfView, _targetFieldOfView, ZoomTween.Evaluate(t));
 				#endif
+>>>>>>> origin/Dev
 			}
 			else
 			{
 				if (!_destinationReached)
 				{
+<<<<<<< HEAD
+					_reachedDestinationTimestamp = Time.time;
+					_destinationReached = true;
+				}
+
+				if ((_mode == MMCameraZoomModes.For) && (_direction == 1))
+				{
+					if (Time.time - _reachedDestinationTimestamp > _duration)
+					{
+						_direction = -1;
+						_startFieldOfView = _targetFieldOfView;
+						_targetFieldOfView = _initialFieldOfView;
+						_delta = 0f;
+=======
 					_reachedDestinationTimestamp = GetTime();
 					_destinationReached = true;
 				}
@@ -134,12 +182,17 @@ namespace MoreMountains.FeedbacksForThirdParty
 						_zoomStartedAt = GetTime();
 						_startFieldOfView = _targetFieldOfView;
 						_targetFieldOfView = _initialFieldOfView;
+>>>>>>> origin/Dev
 					}                    
 				}
 				else
 				{
 					_zooming = false;
+<<<<<<< HEAD
+				}                
+=======
 				}   
+>>>>>>> origin/Dev
 			}
 		}
 
@@ -150,8 +203,12 @@ namespace MoreMountains.FeedbacksForThirdParty
 		/// <param name="newFieldOfView"></param>
 		/// <param name="transitionDuration"></param>
 		/// <param name="duration"></param>
+<<<<<<< HEAD
+		public virtual void Zoom(MMCameraZoomModes mode, float newFieldOfView, float transitionDuration, float duration, bool relative = false)
+=======
 		public virtual void Zoom(MMCameraZoomModes mode, float newFieldOfView, float transitionDuration, 
 			float duration, bool relative = false, MMTweenType tweenType = null)
+>>>>>>> origin/Dev
 		{
 			if (_zooming)
 			{
@@ -159,6 +216,12 @@ namespace MoreMountains.FeedbacksForThirdParty
 			}
 
 			_zooming = true;
+<<<<<<< HEAD
+			_delta = 0f;
+			_mode = mode;
+
+			_startFieldOfView = _freeLookCamera.m_Lens.FieldOfView;
+=======
 			_elapsedTime = 0f;
 			_mode = mode;
 
@@ -168,17 +231,21 @@ namespace MoreMountains.FeedbacksForThirdParty
 				_startFieldOfView = _freeLookCamera.Lens.FieldOfView;
 			#endif
 			
+>>>>>>> origin/Dev
 			_transitionDuration = transitionDuration;
 			_duration = duration;
 			_transitionDuration = transitionDuration;
 			_direction = 1;
 			_destinationReached = false;
+<<<<<<< HEAD
+=======
 			_zoomStartedAt = GetTime();
 
 			if (tweenType != null)
 			{
 				ZoomTween = tweenType;
 			}
+>>>>>>> origin/Dev
 
 			switch (mode)
 			{
@@ -214,8 +281,12 @@ namespace MoreMountains.FeedbacksForThirdParty
 		/// When we get an MMCameraZoomEvent we call our zoom method 
 		/// </summary>
 		/// <param name="zoomEvent"></param>
+<<<<<<< HEAD
+		public virtual void OnCameraZoomEvent(MMCameraZoomModes mode, float newFieldOfView, float transitionDuration, float duration, MMChannelData channelData, bool useUnscaledTime, bool stop = false, bool relative = false, bool restore = false)
+=======
 		public virtual void OnCameraZoomEvent(MMCameraZoomModes mode, float newFieldOfView, float transitionDuration, float duration, 
 			MMChannelData channelData, bool useUnscaledTime, bool stop = false, bool relative = false, bool restore = false, MMTweenType tweenType = null)
+>>>>>>> origin/Dev
 		{
 			if (!MMChannel.Match(channelData, ChannelMode, Channel, MMChannelDefinition))
 			{
@@ -228,6 +299,12 @@ namespace MoreMountains.FeedbacksForThirdParty
 			}
 			if (restore)
 			{
+<<<<<<< HEAD
+				_freeLookCamera.m_Lens.FieldOfView = _initialFieldOfView;
+				return;
+			}
+			this.Zoom(mode, newFieldOfView, transitionDuration, duration, relative);
+=======
 				#if MM_CINEMACHINE
 				_freeLookCamera.m_Lens.FieldOfView = _initialFieldOfView;
 				#elif MM_CINEMACHINE3
@@ -236,6 +313,7 @@ namespace MoreMountains.FeedbacksForThirdParty
 				return;
 			}
 			this.Zoom(mode, newFieldOfView, transitionDuration, duration, relative, tweenType);
+>>>>>>> origin/Dev
 		}
 
 		/// <summary>
@@ -253,5 +331,9 @@ namespace MoreMountains.FeedbacksForThirdParty
 		{
 			MMCameraZoomEvent.Unregister(OnCameraZoomEvent);
 		}
+<<<<<<< HEAD
+		#endif
+=======
+>>>>>>> origin/Dev
 	}
 }

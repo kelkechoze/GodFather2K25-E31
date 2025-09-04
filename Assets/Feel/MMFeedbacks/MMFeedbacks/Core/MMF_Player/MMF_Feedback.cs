@@ -16,7 +16,10 @@ namespace MoreMountains.Feedbacks
 
 		public const string _randomnessGroupName = "Feedback Randomness";
 		public const string _rangeGroupName = "Feedback Range";
+<<<<<<< HEAD
+=======
 		public const string _automaticSetupGroupName = "Automatic Setup";
+>>>>>>> origin/Dev
 		
 		[MMFInspectorGroup("Feedback Settings", true, 0, false, true)]
 		/// whether or not this feedback is active
@@ -111,6 +114,10 @@ namespace MoreMountains.Feedbacks
 		public AnimationCurve RangeFalloff = new AnimationCurve(new Keyframe(0f, 1f), new Keyframe(1f, 0f));
 
 		/// the values to remap the falloff curve's y axis' 0 and 1
+<<<<<<< HEAD
+		[Tooltip("the values to remap the falloff curve's y axis' 0 and 1")] [MMFVector("Zero", "One")]
+		public Vector2 RemapRangeFalloff = new Vector2(0f, 1f);
+=======
 		[Tooltip("the values to remap the falloff curve's y axis' 0 and 1")] 
 		[MMFVector("Zero", "One")]
 		public Vector2 RemapRangeFalloff = new Vector2(0f, 1f);
@@ -120,6 +127,7 @@ namespace MoreMountains.Feedbacks
 		/// a button used to attempt an auto shaker setup for this feedback, adding whatever shaker it requires to function to the scene
 		[Tooltip("a button used to attempt an auto shaker setup for this feedback, adding whatever shaker it requires to function to the scene")]
 		public MMF_Button AutomaticShakerSetupButton;
+>>>>>>> origin/Dev
 
 		/// the Owner of the feedback, as defined when calling the Initialization method
 		[HideInInspector] public MMF_Player Owner;
@@ -149,6 +157,10 @@ namespace MoreMountains.Feedbacks
 		/// if this is true, the Channel property will be displayed, otherwise it'll be hidden        
 		public virtual bool HasChannel => false;
 
+<<<<<<< HEAD
+		/// if this is true, the Randomness group will be displayed, otherwise it'll be hidden        
+		public virtual bool HasRandomness => false;
+=======
 		/// if this is true, this feedback will display an automatic shaker setup button       
 		public virtual bool HasAutomaticShakerSetup => false;
 
@@ -160,6 +172,7 @@ namespace MoreMountains.Feedbacks
 
 		/// if this is true, force initial value will happen over two frames
 		public virtual bool ForceInitialValueDelayed => false;
+>>>>>>> origin/Dev
 
 		/// whether or not this feedback can automatically grab the target on this game object, or a parent, a child, or on a reference holder
 		public virtual bool HasAutomatedTargetAcquisition => false;
@@ -169,9 +182,12 @@ namespace MoreMountains.Feedbacks
 		/// if this is true, the Range group will be displayed, otherwise it'll be hidden        
 		public virtual bool HasRange => false;
 
+<<<<<<< HEAD
+=======
 		/// the total amount of plays this feedback has left
 		public virtual int PlaysLeft => _playsLeft;
 
+>>>>>>> origin/Dev
 		public virtual bool HasCustomInspectors => false;
 		/// an overridable color for your feedback, that can be redefined per feedback. White is the only reserved color, and the feedback will revert to 
 		/// normal (light or dark skin) when left to White
@@ -239,39 +255,66 @@ namespace MoreMountains.Feedbacks
 		{
 			get
 			{
+<<<<<<< HEAD
+				#if UNITY_EDITOR
+				if (!Application.isPlaying)
+				{
+					return (float)EditorApplication.timeSinceStartup;
+=======
 				float timescaleMultiplier = Owner.TimescaleMultiplier;
 				
 				#if UNITY_EDITOR
 				if (!Application.isPlaying)
 				{
 					return (float)EditorApplication.timeSinceStartup * timescaleMultiplier;
+>>>>>>> origin/Dev
 				}
 				#endif
 
 				if (Timing.UseScriptDrivenTimescale)
 				{
+<<<<<<< HEAD
+					return Timing.ScriptDrivenTime;
+=======
 					return Timing.ScriptDrivenTime * timescaleMultiplier;
+>>>>>>> origin/Dev
 				}
 
 				if (Owner.ForceTimescaleMode)
 				{
 					if (Owner.ForcedTimescaleMode == TimescaleModes.Scaled)
 					{
+<<<<<<< HEAD
+						return Time.time;
+					}
+					else
+					{
+						return Time.unscaledTime;
+=======
 						return Time.time * timescaleMultiplier;
 					}
 					else
 					{
 						return Time.unscaledTime * timescaleMultiplier;
+>>>>>>> origin/Dev
 					}
 				}
 
 				if (Timing.TimescaleMode == TimescaleModes.Scaled)
 				{
+<<<<<<< HEAD
+					return Time.time;
+				}
+				else
+				{
+					return Time.unscaledTime;
+=======
 					return Time.time * timescaleMultiplier;
 				}
 				else
 				{
 					return Time.unscaledTime * timescaleMultiplier;
+>>>>>>> origin/Dev
 				}
 			}
 		}
@@ -281,22 +324,36 @@ namespace MoreMountains.Feedbacks
 		{
 			get
 			{
+<<<<<<< HEAD
+				if (Timing.UseScriptDrivenTimescale)
+				{
+					return Timing.ScriptDrivenDeltaTime;
+=======
 				float timescaleMultiplier = Owner.TimescaleMultiplier;
 				
 				if (Timing.UseScriptDrivenTimescale)
 				{
 					return Timing.ScriptDrivenDeltaTime * timescaleMultiplier;
+>>>>>>> origin/Dev
 				}
 
 				if (Owner.ForceTimescaleMode)
 				{
 					if (Owner.ForcedTimescaleMode == TimescaleModes.Scaled)
 					{
+<<<<<<< HEAD
+						return Time.deltaTime;
+					}
+					else
+					{
+						return Time.unscaledDeltaTime;
+=======
 						return Time.deltaTime * timescaleMultiplier;
 					}
 					else
 					{
 						return Time.unscaledDeltaTime * timescaleMultiplier;
+>>>>>>> origin/Dev
 					}
 				}
 
@@ -307,11 +364,19 @@ namespace MoreMountains.Feedbacks
 
 				if (Timing.TimescaleMode == TimescaleModes.Scaled)
 				{
+<<<<<<< HEAD
+					return Time.deltaTime;
+				}
+				else
+				{
+					return Time.unscaledDeltaTime;
+=======
 					return Time.deltaTime * timescaleMultiplier;
 				}
 				else
 				{
 					return Time.unscaledDeltaTime * timescaleMultiplier;
+>>>>>>> origin/Dev
 				}
 			}
 		}
@@ -334,6 +399,13 @@ namespace MoreMountains.Feedbacks
 		/// A flag used to determine if a feedback has all it needs, or if it requires some extra setup.
 		/// This flag will be used to display a warning icon in the inspector if the feedback is not ready to be played.
 		/// </summary>
+<<<<<<< HEAD
+		public bool RequiresSetup => _requiresSetup;
+		public string RequiredTarget => _requiredTarget;
+
+		public virtual void CacheRequiresSetup()
+		{
+=======
 		public virtual bool RequiresSetup => _requiresSetup;
 		public virtual string RequiredTarget => _requiredTarget;
 
@@ -341,11 +413,15 @@ namespace MoreMountains.Feedbacks
 		{
 			#if UNITY_EDITOR
 			
+>>>>>>> origin/Dev
 			_requiresSetup = EvaluateRequiresSetup();
 			if (_requiresSetup && HasAutomatedTargetAcquisition && (AutomatedTargetAcquisition != null) && (AutomatedTargetAcquisition.Mode != MMFeedbackTargetAcquisition.Modes.None))
 			{
 				_requiresSetup = false;
 			}
+<<<<<<< HEAD
+			_requiredTarget = RequiredTargetText == "" ? "" : "[" + RequiredTargetText + "]";
+=======
 			if ((RequiredTargetText != _requiredTargetTextCached) || (RequiredTargetTextExtra != _requiredTargetTextCachedExtra))
 			{
 				_requiredTarget = RequiredTargetText == "" ? "" : "[" + RequiredTargetText + "]" + RequiredTargetTextExtra;
@@ -354,6 +430,7 @@ namespace MoreMountains.Feedbacks
 			}
 			
 			#endif
+>>>>>>> origin/Dev
 		}
 		/// if this is true, group inspectors will be displayed within this feedback
 		public virtual bool DrawGroupInspectors => true;
@@ -363,8 +440,11 @@ namespace MoreMountains.Feedbacks
 		public virtual string RequiresSetupText => "This feedback requires some additional setup.";
 		/// the text used to describe the required target
 		public virtual string RequiredTargetText => "";
+<<<<<<< HEAD
+=======
 		/// the text used to describe the required target, if more info is needed
 		public virtual string RequiredTargetTextExtra => "";
+>>>>>>> origin/Dev
 
 		/// <summary>
 		/// Override this method to determine if a feedback requires setup 
@@ -397,6 +477,9 @@ namespace MoreMountains.Feedbacks
 		public virtual float FeedbackDuration
 		{
 			get { return 0f; }
+<<<<<<< HEAD
+			set { }
+=======
 			set {  }
 		}
 
@@ -408,6 +491,7 @@ namespace MoreMountains.Feedbacks
 		{
 			FeedbackDuration = newDuration;
 			Owner.ComputeCachedTotalDuration();
+>>>>>>> origin/Dev
 		}
 
 		/// whether or not this feedback is playing right now
@@ -415,7 +499,11 @@ namespace MoreMountains.Feedbacks
 			((FeedbackStartedAt > 0f) && (Time.time - FeedbackStartedAt < FeedbackDuration));
 
 		/// a ChannelData object, ready to pass to an event
+<<<<<<< HEAD
+		public MMChannelData ChannelData => _channelData.Set(ChannelMode, Channel, MMChannelDefinition);
+=======
 		public virtual MMChannelData ChannelData => _channelData.Set(ChannelMode, Channel, MMChannelDefinition);
+>>>>>>> origin/Dev
 
 		protected float _lastPlayTimestamp = -1f;
 		protected int _playsLeft;
@@ -436,15 +524,21 @@ namespace MoreMountains.Feedbacks
 		protected MMChannelData _channelData;
 		protected float _totalDuration = 0f;
 		protected int _indexInOwnerFeedbackList = 0;
+<<<<<<< HEAD
+=======
 		protected string _requiredTargetTextCached = ".";
 		protected string _requiredTargetTextCachedExtra = "";
 		protected float _repeatOffset = 0f;
+>>>>>>> origin/Dev
 
 		#endregion Properties
 
 		#region Initialization
 
 		/// <summary>
+<<<<<<< HEAD
+		/// Initializes the feedback and its timing related variables
+=======
 		/// Runs at Awake, lets you preinitialize your custom feedback before Initialization
 		/// </summary>
 		/// <param name="owner"></param>
@@ -456,6 +550,7 @@ namespace MoreMountains.Feedbacks
 
 		/// <summary>
 		/// Typically runs on Start, Initializes the feedback and its timing related variables
+>>>>>>> origin/Dev
 		/// </summary>
 		/// <param name="owner"></param>
 		public virtual void Initialization(MMF_Player owner, int index)
@@ -467,11 +562,17 @@ namespace MoreMountains.Feedbacks
 
 			SetIndexInFeedbacksList(index);
 			_lastPlayTimestamp = -1f;
+<<<<<<< HEAD
+			_initialized = true;
+			Owner = owner;
+			_playsLeft = Timing.NumberOfRepeats + 1;
+=======
 			Timing.PlayCount = 0;
 			_initialized = true;
 			Owner = owner;
 			_playsLeft = Timing.NumberOfRepeats + 1;
 			_repeatOffset = 0f;
+>>>>>>> origin/Dev
 			_channelData = new MMChannelData(ChannelMode, Channel, MMChannelDefinition);
 			AutomateTargetAcquisitionInternal();
 			SetInitialDelay(Timing.InitialDelay);
@@ -489,6 +590,8 @@ namespace MoreMountains.Feedbacks
 			_indexInOwnerFeedbackList = index;
 		}
 
+<<<<<<< HEAD
+=======
 		/// <summary>
 		/// Call this method (either directly or via the inspector button) to try and automatically setup this feedback's
 		/// corresponding shaker in the scene
@@ -498,6 +601,7 @@ namespace MoreMountains.Feedbacks
 			
 		}
 
+>>>>>>> origin/Dev
 		#endregion Initialization
 		
 		#region Automation
@@ -580,9 +684,14 @@ namespace MoreMountains.Feedbacks
 
 			if (!_initialized)
 			{
+<<<<<<< HEAD
+				Debug.LogWarning("The " + this +
+				                 " feedback is being played without having been initialized. Call Initialization() first.");
+=======
 				string feedbackName = this.ToString().Replace("MoreMountains.Feedbacks.", "");
 				Debug.LogWarning("The " + feedbackName +
 				                 " feedback on "+Owner.gameObject.name+" is being played without having been initialized. Always call the Initialization() method first. This can be done manually, or on Start or Awake (automatically on Start is the default). If you're auto playing your feedback on Start or on Enable, initialize on Awake (which runs before Start and Enable). You can change that setting on your MMF Player, unfold the Settings foldout at the top, and change the Initialization Mode.", Owner.gameObject);
+>>>>>>> origin/Dev
 			}
 
 			// we check the cooldown
@@ -598,6 +707,10 @@ namespace MoreMountains.Feedbacks
 			else
 			{
 				RegularPlay(position, feedbacksIntensity);
+<<<<<<< HEAD
+				_lastPlayTimestamp = FeedbackTime;
+=======
+>>>>>>> origin/Dev
 			}
 		}
 
@@ -609,8 +722,14 @@ namespace MoreMountains.Feedbacks
 		/// <returns></returns>
 		protected virtual IEnumerator PlayCoroutine(Vector3 position, float feedbacksIntensity = 1.0f)
 		{
+<<<<<<< HEAD
+			yield return WaitFor(Timing.InitialDelay);
+			RegularPlay(position, feedbacksIntensity);
+			_lastPlayTimestamp = FeedbackTime;
+=======
 			yield return WaitFor(ApplyTimeMultiplier(Timing.InitialDelay));
 			RegularPlay(position, feedbacksIntensity);
+>>>>>>> origin/Dev
 		}
 
 		/// <summary>
@@ -634,11 +753,14 @@ namespace MoreMountains.Feedbacks
 					return;
 				}
 			}
+<<<<<<< HEAD
+=======
 			
 			if (Timing.LimitPlayCount && (Timing.PlayCount >= Timing.MaxPlayCount))
 			{
 				return;
 			}
+>>>>>>> origin/Dev
 
 			if (Timing.UseIntensityInterval)
 			{
@@ -648,8 +770,11 @@ namespace MoreMountains.Feedbacks
 					return;
 				}
 			}
+<<<<<<< HEAD
+=======
 			
 			_repeatOffset = 0f;
+>>>>>>> origin/Dev
 
 			if (Timing.RepeatForever)
 			{
@@ -665,7 +790,11 @@ namespace MoreMountains.Feedbacks
 
 			if (Timing.Sequence == null)
 			{
+<<<<<<< HEAD
+				CustomPlayFeedback(position, feedbacksIntensity);
+=======
 				TriggerCustomPlay(position, feedbacksIntensity);
+>>>>>>> origin/Dev
 			}
 			else
 			{
@@ -674,6 +803,8 @@ namespace MoreMountains.Feedbacks
 		}
 
 		/// <summary>
+<<<<<<< HEAD
+=======
 		/// Triggers a custom play
 		/// </summary>
 		/// <param name="position"></param>
@@ -686,6 +817,7 @@ namespace MoreMountains.Feedbacks
 		}
 
 		/// <summary>
+>>>>>>> origin/Dev
 		/// Internal coroutine used for repeated play without end
 		/// </summary>
 		/// <param name="position"></param>
@@ -695,7 +827,23 @@ namespace MoreMountains.Feedbacks
 		{
 			while (true)
 			{
+<<<<<<< HEAD
+				if (Timing.Sequence == null)
+				{
+					CustomPlayFeedback(position, feedbacksIntensity);
+					_lastPlayTimestamp = FeedbackTime;
+					yield return WaitFor(Timing.DelayBetweenRepeats + FeedbackDuration);
+				}
+				else
+				{
+					_sequenceCoroutine = Owner.StartCoroutine(SequenceCoroutine(position, feedbacksIntensity));
+
+					float delay = ApplyTimeMultiplier(Timing.DelayBetweenRepeats) + Timing.Sequence.Length;
+					yield return WaitFor(delay);
+				}
+=======
 				yield return TriggerRepeatedPlay(position, feedbacksIntensity);
+>>>>>>> origin/Dev
 			}
 		}
 
@@ -710,12 +858,31 @@ namespace MoreMountains.Feedbacks
 			while (_playsLeft > 0)
 			{
 				_playsLeft--;
+<<<<<<< HEAD
+				if (Timing.Sequence == null)
+				{
+					CustomPlayFeedback(position, feedbacksIntensity);
+					_lastPlayTimestamp = FeedbackTime;
+					yield return WaitFor(Timing.DelayBetweenRepeats + FeedbackDuration);
+					yield return MMCoroutine.WaitForFrames(1);
+				}
+				else
+				{
+					_sequenceCoroutine = Owner.StartCoroutine(SequenceCoroutine(position, feedbacksIntensity));
+					float delay = ApplyTimeMultiplier(Timing.DelayBetweenRepeats) + Timing.Sequence.Length;
+					yield return WaitFor(delay);
+					yield return MMCoroutine.WaitForFrames(1);
+				}
+=======
 				yield return TriggerRepeatedPlay(position, feedbacksIntensity);
+>>>>>>> origin/Dev
 			}
 
 			_playsLeft = Timing.NumberOfRepeats + 1;
 		}
 
+<<<<<<< HEAD
+=======
 		protected virtual IEnumerator TriggerRepeatedPlay(Vector3 position, float feedbacksIntensity = 1.0f)
 		{
 			if (Timing.Sequence == null)
@@ -741,6 +908,7 @@ namespace MoreMountains.Feedbacks
 			}
 		}
 
+>>>>>>> origin/Dev
 		#endregion Play
 
 		#region Sequence
@@ -778,7 +946,11 @@ namespace MoreMountains.Feedbacks
 						{
 							if (Timing.Sequence.QuantizedSequence[i].Line[CurrentSequenceIndex].ID == Timing.TrackID)
 							{
+<<<<<<< HEAD
+								CustomPlayFeedback(position, feedbacksIntensity);
+=======
 								TriggerCustomPlay(position, feedbacksIntensity);
+>>>>>>> origin/Dev
 							}
 						}
 
@@ -797,7 +969,11 @@ namespace MoreMountains.Feedbacks
 						if ((item.ID == Timing.TrackID) && (item.Timestamp >= lastFrame) &&
 						    (item.Timestamp <= FeedbackTime - timeStartedAt))
 						{
+<<<<<<< HEAD
+							CustomPlayFeedback(position, feedbacksIntensity);
+=======
 							TriggerCustomPlay(position, feedbacksIntensity);
+>>>>>>> origin/Dev
 						}
 					}
 
@@ -876,6 +1052,8 @@ namespace MoreMountains.Feedbacks
 		}
 
 		/// <summary>
+<<<<<<< HEAD
+=======
 		/// Forces the feedback to set its initial value (behavior will change from feedback to feedback,
 		/// but for example, a Position feedback that moves a Transform from point A to B would
 		/// automatically move the Transform to point A when ForceInitialState is called
@@ -912,6 +1090,7 @@ namespace MoreMountains.Feedbacks
 		}
 
 		/// <summary>
+>>>>>>> origin/Dev
 		/// Called when restoring the initial state of a player, calls custom Restore on all feedbacks
 		/// </summary>
 		/// <param name="position"></param>
@@ -927,6 +1106,11 @@ namespace MoreMountains.Feedbacks
 		public virtual void ResetFeedback()
 		{
 			_playsLeft = Timing.NumberOfRepeats + 1;
+<<<<<<< HEAD
+			CustomReset();
+		}
+
+=======
 			if (Timing.SetPlayCountToZeroOnReset)
 			{
 				ResetPlayCount();
@@ -942,6 +1126,7 @@ namespace MoreMountains.Feedbacks
 			CustomPlayerComplete();
 		}
 
+>>>>>>> origin/Dev
 		#endregion
 
 		#region Time
@@ -979,6 +1164,8 @@ namespace MoreMountains.Feedbacks
 		{
 			_randomDurationMultiplier = Random.Range(RandomDurationMultiplier.x, RandomDurationMultiplier.y);
 		}
+<<<<<<< HEAD
+=======
 		
 		/// <summary>
 		/// Resets the play count of this feedback
@@ -987,6 +1174,7 @@ namespace MoreMountains.Feedbacks
 		{
 			Timing.PlayCount = 0;
 		}
+>>>>>>> origin/Dev
 
 		/// <summary>
 		/// Applies the host MMFeedbacks' time multiplier to this feedback
@@ -1158,10 +1346,13 @@ namespace MoreMountains.Feedbacks
 		/// This method describes what happens when the feedback gets restored
 		/// </summary>
 		protected virtual void CustomRestoreInitialValues() { }
+<<<<<<< HEAD
+=======
 		/// <summary>
 		/// This method describes what happens when the player this feedback belongs to completes playing
 		/// </summary>
 		protected virtual void CustomPlayerComplete() { }
+>>>>>>> origin/Dev
 
 		/// <summary>
 		/// This method describes what happens when the feedback gets reset
@@ -1171,6 +1362,9 @@ namespace MoreMountains.Feedbacks
 		/// <summary>
 		/// Use this method to initialize any custom attributes you may have
 		/// </summary>
+<<<<<<< HEAD
+		public virtual void InitializeCustomAttributes() { }
+=======
 		public virtual void InitializeCustomAttributes()
 		{
 			if (HasAutomaticShakerSetup)
@@ -1178,6 +1372,7 @@ namespace MoreMountains.Feedbacks
 				AutomaticShakerSetupButton = new MMF_Button("Automatic Shaker Setup", AutomaticShakerSetup);
 			}
 		}
+>>>>>>> origin/Dev
 
 		#endregion Overrides
 

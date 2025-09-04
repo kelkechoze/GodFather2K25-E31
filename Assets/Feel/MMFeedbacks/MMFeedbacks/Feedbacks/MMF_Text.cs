@@ -1,8 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
+<<<<<<< HEAD
+using UnityEngine.UI;
+=======
 #if MM_UI
 using UnityEngine.UI;
 using UnityEngine.Scripting.APIUpdating;
+>>>>>>> origin/Dev
 
 namespace MoreMountains.Feedbacks
 {
@@ -11,7 +15,10 @@ namespace MoreMountains.Feedbacks
 	/// </summary>
 	[AddComponentMenu("")]
 	[FeedbackHelp("This feedback lets you control the contents of a target Text over time.")]
+<<<<<<< HEAD
+=======
 	[MovedFrom(false, null, "MoreMountains.Feedbacks")]
+>>>>>>> origin/Dev
 	[FeedbackPath("UI/Text")]
 	public class MMF_Text : MMF_Feedback
 	{
@@ -73,5 +80,9 @@ namespace MoreMountains.Feedbacks
 			TargetText.text = _initialText;
 		}
 	}
+<<<<<<< HEAD
+}
+=======
 }
 #endif
+>>>>>>> origin/Dev

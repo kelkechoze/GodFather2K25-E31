@@ -145,6 +145,13 @@ namespace MoreMountains.Feedbacks
 				_originalColorOverTime = ColorOverTime;
 			}
 
+<<<<<<< HEAD
+			ModifyColor = modifyColor;
+			ShakeDuration = shakeDuration;
+			ColorOverTime = colorOverTime;
+			FlipX = flipX;
+			FlipY = flipY;
+=======
 			if (!OnlyUseShakerValues)
 			{
 				ModifyColor = modifyColor;
@@ -153,6 +160,7 @@ namespace MoreMountains.Feedbacks
 				FlipX = flipX;
 				FlipY = flipY;
 			}
+>>>>>>> origin/Dev
 
 			if (FlipX)
 			{

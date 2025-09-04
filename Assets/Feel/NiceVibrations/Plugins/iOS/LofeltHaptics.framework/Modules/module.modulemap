@@ -1,6 +1,15 @@
+<<<<<<< HEAD
 framework module LofeltHaptics {
   umbrella header "LofeltHaptics.h"
 
   export *
   module * { export * }
 }
+=======
+framework module LofeltHaptics {
+  umbrella header "LofeltHaptics.h"
+
+  export *
+  module * { export * }
+}
+>>>>>>> origin/Dev

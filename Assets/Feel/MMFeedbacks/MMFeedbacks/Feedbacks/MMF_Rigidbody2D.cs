@@ -1,7 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+<<<<<<< HEAD
+=======
 using UnityEngine.Scripting.APIUpdating;
+>>>>>>> origin/Dev
 
 namespace MoreMountains.Feedbacks
 {
@@ -10,7 +13,10 @@ namespace MoreMountains.Feedbacks
 	/// </summary>
 	[AddComponentMenu("")]
 	[FeedbackHelp("This feedback will let you apply forces and torques (relative or not) to a Rigidbody.")]
+<<<<<<< HEAD
+=======
 	[MovedFrom(false, null, "MoreMountains.Feedbacks")]
+>>>>>>> origin/Dev
 	[FeedbackPath("GameObject/Rigidbody2D")]
 	public class MMF_Rigidbody2D : MMF_Feedback
 	{
@@ -32,9 +38,12 @@ namespace MoreMountains.Feedbacks
 		/// the rigidbody to target on play
 		[Tooltip("the rigidbody to target on play")]
 		public Rigidbody2D TargetRigidbody2D;
+<<<<<<< HEAD
+=======
 		/// an extra list of rigidbodies to target on play
 		[Tooltip("an extra list of rigidbodies to target on play")]
 		public List<Rigidbody2D> ExtraTargetRigidbodies2D;
+>>>>>>> origin/Dev
 		/// the selected mode for this feedback
 		[Tooltip("the selected mode for this feedback")]
 		public Modes Mode = Modes.AddForce;
@@ -57,9 +66,12 @@ namespace MoreMountains.Feedbacks
 		/// the force mode to apply
 		[Tooltip("the force mode to apply")]
 		public ForceMode2D AppliedForceMode = ForceMode2D.Impulse;
+<<<<<<< HEAD
+=======
 		/// if this is true, the velocity of the rigidbody will be reset before applying the new force
 		[Tooltip("if this is true, the velocity of the rigidbody will be reset before applying the new force")]
 		public bool ResetVelocityOnPlay = false;
+>>>>>>> origin/Dev
 
 		protected Vector2 _force;
 		protected float _torque;
@@ -75,6 +87,9 @@ namespace MoreMountains.Feedbacks
 			{
 				return;
 			}
+<<<<<<< HEAD
+            
+=======
 			
 			ApplyForce(TargetRigidbody2D, feedbacksIntensity);
 			foreach (Rigidbody2D rb in ExtraTargetRigidbodies2D)
@@ -95,24 +110,37 @@ namespace MoreMountains.Feedbacks
 				rb.linearVelocity = Vector2.zero;
 			}
 			
+>>>>>>> origin/Dev
 			switch (Mode)
 			{
 				case Modes.AddForce:
 					_force.x = Random.Range(MinForce.x, MaxForce.x);
 					_force.y = Random.Range(MinForce.y, MaxForce.y);
 					if (!Timing.ConstantIntensity) { _force *= feedbacksIntensity; }
+<<<<<<< HEAD
+					TargetRigidbody2D.AddForce(_force, AppliedForceMode);
+=======
 					rb.AddForce(_force, AppliedForceMode);
+>>>>>>> origin/Dev
 					break;
 				case Modes.AddRelativeForce:
 					_force.x = Random.Range(MinForce.x, MaxForce.x);
 					_force.y = Random.Range(MinForce.y, MaxForce.y);
 					if (!Timing.ConstantIntensity) { _force *= feedbacksIntensity; }
+<<<<<<< HEAD
+					TargetRigidbody2D.AddRelativeForce(_force, AppliedForceMode);
+=======
 					rb.AddRelativeForce(_force, AppliedForceMode);
+>>>>>>> origin/Dev
 					break;
 				case Modes.AddTorque:
 					_torque = Random.Range(MinTorque, MaxTorque);
 					if (!Timing.ConstantIntensity) { _torque *= feedbacksIntensity; }
+<<<<<<< HEAD
+					TargetRigidbody2D.AddTorque(_torque, AppliedForceMode);
+=======
 					rb.AddTorque(_torque, AppliedForceMode);
+>>>>>>> origin/Dev
 					break;
 			}
 		}

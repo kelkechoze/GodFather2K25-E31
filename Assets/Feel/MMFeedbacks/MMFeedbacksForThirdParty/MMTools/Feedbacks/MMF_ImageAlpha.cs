@@ -1,10 +1,17 @@
+<<<<<<< HEAD
+﻿using System.Collections;
+=======
 ﻿#if MM_UI
 using System.Collections;
+>>>>>>> origin/Dev
 using System.Collections.Generic;
 using MoreMountains.Tools;
 using UnityEngine;
 using UnityEngine.UI;
+<<<<<<< HEAD
+=======
 using UnityEngine.Scripting.APIUpdating;
+>>>>>>> origin/Dev
 
 namespace MoreMountains.Feedbacks
 {
@@ -13,7 +20,10 @@ namespace MoreMountains.Feedbacks
 	/// </summary>
 	[AddComponentMenu("")]
 	[FeedbackHelp("This feedback will let you change the alpha of a target Image over time.")]
+<<<<<<< HEAD
+=======
 	[MovedFrom(false, null, "MoreMountains.Feedbacks.MMTools")]
+>>>>>>> origin/Dev
 	[FeedbackPath("UI/Image Alpha")]
 	public class MMF_ImageAlpha : MMF_Feedback
 	{
@@ -72,7 +82,11 @@ namespace MoreMountains.Feedbacks
 		public float DestinationAlpha = 1f;
 		/// if this is true, the target will be disabled when this feedbacks is stopped
 		[Tooltip("if this is true, the target will be disabled when this feedbacks is stopped")] 
+<<<<<<< HEAD
+		public bool DisableOnStop = true;
+=======
 		public bool DisableOnStop = false;
+>>>>>>> origin/Dev
 
 		/// the duration of this feedback is the duration of the Image, or 0 if instant
 		public override float FeedbackDuration { get { return (Mode == Modes.Instant) ? 0f : ApplyTimeMultiplier(Duration); } set { Duration = value; } }
@@ -108,7 +122,10 @@ namespace MoreMountains.Feedbacks
 						return;
 					}
 
+<<<<<<< HEAD
+=======
 					if (_coroutine != null) { Owner.StopCoroutine(_coroutine); }
+>>>>>>> origin/Dev
 					_coroutine = Owner.StartCoroutine(ImageSequence());
 					break;
 				case Modes.ToDestination:
@@ -117,7 +134,10 @@ namespace MoreMountains.Feedbacks
 						return;
 					}
 
+<<<<<<< HEAD
+=======
 					if (_coroutine != null) { Owner.StopCoroutine(_coroutine); }
+>>>>>>> origin/Dev
 					_coroutine = Owner.StartCoroutine(ImageSequence());
 					break;
 			}
@@ -186,10 +206,13 @@ namespace MoreMountains.Feedbacks
 			{
 				Turn(false);    
 			}
+<<<<<<< HEAD
+=======
             if (_coroutine != null)
             {
                 Owner.StopCoroutine(_coroutine);        
             }			
+>>>>>>> origin/Dev
 			_coroutine = null;
 		}
 
@@ -215,5 +238,9 @@ namespace MoreMountains.Feedbacks
 			BoundImage.color = _initialColor;
 		}
 	}
+<<<<<<< HEAD
+}
+=======
 }
 #endif
+>>>>>>> origin/Dev

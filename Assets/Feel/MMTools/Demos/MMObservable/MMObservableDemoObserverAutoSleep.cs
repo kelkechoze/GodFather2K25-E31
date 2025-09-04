@@ -8,7 +8,10 @@ namespace MoreMountains.Tools
 	/// A test class used to demonstrate the MMObservable pattern in the MMObservableDemo scene
 	/// This one disables itself on Awake, and passively listens for changes, even when disabled
 	/// </summary>
+<<<<<<< HEAD
+=======
 	[AddComponentMenu("")]
+>>>>>>> origin/Dev
 	public class MMObservableDemoObserverAutoSleep : MonoBehaviour
 	{
 		public MMObservableDemoSubject TargetSubject;

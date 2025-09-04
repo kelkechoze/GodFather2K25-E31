@@ -1,7 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+<<<<<<< HEAD
+using UnityEngine.UI;
+=======
 using UnityEngine.Scripting.APIUpdating;
+>>>>>>> origin/Dev
 
 namespace MoreMountains.Feedbacks
 {
@@ -10,7 +14,10 @@ namespace MoreMountains.Feedbacks
 	/// </summary>
 	[AddComponentMenu("")]
 	[FeedbackHelp("This feedback lets you unload a scene by name or build index")]
+<<<<<<< HEAD
+=======
 	[MovedFrom(false, null, "MoreMountains.Feedbacks")]
+>>>>>>> origin/Dev
 	[FeedbackPath("Scene/Unload Scene")]
 	public class MMF_UnloadScene : MMF_Feedback
 	{
@@ -36,12 +43,20 @@ namespace MoreMountains.Feedbacks
 			return false;
 		}
 		public override string RequiredTargetText { get { return SceneName;  } }
+<<<<<<< HEAD
+		public override string RequiresSetupText { get { return "This feedback requires that you specify a DestinationSceneName below. Make sure you also add that destination scene to your Build Settings."; } }
+=======
 		public override string RequiresSetupText { get { return "This feedback requires that you specify a SceneName below. Make sure you also add that destination scene to your Build Settings."; } }
+>>>>>>> origin/Dev
 		#endif
         
 		public enum Methods { BuildIndex, SceneName }
 
+<<<<<<< HEAD
+		[Header("Unload Scene")] 
+=======
 		[MMFInspectorGroup("Unload Scene", true, 43, false)]
+>>>>>>> origin/Dev
         
 		/// whether to unload a scene by build index or by name
 		[Tooltip("whether to unload a scene by build index or by name")]

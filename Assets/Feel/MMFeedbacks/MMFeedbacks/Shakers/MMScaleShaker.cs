@@ -107,7 +107,11 @@ namespace MoreMountains.Feedbacks
 			GrabInitialScale();
 		}
 
+<<<<<<< HEAD
+		protected virtual void GrabInitialScale()
+=======
 		public virtual void GrabInitialScale()
+>>>>>>> origin/Dev
 		{
 			switch (Mode)
 			{
@@ -266,6 +270,24 @@ namespace MoreMountains.Feedbacks
 				_originalAttenuationCurve = AttenuationCurve;
 			}
 
+<<<<<<< HEAD
+			TimescaleMode = timescaleMode;
+			ShakeDuration = duration;
+			ShakeSpeed = shakeSpeed;
+			ShakeRange = shakeRange * feedbacksIntensity * ComputeRangeIntensity(useRange, rangeDistance, useRangeFalloff, rangeFalloff, remapRangeFalloff, rangePosition); 
+			ShakeMainDirection = shakeMainDirection;
+			RandomizeDirection = randomizeDirection;
+			ShakeAltDirection = shakeAltDirection;
+			RandomizeDirectionOnPlay = randomizeDirectionOnPlay;
+			AddDirectionalNoise = addDirectionalNoise;
+			DirectionalNoiseStrengthMin = directionalNoiseStrengthMin;
+			DirectionalNoiseStrengthMax = directionalNoiseStrengthMax;
+			RandomnessSeed = randomnessSeed;
+			RandomizeSeedOnShake = randomizeSeedOnShake;
+			UseAttenuation = useAttenuation;
+			AttenuationCurve = attenuationCurve;
+			ForwardDirection = forwardDirection;
+=======
 			if (!OnlyUseShakerValues)
 			{
 				TimescaleMode = timescaleMode;
@@ -286,6 +308,7 @@ namespace MoreMountains.Feedbacks
 				AttenuationCurve = attenuationCurve;
 				ForwardDirection = forwardDirection;
 			}
+>>>>>>> origin/Dev
 
 			Play();
 		}

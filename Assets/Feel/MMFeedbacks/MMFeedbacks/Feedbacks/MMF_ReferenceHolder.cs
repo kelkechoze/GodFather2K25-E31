@@ -3,7 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using MoreMountains.Tools;
 using UnityEngine;
+<<<<<<< HEAD
+=======
 using UnityEngine.Scripting.APIUpdating;
+>>>>>>> origin/Dev
 
 namespace MoreMountains.Feedbacks
 {
@@ -13,7 +16,10 @@ namespace MoreMountains.Feedbacks
 	/// </summary>
 	[AddComponentMenu("")]
 	[FeedbackHelp("This feedback allows you to hold a reference, that can then be used by other feedbacks to automatically set their target. It doesn't do anything when played.")]
+<<<<<<< HEAD
+=======
 	[MovedFrom(false, null, "MoreMountains.Feedbacks")]
+>>>>>>> origin/Dev
 	[FeedbackPath("Feedbacks/MMF Reference Holder")]
 	public class MMF_ReferenceHolder : MMF_Feedback
 	{
@@ -24,7 +30,11 @@ namespace MoreMountains.Feedbacks
 		public override Color FeedbackColor { get { return MMFeedbacksInspectorColors.FeedbacksColor; } }
 		public override string RequiredTargetText => GameObjectReference != null ? GameObjectReference.name : "";  
 		#endif
+<<<<<<< HEAD
+		/// the duration of this feedback is the duration of the light, or 0 if instant
+=======
 		/// the duration of this feedback is 0
+>>>>>>> origin/Dev
 		public override float FeedbackDuration => 0f;
 		public override bool DisplayFullHeaderColor => true;
 

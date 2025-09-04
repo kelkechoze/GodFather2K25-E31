@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using MoreMountains.Tools;
 using UnityEngine;
+<<<<<<< HEAD
+=======
 using UnityEngine.Scripting.APIUpdating;
+>>>>>>> origin/Dev
 
 namespace MoreMountains.Feedbacks
 {
@@ -11,7 +14,10 @@ namespace MoreMountains.Feedbacks
 	/// </summary>
 	[AddComponentMenu("")]
 	[FeedbackHelp("This feedback will let you animate the position/rotation/scale of a target transform to match the one of a destination transform.")]
+<<<<<<< HEAD
+=======
 	[MovedFrom(false, null, "MoreMountains.Feedbacks")]
+>>>>>>> origin/Dev
 	[FeedbackPath("Transform/Destination")]
 	public class MMF_DestinationTransform : MMF_Feedback
 	{
@@ -151,7 +157,10 @@ namespace MoreMountains.Feedbacks
 			{
 				return;
 			}
+<<<<<<< HEAD
+=======
 			if (_coroutine != null) { Owner.StopCoroutine(_coroutine); }
+>>>>>>> origin/Dev
 			_coroutine = Owner.StartCoroutine(AnimateToDestination());
 		}
 
@@ -188,10 +197,17 @@ namespace MoreMountains.Feedbacks
 			if (!AnimateScaleZ) { _pointAScale.z = TargetTransform.localScale.z; _pointBScale.z = _pointAScale.z; }
 
 			IsPlaying = true;
+<<<<<<< HEAD
+			float journey = NormalPlayDirection ? 0f : Duration;
+			while ((journey >= 0) && (journey <= Duration) && (Duration > 0))
+			{
+				float percent = Mathf.Clamp01(journey / Duration);
+=======
 			float journey = NormalPlayDirection ? 0f : FeedbackDuration;
 			while ((journey >= 0) && (journey <= FeedbackDuration) && (FeedbackDuration > 0))
 			{
 				float percent = Mathf.Clamp01(journey / FeedbackDuration);
+>>>>>>> origin/Dev
 				ChangeTransformValues(percent);
 				journey += NormalPlayDirection ? FeedbackDeltaTime : -FeedbackDeltaTime;
 				yield return null;

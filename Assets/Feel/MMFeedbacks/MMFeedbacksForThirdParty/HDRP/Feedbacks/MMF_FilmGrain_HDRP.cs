@@ -1,9 +1,16 @@
+<<<<<<< HEAD
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using MoreMountains.Feedbacks;
+=======
 ﻿using UnityEngine;
 using MoreMountains.Feedbacks;
 using UnityEngine.Scripting.APIUpdating;
 #if MM_HDRP
 using UnityEngine.Rendering.HighDefinition;
 #endif
+>>>>>>> origin/Dev
 
 namespace MoreMountains.FeedbacksForThirdParty
 {
@@ -16,7 +23,10 @@ namespace MoreMountains.FeedbacksForThirdParty
 	#if MM_HDRP
 	[FeedbackPath("PostProcess/Film Grain HDRP")]
 	#endif
+<<<<<<< HEAD
+=======
 	[MovedFrom(false, null, "MoreMountains.Feedbacks.HDRP")]
+>>>>>>> origin/Dev
 	[FeedbackHelp("This feedback allows you to control Film Grain intensity over time. " +
 	              "It requires you have in your scene an object with a Volume " +
 	              "with Film Grain active, and a MMFilmGrainShaker_HDRP component.")]
@@ -27,8 +37,11 @@ namespace MoreMountains.FeedbacksForThirdParty
 		/// sets the inspector color for this feedback
 		#if UNITY_EDITOR
 		public override Color FeedbackColor { get { return MMFeedbacksInspectorColors.PostProcessColor; } }
+<<<<<<< HEAD
+=======
 		public override bool HasCustomInspectors => true;
 		public override bool HasAutomaticShakerSetup => true;
+>>>>>>> origin/Dev
 		#endif
 
 		/// the duration of this feedback is the duration of the shake
@@ -39,7 +52,11 @@ namespace MoreMountains.FeedbacksForThirdParty
 		[MMFInspectorGroup("Film Grain", true, 20)]
 		/// the duration of the shake, in seconds
 		[Tooltip("the duration of the shake, in seconds")]
+<<<<<<< HEAD
+		public float Duration = 0.2f;
+=======
 		public float Duration = 2f;
+>>>>>>> origin/Dev
 		/// whether or not to reset shaker values after shake
 		[Tooltip("whether or not to reset shaker values after shake")]
 		public bool ResetShakerValuesAfterShake = true;
@@ -108,6 +125,8 @@ namespace MoreMountains.FeedbacksForThirdParty
 			
 			MMFilmGrainShakeEvent_HDRP.Trigger(Intensity, FeedbackDuration, RemapIntensityZero, RemapIntensityOne, RelativeIntensity, channelData:ChannelData, restore:true);
 		}
+<<<<<<< HEAD
+=======
 		
 		/// <summary>
 		/// Automaticall sets up the post processing profile and shaker
@@ -118,5 +137,6 @@ namespace MoreMountains.FeedbacksForThirdParty
 			MMHDRPHelpers.GetOrCreateVolume<FilmGrain, MMFilmGrainShaker_HDRP>(Owner, "FilmGrain");
 			#endif
 		}
+>>>>>>> origin/Dev
 	}
 }

@@ -1,7 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+<<<<<<< HEAD
+=======
 using UnityEngine.Scripting.APIUpdating;
+>>>>>>> origin/Dev
 
 namespace MoreMountains.Feedbacks
 {
@@ -10,7 +13,10 @@ namespace MoreMountains.Feedbacks
 	/// </summary>
 	[AddComponentMenu("")]
 	[FeedbackHelp("This feedback can act as a pause but also as a start point for your loops. Add a FeedbackLooper below this (and after a few feedbacks) and your MMFeedbacks will loop between both.")]
+<<<<<<< HEAD
+=======
 	[MovedFrom(false, null, "MoreMountains.Feedbacks")]
+>>>>>>> origin/Dev
 	[FeedbackPath("Loop/Looper Start")]
 	public class MMF_LooperStart : MMF_Pause
 	{
@@ -40,7 +46,10 @@ namespace MoreMountains.Feedbacks
 		{
 			if (Active)
 			{
+<<<<<<< HEAD
+=======
 				ProcessNewPauseDuration();
+>>>>>>> origin/Dev
 				Owner.StartCoroutine(PlayPause());
 			}
 		}

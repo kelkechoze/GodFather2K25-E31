@@ -27,7 +27,11 @@ TextureImporter:
       213: 21300014
     second: arrow
   externalObjects: {}
+<<<<<<< HEAD
+  serializedVersion: 13
+=======
   serializedVersion: 12
+>>>>>>> origin/Dev
   mipmaps:
     mipMapMode: 0
     enableMipMap: 1
@@ -44,11 +48,19 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+<<<<<<< HEAD
+    flipGreenChannel: 0
+=======
+>>>>>>> origin/Dev
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+<<<<<<< HEAD
+  ignoreMipmapLimit: 0
+=======
   ignoreMasterTextureLimit: 0
+>>>>>>> origin/Dev
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -87,9 +99,16 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 1
+<<<<<<< HEAD
+  swizzle: 50462976
+  cookieLightType: 1
+  platformSettings:
+  - serializedVersion: 4
+=======
   cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
+>>>>>>> origin/Dev
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 1024
     resizeAlgorithm: 0
@@ -99,9 +118,16 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+<<<<<<< HEAD
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+=======
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
+>>>>>>> origin/Dev
     buildTarget: Standalone
     maxTextureSize: 1024
     resizeAlgorithm: 0
@@ -111,9 +137,16 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+<<<<<<< HEAD
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+=======
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
+>>>>>>> origin/Dev
     buildTarget: WebGL
     maxTextureSize: 1024
     resizeAlgorithm: 0
@@ -123,6 +156,9 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+<<<<<<< HEAD
+    ignorePlatformSupport: 0
+=======
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -135,6 +171,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+>>>>>>> origin/Dev
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -151,6 +188,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+<<<<<<< HEAD
+      customData: 
+=======
+>>>>>>> origin/Dev
       outline: []
       physicsShape: []
       tessellationDetail: -1
@@ -172,6 +213,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+<<<<<<< HEAD
+      customData: 
+=======
+>>>>>>> origin/Dev
       outline: []
       physicsShape: []
       tessellationDetail: -1
@@ -193,6 +238,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+<<<<<<< HEAD
+      customData: 
+=======
+>>>>>>> origin/Dev
       outline: []
       physicsShape: []
       tessellationDetail: -1
@@ -214,6 +263,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+<<<<<<< HEAD
+      customData: 
+=======
+>>>>>>> origin/Dev
       outline: []
       physicsShape: []
       tessellationDetail: -1
@@ -235,6 +288,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+<<<<<<< HEAD
+      customData: 
+=======
+>>>>>>> origin/Dev
       outline: []
       physicsShape: []
       tessellationDetail: -1
@@ -256,6 +313,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+<<<<<<< HEAD
+      customData: 
+=======
+>>>>>>> origin/Dev
       outline: []
       physicsShape: []
       tessellationDetail: -1
@@ -277,6 +338,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+<<<<<<< HEAD
+      customData: 
+=======
+>>>>>>> origin/Dev
       outline: []
       physicsShape: []
       tessellationDetail: -1
@@ -298,6 +363,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+<<<<<<< HEAD
+      customData: 
+=======
+>>>>>>> origin/Dev
       outline: []
       physicsShape: []
       tessellationDetail: -1
@@ -309,6 +378,10 @@ TextureImporter:
       edges: []
       weights: []
     outline: []
+<<<<<<< HEAD
+    customData: 
+=======
+>>>>>>> origin/Dev
     physicsShape: []
     bones: []
     spriteID: 
@@ -318,6 +391,11 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+<<<<<<< HEAD
+    spriteCustomMetadata:
+      entries: []
+=======
+>>>>>>> origin/Dev
     nameFileIdTable:
       arrow: 21300014
       button-A: 21300002
@@ -327,9 +405,14 @@ TextureImporter:
       button-Y: 21300006
       joystick-back: 21300010
       joystick-knob: 21300000
+<<<<<<< HEAD
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+=======
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
+>>>>>>> origin/Dev
   userData: 
   assetBundleName: 
   assetBundleVariant: 

@@ -174,6 +174,21 @@ namespace MoreMountains.FeedbacksForThirdParty
 				_originalRemapBlueOne = RemapBlueOne;
 			}
 
+<<<<<<< HEAD
+			TimescaleMode = timescaleMode;
+			ShakeDuration = duration;
+			RelativeValues = relativeValues;
+			ShakeRed = shakeRed;
+			RemapRedZero = remapRedZero;
+			RemapRedOne = remapRedOne;
+			ShakeGreen = shakeGreen;
+			RemapGreenZero = remapGreenZero;
+			RemapGreenOne = remapGreenOne;
+			ShakeBlue = shakeBlue;
+			RemapBlueZero = remapBlueZero;
+			RemapBlueOne = remapBlueOne;
+			ForwardDirection = forwardDirection;
+=======
 			if (!OnlyUseShakerValues)
 			{
 				TimescaleMode = timescaleMode;
@@ -190,6 +205,7 @@ namespace MoreMountains.FeedbacksForThirdParty
 				RemapBlueOne = remapBlueOne;
 				ForwardDirection = forwardDirection;
 			}
+>>>>>>> origin/Dev
 
 			Play();
 		}

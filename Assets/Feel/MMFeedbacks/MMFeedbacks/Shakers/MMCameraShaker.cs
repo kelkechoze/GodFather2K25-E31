@@ -37,11 +37,19 @@ namespace MoreMountains.Feedbacks
 		static public void Register(Delegate callback) { OnEvent += callback; }
 		static public void Unregister(Delegate callback) { OnEvent -= callback; }
 
+<<<<<<< HEAD
+		public delegate void Delegate(MMCameraZoomModes mode, float newFieldOfView, float transitionDuration, float duration, MMChannelData channelData, bool useUnscaledTime = false, bool stop = false, bool relative = false, bool restore = false);
+
+		static public void Trigger(MMCameraZoomModes mode, float newFieldOfView, float transitionDuration, float duration, MMChannelData channelData, bool useUnscaledTime = false, bool stop = false, bool relative = false, bool restore = false)
+		{
+			OnEvent?.Invoke(mode, newFieldOfView, transitionDuration, duration, channelData, useUnscaledTime, stop, relative, restore);
+=======
 		public delegate void Delegate(MMCameraZoomModes mode, float newFieldOfView, float transitionDuration, float duration, MMChannelData channelData, bool useUnscaledTime = false, bool stop = false, bool relative = false, bool restore = false, MMTweenType tweenType = null);
 
 		static public void Trigger(MMCameraZoomModes mode, float newFieldOfView, float transitionDuration, float duration, MMChannelData channelData, bool useUnscaledTime = false, bool stop = false, bool relative = false, bool restore = false, MMTweenType tweenType = null)
 		{
 			OnEvent?.Invoke(mode, newFieldOfView, transitionDuration, duration, channelData, useUnscaledTime, stop, relative, restore, tweenType);
+>>>>>>> origin/Dev
 		}
 	}
 
@@ -141,7 +149,11 @@ namespace MoreMountains.Feedbacks
 				_wiggle.PositionWiggleProperties.AmplitudeMax = Vector3.one * amplitude;
 			}
 
+<<<<<<< HEAD
+			_shakeStartedTimestamp = Time.time;
+=======
 			_shakeStartedTimestamp = Time.unscaledTime;
+>>>>>>> origin/Dev
 			_wiggle.PositionWiggleProperties.UseUnscaledTime = useUnscaledTime;
 			_wiggle.PositionWiggleProperties.FrequencyMin = frequency;
 			_wiggle.PositionWiggleProperties.FrequencyMax = frequency;

@@ -1,8 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+<<<<<<< HEAD
+using UnityEngine;
+=======
 using MoreMountains.Tools;
 using UnityEngine;
 using UnityEngine.Scripting.APIUpdating;
+>>>>>>> origin/Dev
 
 namespace MoreMountains.Feedbacks
 {
@@ -11,7 +15,10 @@ namespace MoreMountains.Feedbacks
 	/// </summary>
 	[AddComponentMenu("")]
 	[FeedbackHelp("This feedback allows you to change the state of the target gameobject from active to inactive (or the opposite), on init, play, stop or reset. For each of these you can specify if you want to force a state (active or inactive), or toggle it (active becomes inactive, inactive becomes active).")]
+<<<<<<< HEAD
+=======
 	[MovedFrom(false, null, "MoreMountains.Feedbacks")]
+>>>>>>> origin/Dev
 	[FeedbackPath("GameObject/Set Active")]
 	public class MMF_SetActive : MMF_Feedback
 	{
@@ -19,6 +26,12 @@ namespace MoreMountains.Feedbacks
 		public static bool FeedbackTypeAuthorized = true;
 		/// sets the inspector color for this feedback
 		#if UNITY_EDITOR
+<<<<<<< HEAD
+		public override Color FeedbackColor { get { return MMFeedbacksInspectorColors.GameObjectColor; } }
+		public override bool EvaluateRequiresSetup() { return (TargetGameObject == null); }
+		public override string RequiredTargetText { get { return TargetGameObject != null ? TargetGameObject.name : "";  } }
+		public override string RequiresSetupText { get { return "This feedback requires that a TargetGameObject be set to be able to work properly. You can set one below."; } }
+=======
 		public override Color FeedbackColor => MMFeedbacksInspectorColors.GameObjectColor; 
 		public override bool EvaluateRequiresSetup() => (TargetGameObject == null); 
 		public override string RequiredTargetText => TargetGameObject != null ? TargetGameObject.name : "";
@@ -34,6 +47,7 @@ namespace MoreMountains.Feedbacks
 			}
 		}
 		public override string RequiresSetupText => "This feedback requires that a TargetGameObject be set to be able to work properly. You can set one below."; 
+>>>>>>> origin/Dev
 		#endif
 		public override bool HasAutomatedTargetAcquisition => true;
 		protected override void AutomateTargetAcquisition() => TargetGameObject = FindAutomatedTargetGameObject();
@@ -45,9 +59,12 @@ namespace MoreMountains.Feedbacks
 		/// the gameobject we want to change the active state of
 		[Tooltip("the gameobject we want to change the active state of")]
 		public GameObject TargetGameObject;
+<<<<<<< HEAD
+=======
 		/// a list of extra gameobjects we want to change the active state of
 		[Tooltip("a list of extra gameobjects we want to change the active state of")]
 		public List<GameObject> ExtraTargetGameObjects;
+>>>>>>> origin/Dev
         
 		[MMFInspectorGroup("States", true, 14)]
 		/// whether or not we should alter the state of the target object on init
@@ -85,6 +102,10 @@ namespace MoreMountains.Feedbacks
 		[Tooltip("how to change the state on skip")]
 		[MMFCondition("SetStateOnSkip", true)]
 		public PossibleStates StateOnSkip = PossibleStates.Inactive;
+<<<<<<< HEAD
+
+		protected bool _initialState;
+=======
 		/// whether or not we should alter the state of the target object when the player this feedback belongs to is done playing all its feedbacks
 		[Tooltip("whether or not we should alter the state of the target object when the player this feedback belongs to is done playing all its feedbacks")]
 		public bool SetStateOnPlayerComplete = false;
@@ -95,6 +116,7 @@ namespace MoreMountains.Feedbacks
 
 		protected bool _initialState;
 		protected List<bool> _initialStates;
+>>>>>>> origin/Dev
         
 		/// <summary>
 		/// On init we change the state of our object if needed
@@ -103,6 +125,11 @@ namespace MoreMountains.Feedbacks
 		protected override void CustomInitialization(MMF_Player owner)
 		{
 			base.CustomInitialization(owner);
+<<<<<<< HEAD
+			if (Active && (TargetGameObject != null))
+			{
+				_initialState = TargetGameObject.activeInHierarchy;
+=======
 
 			_initialStates = new List<bool>(ExtraTargetGameObjects.Count);
 			
@@ -115,6 +142,7 @@ namespace MoreMountains.Feedbacks
 					_initialStates.Add(ExtraTargetGameObjects[i].activeInHierarchy);
 				}
 
+>>>>>>> origin/Dev
 				if (SetStateOnInit)
 				{
 					SetStatus(StateOnInit);
@@ -179,6 +207,8 @@ namespace MoreMountains.Feedbacks
 			}
 		}
 		
+<<<<<<< HEAD
+=======
 		/// <summary>
 		/// On PlayerComplete we change the state of our object if needed
 		/// </summary>
@@ -200,6 +230,7 @@ namespace MoreMountains.Feedbacks
 			}
 		}
 		
+>>>>>>> origin/Dev
 		
 		/// <summary>
 		/// On Skip, changes the state of our target object if needed
@@ -243,6 +274,9 @@ namespace MoreMountains.Feedbacks
 					newState = !TargetGameObject.activeInHierarchy;
 					break;
 			}
+<<<<<<< HEAD
+			TargetGameObject.SetActive(newState);
+=======
 			
 			ApplyStatus(TargetGameObject, newState);
 			foreach (GameObject go in ExtraTargetGameObjects)
@@ -259,6 +293,7 @@ namespace MoreMountains.Feedbacks
 		protected virtual void ApplyStatus(GameObject target, bool newState)
 		{
 			target.SetActive(newState);
+>>>>>>> origin/Dev
 		}
 		
 		/// <summary>
@@ -271,10 +306,13 @@ namespace MoreMountains.Feedbacks
 				return;
 			}
 			TargetGameObject.SetActive(_initialState);
+<<<<<<< HEAD
+=======
 			for (int i = 0; i < ExtraTargetGameObjects.Count; i++)
 			{
 				ExtraTargetGameObjects[i].SetActive(_initialStates[i]);
 			}
+>>>>>>> origin/Dev
 		}
 	}
 }

@@ -3,7 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using MoreMountains.Tools;
 using UnityEngine;
+<<<<<<< HEAD
+=======
 using UnityEngine.Scripting.APIUpdating;
+>>>>>>> origin/Dev
 
 namespace MoreMountains.Feedbacks
 {
@@ -12,8 +15,12 @@ namespace MoreMountains.Feedbacks
 	/// </summary>
 	[AddComponentMenu("")]
 	[FeedbackHelp("This feedback lets you control the color and intensity of a Light in your scene for a certain duration (or instantly).")]
+<<<<<<< HEAD
+	[FeedbackPath("Light")]
+=======
 	[MovedFrom(false, null, "MoreMountains.Feedbacks")]
 	[FeedbackPath("Lights/Light")]
+>>>>>>> origin/Dev
 	public class MMF_Light : MMF_Feedback
 	{
 		/// a static bool used to disable all feedbacks of this type at once
@@ -52,7 +59,11 @@ namespace MoreMountains.Feedbacks
 		public bool StartsOff = true;
 		/// if this is true, the light will be disabled when this feedbacks is stopped
 		[Tooltip("if this is true, the light will be disabled when this feedbacks is stopped")] 
+<<<<<<< HEAD
+		public bool DisableOnStop = true;
+=======
 		public bool DisableOnStop = false;
+>>>>>>> origin/Dev
 		/// whether or not the values should be relative or not
 		[Tooltip("whether or not the values should be relative or not")]
 		[MMFEnumCondition("Mode", (int)Modes.OverTime, (int)Modes.ShakerEvent, (int)Modes.Instant)]
@@ -251,7 +262,10 @@ namespace MoreMountains.Feedbacks
 					{
 						return;
 					}
+<<<<<<< HEAD
+=======
 					if (_coroutine != null) { Owner.StopCoroutine(_coroutine); }
+>>>>>>> origin/Dev
 					_coroutine = Owner.StartCoroutine(LightSequence(intensityMultiplier));
 					break;
 				case Modes.ShakerEvent:

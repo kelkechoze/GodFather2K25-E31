@@ -123,7 +123,10 @@ namespace MoreMountains.Feedbacks
 				{
 					GameObject newPool = new GameObject();
 					newPool.name = DetermineObjectPoolName(GameObjectToPool);
+<<<<<<< HEAD
+=======
 					SceneManager.MoveGameObjectToScene(newPool, this.gameObject.scene);
+>>>>>>> origin/Dev
 					_objectPool = newPool.AddComponent<MMMiniObjectPool>();
 					_objectPool.PooledGameObjects = new List<GameObject>();
 					AddPool(_objectPool);

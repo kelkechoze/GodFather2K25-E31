@@ -1,9 +1,16 @@
+<<<<<<< HEAD
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using MoreMountains.Feedbacks;
+=======
 ﻿using UnityEngine;
 using MoreMountains.Feedbacks;
 using UnityEngine.Scripting.APIUpdating;
 #if MM_HDRP
 using UnityEngine.Rendering.HighDefinition;
 #endif
+>>>>>>> origin/Dev
 
 namespace MoreMountains.FeedbacksForThirdParty
 {
@@ -15,7 +22,10 @@ namespace MoreMountains.FeedbacksForThirdParty
 	#if MM_HDRP
 	[FeedbackPath("PostProcess/Chromatic Aberration HDRP")]
 	#endif
+<<<<<<< HEAD
+=======
 	[MovedFrom(false, null, "MoreMountains.Feedbacks.HDRP")]
+>>>>>>> origin/Dev
 	[FeedbackHelp("This feedback allows you to control chromatic aberration intensity over time. It requires you have in your scene an object with a Volume " +
 	              "with Chromatic Aberration active, and a MMChromaticAberrationShaker_HDRP component.")]
 	public class MMF_ChromaticAberration_HDRP : MMF_Feedback
@@ -25,8 +35,11 @@ namespace MoreMountains.FeedbacksForThirdParty
 		/// sets the inspector color for this feedback
 		#if UNITY_EDITOR
 		public override Color FeedbackColor { get { return MMFeedbacksInspectorColors.PostProcessColor; } }
+<<<<<<< HEAD
+=======
 		public override bool HasCustomInspectors => true;
 		public override bool HasAutomaticShakerSetup => true;
+>>>>>>> origin/Dev
 		#endif
 
 		/// the duration of this feedback is the duration of the shake
@@ -110,6 +123,8 @@ namespace MoreMountains.FeedbacksForThirdParty
 			
 			MMChromaticAberrationShakeEvent_HDRP.Trigger(Intensity, FeedbackDuration, RemapIntensityZero, RemapIntensityOne, RelativeIntensity, channelData:ChannelData, restore:true);
 		}
+<<<<<<< HEAD
+=======
 		
 		/// <summary>
 		/// Automaticall sets up the post processing profile and shaker
@@ -120,5 +135,6 @@ namespace MoreMountains.FeedbacksForThirdParty
 			MMHDRPHelpers.GetOrCreateVolume<ChromaticAberration, MMChromaticAberrationShaker_HDRP>(Owner, "ChromaticAberration");
 			#endif
 		}
+>>>>>>> origin/Dev
 	}
 }

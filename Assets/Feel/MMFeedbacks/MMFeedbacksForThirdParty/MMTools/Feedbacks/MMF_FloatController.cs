@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using MoreMountains.Tools;
+<<<<<<< HEAD
+=======
 using UnityEngine.Scripting.APIUpdating;
+>>>>>>> origin/Dev
 
 namespace MoreMountains.Feedbacks
 {
@@ -11,7 +14,10 @@ namespace MoreMountains.Feedbacks
 	/// </summary>
 	[AddComponentMenu("")]
 	[FeedbackHelp("This feedback lets you trigger a one time play on a target FloatController.")]
+<<<<<<< HEAD
+=======
 	[MovedFrom(false, null, "MoreMountains.Feedbacks.MMTools")]
+>>>>>>> origin/Dev
 	[FeedbackPath("GameObject/FloatController")]
 	public class MMF_FloatController : MMF_Feedback
 	{
@@ -27,8 +33,11 @@ namespace MoreMountains.Feedbacks
 		public override string RequiresSetupText { get { return "This feedback requires that a TargetFloatController be set to be able to work properly. You can set one below."; } }
 		#endif
 		public override bool HasRandomness => true;
+<<<<<<< HEAD
+=======
 		public override bool CanForceInitialValue => true;
 		public override bool ForceInitialValueDelayed => true;
+>>>>>>> origin/Dev
 		public override bool HasAutomatedTargetAcquisition => true;
 		protected override void AutomateTargetAcquisition() => TargetFloatController = FindAutomatedTarget<FloatController>();
 
@@ -39,9 +48,12 @@ namespace MoreMountains.Feedbacks
 		/// the float controller to trigger a one time play on
 		[Tooltip("the float controller to trigger a one time play on")]
 		public FloatController TargetFloatController;
+<<<<<<< HEAD
+=======
 		/// a list of extra and optional float controllers to trigger a one time play on
 		[Tooltip("a list of extra and optional float controllers to trigger a one time play on")]
 		public List<FloatController> ExtraTargetFloatControllers;
+>>>>>>> origin/Dev
 		/// whether this should revert to original at the end
 		[Tooltip("whether this should revert to original at the end")]
 		public bool RevertToInitialValueAfterEnd = false;
@@ -128,6 +140,33 @@ namespace MoreMountains.Feedbacks
 			}
             
 			float intensityMultiplier = ComputeIntensity(feedbacksIntensity, position);
+<<<<<<< HEAD
+			TargetFloatController.RevertToInitialValueAfterEnd = RevertToInitialValueAfterEnd;
+
+			if (Mode == Modes.OneTime)
+			{
+				TargetFloatController.OneTimeDuration = FeedbackDuration;
+				TargetFloatController.OneTimeAmplitude = OneTimeAmplitude;
+				TargetFloatController.OneTimeCurve = OneTimeCurve;
+				if (NormalPlayDirection)
+				{
+					TargetFloatController.OneTimeRemapMin = OneTimeRemapMin * intensityMultiplier;
+					TargetFloatController.OneTimeRemapMax = OneTimeRemapMax * intensityMultiplier;
+				}
+				else
+				{
+					TargetFloatController.OneTimeRemapMin = OneTimeRemapMax * intensityMultiplier;
+					TargetFloatController.OneTimeRemapMax = OneTimeRemapMin * intensityMultiplier;   
+				}
+				TargetFloatController.OneTime();
+			}
+			if (Mode == Modes.ToDestination)
+			{
+				TargetFloatController.ToDestinationCurve = ToDestinationCurve;
+				TargetFloatController.ToDestinationDuration = FeedbackDuration;
+				TargetFloatController.ToDestinationValue = ToDestinationValue;
+				TargetFloatController.ToDestination();
+=======
 			HandleFloatController(TargetFloatController, intensityMultiplier);
 			foreach (FloatController floatController in ExtraTargetFloatControllers)
 			{
@@ -167,6 +206,7 @@ namespace MoreMountains.Feedbacks
 				target.ToDestinationDuration = FeedbackDuration;
 				target.ToDestinationValue = ToDestinationValue;
 				target.ToDestination();
+>>>>>>> origin/Dev
 			}
 		}
 
@@ -178,6 +218,20 @@ namespace MoreMountains.Feedbacks
 			base.CustomReset();
 			if (Active && FeedbackTypeAuthorized && (TargetFloatController != null))
 			{
+<<<<<<< HEAD
+				TargetFloatController.OneTimeDuration = _oneTimeDurationStorage;
+				TargetFloatController.OneTimeAmplitude = _oneTimeAmplitudeStorage;
+				TargetFloatController.OneTimeCurve = _oneTimeCurveStorage;
+				TargetFloatController.OneTimeRemapMin = _oneTimeRemapMinStorage;
+				TargetFloatController.OneTimeRemapMax = _oneTimeRemapMaxStorage;
+				TargetFloatController.ToDestinationCurve = _toDestinationCurveStorage;
+				TargetFloatController.ToDestinationDuration = _toDestinationDurationStorage;
+				TargetFloatController.ToDestinationValue = _toDestinationValueStorage;
+				TargetFloatController.RevertToInitialValueAfterEnd = _revertToInitialValueAfterEndStorage;
+			}
+		}
+
+=======
 				ResetFloatController(TargetFloatController);
 				foreach (FloatController controller in ExtraTargetFloatControllers)
 				{
@@ -199,6 +253,7 @@ namespace MoreMountains.Feedbacks
 			controller.RevertToInitialValueAfterEnd = _revertToInitialValueAfterEndStorage;
 		}
 
+>>>>>>> origin/Dev
 
 		/// <summary>
 		/// On stop, we interrupt movement if it was active
@@ -215,10 +270,13 @@ namespace MoreMountains.Feedbacks
 			if (TargetFloatController != null)
 			{
 				TargetFloatController.Stop();
+<<<<<<< HEAD
+=======
 				foreach (FloatController controller in ExtraTargetFloatControllers)
 				{
 					controller.Stop();
 				}
+>>>>>>> origin/Dev
 			}
 		}
 		
@@ -232,10 +290,13 @@ namespace MoreMountains.Feedbacks
 				return;
 			}
 			TargetFloatController.RestoreInitialValues();
+<<<<<<< HEAD
+=======
 			foreach (FloatController controller in ExtraTargetFloatControllers)
 			{
 				controller.RestoreInitialValues();
 			}
+>>>>>>> origin/Dev
 		}
 	}
 }

@@ -2,7 +2,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+<<<<<<< HEAD
+=======
 using UnityEngine.Scripting.APIUpdating;
+>>>>>>> origin/Dev
 
 namespace MoreMountains.Feedbacks
 {
@@ -11,7 +14,10 @@ namespace MoreMountains.Feedbacks
 	/// </summary>
 	[AddComponentMenu("")]
 	[FeedbackHelp("This feedback will let you change the color of a target sprite renderer over time, and flip it on X or Y. You can also use it to command one or many MMSpriteRendererShakers.")]
+<<<<<<< HEAD
+=======
 	[MovedFrom(false, null, "MoreMountains.Feedbacks")]
+>>>>>>> origin/Dev
 	[FeedbackPath("Renderer/SpriteRenderer")]
 	public class MMF_SpriteRenderer : MMF_Feedback
 	{
@@ -176,7 +182,10 @@ namespace MoreMountains.Feedbacks
 					{
 						return;
 					}
+<<<<<<< HEAD
+=======
 					if (_coroutine != null) { Owner.StopCoroutine(_coroutine); }
+>>>>>>> origin/Dev
 					_coroutine = Owner.StartCoroutine(SpriteRendererSequence());
 					break;
 				case Modes.ShakerEvent:
@@ -191,7 +200,10 @@ namespace MoreMountains.Feedbacks
 					{
 						return;
 					}
+<<<<<<< HEAD
+=======
 					if (_coroutine != null) { Owner.StopCoroutine(_coroutine); }
+>>>>>>> origin/Dev
 					_coroutine = Owner.StartCoroutine(SpriteRendererToDestinationSequence(false));
 					break;
 				case Modes.ToDestinationColorAndBack:
@@ -199,7 +211,10 @@ namespace MoreMountains.Feedbacks
 					{
 						return;
 					}
+<<<<<<< HEAD
+=======
 					if (_coroutine != null) { Owner.StopCoroutine(_coroutine); }
+>>>>>>> origin/Dev
 					_coroutine = Owner.StartCoroutine(SpriteRendererToDestinationSequence(true));
 					break;
 			}

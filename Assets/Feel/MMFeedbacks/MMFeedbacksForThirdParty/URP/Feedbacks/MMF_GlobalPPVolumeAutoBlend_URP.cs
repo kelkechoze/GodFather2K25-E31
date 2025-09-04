@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using MoreMountains.Feedbacks;
+<<<<<<< HEAD
+=======
 using UnityEngine.Scripting.APIUpdating;
+>>>>>>> origin/Dev
 
 namespace MoreMountains.FeedbacksForThirdParty
 {
@@ -14,7 +17,10 @@ namespace MoreMountains.FeedbacksForThirdParty
 	#if MM_URP
 	[FeedbackPath("PostProcess/Global PP Volume Auto Blend URP")]
 	#endif
+<<<<<<< HEAD
+=======
 	[MovedFrom(false, null, "MoreMountains.Feedbacks.URP")]
+>>>>>>> origin/Dev
 	public class MMF_GlobalPPVolumeAutoBlend_URP : MMF_Feedback
 	{
 		/// a static bool used to disable all feedbacks of this type at once

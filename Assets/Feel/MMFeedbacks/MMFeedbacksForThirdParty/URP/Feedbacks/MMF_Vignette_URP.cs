@@ -1,9 +1,16 @@
+<<<<<<< HEAD
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using MoreMountains.Feedbacks;
+=======
 ﻿using UnityEngine;
 using MoreMountains.Feedbacks;
 using UnityEngine.Scripting.APIUpdating;
 #if MM_URP
 using UnityEngine.Rendering.Universal;
 #endif
+>>>>>>> origin/Dev
 
 namespace MoreMountains.FeedbacksForThirdParty
 {
@@ -16,7 +23,10 @@ namespace MoreMountains.FeedbacksForThirdParty
 	#if MM_URP
 	[FeedbackPath("PostProcess/Vignette URP")]
 	#endif
+<<<<<<< HEAD
+=======
 	[MovedFrom(false, null, "MoreMountains.Feedbacks.URP")]
+>>>>>>> origin/Dev
 	[FeedbackHelp("This feedback allows you to control vignette intensity over time. " +
 	              "It requires you have in your scene an object with a Volume " +
 	              "with Vignette active, and a MMVignetteShaker_URP component.")]
@@ -27,8 +37,11 @@ namespace MoreMountains.FeedbacksForThirdParty
 		/// sets the inspector color for this feedback
 		#if UNITY_EDITOR
 		public override Color FeedbackColor { get { return MMFeedbacksInspectorColors.PostProcessColor; } }
+<<<<<<< HEAD
+=======
 		public override bool HasCustomInspectors => true;
 		public override bool HasAutomaticShakerSetup => true;
+>>>>>>> origin/Dev
 		#endif
 
 		/// the duration of this feedback is the duration of the shake
@@ -62,6 +75,8 @@ namespace MoreMountains.FeedbacksForThirdParty
 		/// whether or not to add to the initial intensity
 		[Tooltip("whether or not to add to the initial intensity")]
 		public bool RelativeIntensity = false;
+<<<<<<< HEAD
+=======
 		
 		[Header("Color")]
 		/// whether or not to also animate  the vignette's color
@@ -81,6 +96,7 @@ namespace MoreMountains.FeedbacksForThirdParty
 		/// the color to lerp towards
 		[Tooltip("the color to lerp towards")]
 		public Color TargetColor = Color.red;
+>>>>>>> origin/Dev
 
 		/// <summary>
 		/// Triggers a vignette shake
@@ -96,8 +112,12 @@ namespace MoreMountains.FeedbacksForThirdParty
             
 			float intensityMultiplier = ComputeIntensity(feedbacksIntensity, position);
 			MMVignetteShakeEvent_URP.Trigger(Intensity, FeedbackDuration, RemapIntensityZero, RemapIntensityOne, RelativeIntensity, intensityMultiplier,
+<<<<<<< HEAD
+				ChannelData, ResetShakerValuesAfterShake, ResetTargetValuesAfterShake, NormalPlayDirection, ComputedTimescaleMode);
+=======
 				ChannelData, ResetShakerValuesAfterShake, ResetTargetValuesAfterShake, NormalPlayDirection, ComputedTimescaleMode, false, false, InterpolateColor,
 				ColorCurve, RemapColorZero, RemapColorOne, TargetColor);
+>>>>>>> origin/Dev
             
 		}
         
@@ -129,6 +149,8 @@ namespace MoreMountains.FeedbacksForThirdParty
 			
 			MMVignetteShakeEvent_URP.Trigger(Intensity, FeedbackDuration, RemapIntensityZero, RemapIntensityOne, RelativeIntensity, restore: true, channelData: ChannelData);
 		}
+<<<<<<< HEAD
+=======
 		
 		/// <summary>
 		/// Automaticall sets up the post processing profile and shaker
@@ -139,5 +161,6 @@ namespace MoreMountains.FeedbacksForThirdParty
 			MMURPHelpers.GetOrCreateVolume<Vignette, MMVignetteShaker_URP>(Owner, "Vignette");
 			#endif
 		}
+>>>>>>> origin/Dev
 	}
 }

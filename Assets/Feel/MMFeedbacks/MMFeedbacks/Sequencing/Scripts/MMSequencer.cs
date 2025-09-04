@@ -13,8 +13,11 @@ namespace MoreMountains.Feedbacks
 	[AddComponentMenu("More Mountains/Feedbacks/Sequencing/MMSequencer")]
 	public class MMSequencer : MonoBehaviour
 	{
+<<<<<<< HEAD
+=======
 		public enum TimeScales { Scaled, Unscaled }
 		
+>>>>>>> origin/Dev
 		[Header("Sequence")]
 		/// the sequence to design on or to play
 		[Tooltip("the sequence to design on or to play")]
@@ -27,9 +30,12 @@ namespace MoreMountains.Feedbacks
 		public int SequencerLength = 8;
 
 		[Header("Playback")]
+<<<<<<< HEAD
+=======
 		/// the timescale on which this sequencer should play
 		[Tooltip("the timescale on which this sequencer should play")]
 		public TimeScales TimeScale = TimeScales.Scaled;
+>>>>>>> origin/Dev
 		/// whether the sequence should loop or not when played back
 		[Tooltip("whether the sequence should loop or not when played back")]
 		public bool Loop = true;
@@ -71,8 +77,11 @@ namespace MoreMountains.Feedbacks
 		[Tooltip("the index of the last played bit (our position in the playing sequence)")]
 		[MMFReadOnly]
 		public int LastBeatIndex = 0;
+<<<<<<< HEAD
+=======
 		
 		public float InternalTime => TimeScale == TimeScales.Scaled ? Time.time : Time.unscaledTime;
+>>>>>>> origin/Dev
 
 		[HideInInspector]
 		public int LastBPM = -1;
@@ -196,7 +205,11 @@ namespace MoreMountains.Feedbacks
 
 			_beatInterval = 60f / BPM;
 
+<<<<<<< HEAD
+			if ((Time.time - LastBeatTimestamp >= _beatInterval) || (LastBeatTimestamp == 0f))
+=======
 			if ((InternalTime - LastBeatTimestamp >= _beatInterval) || (LastBeatTimestamp == 0f))
+>>>>>>> origin/Dev
 			{
 				PlayBeat();
 			}
@@ -209,7 +222,11 @@ namespace MoreMountains.Feedbacks
 		{
 			BeatThisFrame = true;
 			LastBeatIndex = CurrentSequenceIndex;
+<<<<<<< HEAD
+			LastBeatTimestamp = Time.time;
+=======
 			LastBeatTimestamp = InternalTime;
+>>>>>>> origin/Dev
 			PlayedOnce = true;
 			PlayMetronomeSound();
 			OnBeat();

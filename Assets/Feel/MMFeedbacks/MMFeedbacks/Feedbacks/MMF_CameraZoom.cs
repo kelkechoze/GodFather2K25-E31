@@ -1,7 +1,13 @@
+<<<<<<< HEAD
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+=======
 ﻿using MoreMountains.FeedbacksForThirdParty;
 using MoreMountains.Tools;
 using UnityEngine;
 using UnityEngine.Scripting.APIUpdating;
+>>>>>>> origin/Dev
 
 namespace MoreMountains.Feedbacks
 {
@@ -14,7 +20,10 @@ namespace MoreMountains.Feedbacks
 	              "zoom transition (in seconds) and the zoom duration (the time the camera should remain zoomed in, in seconds). " +
 	              "For this to work, you'll need to add a MMCameraZoom component to your Camera, or a MMCinemachineZoom if you're " +
 	              "using virtual cameras.")]
+<<<<<<< HEAD
+=======
 	[MovedFrom(false, null, "MoreMountains.Feedbacks")]
+>>>>>>> origin/Dev
 	[FeedbackPath("Camera/Camera Zoom")]
 	public class MMF_CameraZoom : MMF_Feedback
 	{
@@ -24,14 +33,20 @@ namespace MoreMountains.Feedbacks
 		#if UNITY_EDITOR
 		public override Color FeedbackColor { get { return MMFeedbacksInspectorColors.CameraColor; } }
 		public override string RequiredTargetText => RequiredChannelText;
+<<<<<<< HEAD
+=======
 		public override bool HasCustomInspectors => true; 
 		public override bool HasAutomaticShakerSetup => true;
+>>>>>>> origin/Dev
 		#endif
 
 		/// the duration of this feedback is the duration of the zoom
 		public override float FeedbackDuration { get { return ApplyTimeMultiplier(ZoomDuration); } set { ZoomDuration = value; } }
 		public override bool HasChannel => true;
+<<<<<<< HEAD
+=======
 		public override bool CanForceInitialValue => true;
+>>>>>>> origin/Dev
 
 		[MMFInspectorGroup("Camera Zoom", true, 72)]
 		/// the zoom mode (for : forward for TransitionDuration, static for Duration, backwards for TransitionDuration)
@@ -49,10 +64,13 @@ namespace MoreMountains.Feedbacks
 		/// whether or not ZoomFieldOfView should add itself to the current camera's field of view value
 		[Tooltip("whether or not ZoomFieldOfView should add itself to the current camera's field of view value")]
 		public bool RelativeFieldOfView = false;
+<<<<<<< HEAD
+=======
 		[Header("Transition Speed")]
 		/// the animation curve to apply to the zoom transition
 		[Tooltip("the animation curve to apply to the zoom transition")]
 		public MMTweenType ZoomTween = new MMTweenType( new AnimationCurve(new Keyframe(0f, 0f), new Keyframe(1f, 1f)));
+>>>>>>> origin/Dev
 
 		/// <summary>
 		/// On Play, triggers a zoom event
@@ -65,8 +83,12 @@ namespace MoreMountains.Feedbacks
 			{
 				return;
 			}
+<<<<<<< HEAD
+			MMCameraZoomEvent.Trigger(ZoomMode, ZoomFieldOfView, ZoomTransitionDuration, FeedbackDuration, ChannelData, ComputedTimescaleMode == TimescaleModes.Unscaled, false, RelativeFieldOfView);
+=======
 			MMCameraZoomEvent.Trigger(ZoomMode, ZoomFieldOfView, ZoomTransitionDuration, FeedbackDuration, ChannelData, 
 				ComputedTimescaleMode == TimescaleModes.Unscaled, false, RelativeFieldOfView, tweenType: ZoomTween);
+>>>>>>> origin/Dev
 		}
 
 		/// <summary>
@@ -81,8 +103,12 @@ namespace MoreMountains.Feedbacks
 				return;
 			}
 			base.CustomStopFeedback(position, feedbacksIntensity);
+<<<<<<< HEAD
+			MMCameraZoomEvent.Trigger(ZoomMode, ZoomFieldOfView, ZoomTransitionDuration, FeedbackDuration, ChannelData, ComputedTimescaleMode == TimescaleModes.Unscaled, stop:true);
+=======
 			MMCameraZoomEvent.Trigger(ZoomMode, ZoomFieldOfView, ZoomTransitionDuration, FeedbackDuration, ChannelData, 
 				ComputedTimescaleMode == TimescaleModes.Unscaled, stop:true, tweenType: ZoomTween);
+>>>>>>> origin/Dev
 		}
 		
 		/// <summary>
@@ -94,6 +120,9 @@ namespace MoreMountains.Feedbacks
 			{
 				return;
 			}
+<<<<<<< HEAD
+			MMCameraZoomEvent.Trigger(ZoomMode, ZoomFieldOfView, ZoomTransitionDuration, FeedbackDuration, ChannelData, ComputedTimescaleMode == TimescaleModes.Unscaled, restore:true);
+=======
 			MMCameraZoomEvent.Trigger(ZoomMode, ZoomFieldOfView, ZoomTransitionDuration, FeedbackDuration, ChannelData, 
 				ComputedTimescaleMode == TimescaleModes.Unscaled, restore:true, tweenType: ZoomTween);
 		}
@@ -131,6 +160,7 @@ namespace MoreMountains.Feedbacks
 
 			Camera.main.gameObject.MMGetOrAddComponent<MMCameraZoom>(); 
 			MMDebug.DebugLogInfo( "Added a MMCameraZoom to the main camera. You're all set.");
+>>>>>>> origin/Dev
 		}
 	}
 }

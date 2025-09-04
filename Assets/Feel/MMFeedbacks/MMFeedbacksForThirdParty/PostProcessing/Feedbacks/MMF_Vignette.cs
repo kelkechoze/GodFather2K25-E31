@@ -1,9 +1,16 @@
+<<<<<<< HEAD
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using MoreMountains.Feedbacks;
+=======
 ﻿using UnityEngine;
 using MoreMountains.Feedbacks;
 using UnityEngine.Scripting.APIUpdating;
 #if MM_POSTPROCESSING
 using UnityEngine.Rendering.PostProcessing;
 #endif
+>>>>>>> origin/Dev
 
 namespace MoreMountains.FeedbacksForThirdParty
 {
@@ -16,7 +23,10 @@ namespace MoreMountains.FeedbacksForThirdParty
 	#if MM_POSTPROCESSING
 	[FeedbackPath("PostProcess/Vignette")]
 	#endif
+<<<<<<< HEAD
+=======
 	[MovedFrom(false, null, "MoreMountains.Feedbacks.PostProcessing")]
+>>>>>>> origin/Dev
 	[FeedbackHelp("This feedback allows you to control vignette intensity over time. " +
 	              "It requires you have in your scene an object with a PostProcessVolume " +
 	              "with Vignette active, and a MMVignetteShaker component.")]
@@ -28,8 +38,11 @@ namespace MoreMountains.FeedbacksForThirdParty
 		#if UNITY_EDITOR
 		public override Color FeedbackColor { get { return MMFeedbacksInspectorColors.PostProcessColor; } }
 		public override string RequiredTargetText => RequiredChannelText;
+<<<<<<< HEAD
+=======
 		public override bool HasCustomInspectors => true;
 		public override bool HasAutomaticShakerSetup => true;
+>>>>>>> origin/Dev
 		#endif
         
 		/// the duration of this feedback is the duration of the shake
@@ -128,6 +141,8 @@ namespace MoreMountains.FeedbacksForThirdParty
 			
 			MMVignetteShakeEvent.Trigger(Intensity, FeedbackDuration, RemapIntensityZero, RemapIntensityOne, RelativeIntensity, restore:true);
 		}
+<<<<<<< HEAD
+=======
 		
 		/// <summary>
 		/// Automaticall sets up the post processing profile and shaker
@@ -138,5 +153,6 @@ namespace MoreMountains.FeedbacksForThirdParty
 			MMPostProcessingHelpers.GetOrCreateVolume<Vignette, MMVignetteShaker>(Owner, "Vignette");
 			#endif
 		}
+>>>>>>> origin/Dev
 	}
 }

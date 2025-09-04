@@ -1,8 +1,15 @@
+<<<<<<< HEAD
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using MoreMountains.Tools;
+=======
 ﻿#if MM_UI
 using UnityEngine;
 using MoreMountains.Tools;
 using UnityEngine.Scripting.APIUpdating;
 using UnityEngine.UI;
+>>>>>>> origin/Dev
 
 namespace MoreMountains.Feedbacks
 {
@@ -11,7 +18,10 @@ namespace MoreMountains.Feedbacks
 	/// </summary>
 	[AddComponentMenu("")]
 	[FeedbackHelp("This feedback lets you trigger a fade event.")]
+<<<<<<< HEAD
+=======
 	[MovedFrom(false, null, "MoreMountains.Feedbacks.MMTools")]
+>>>>>>> origin/Dev
 	[FeedbackPath("Camera/Fade")]
 	public class MMF_Fade : MMF_Feedback
 	{
@@ -21,8 +31,11 @@ namespace MoreMountains.Feedbacks
 		#if UNITY_EDITOR
 		public override Color FeedbackColor { get { return MMFeedbacksInspectorColors.CameraColor; } }
 		public override string RequiredTargetText { get { return "ID "+ID;  } }
+<<<<<<< HEAD
+=======
 		public override bool HasCustomInspectors => true;
 		public override bool HasAutomaticShakerSetup => true;
+>>>>>>> origin/Dev
 		#endif
 		/// the different possible types of fades
 		public enum FadeTypes { FadeIn, FadeOut, Custom }
@@ -71,11 +84,14 @@ namespace MoreMountains.Feedbacks
 		[Tooltip("the position offset to apply when centering the fade")]
 		public Vector3 PositionOffset;
 
+<<<<<<< HEAD
+=======
 		[Header("Optional Target")] 
 		/// this field lets you bind a specific MMFader to this feedback. If left empty, the feedback will trigger a MMFadeEvent instead, targeting all matching faders. If you fill it, only that specific fader will be targeted.
 		[Tooltip("this field lets you bind a specific MMFader to this feedback. If left empty, the feedback will trigger a MMFadeEvent instead, targeting all matching faders. If you fill it, only that specific fader will be targeted.")]
 		public MMFader TargetFader;
 
+>>>>>>> origin/Dev
 		/// the duration of this feedback is the duration of the fade
 		public override float FeedbackDuration { get { return ApplyTimeMultiplier(Duration); } set { Duration = value;  } }
 
@@ -107,6 +123,19 @@ namespace MoreMountains.Feedbacks
 					_fadeType = FadeTypes.FadeIn;
 				}
 			}
+<<<<<<< HEAD
+			switch (_fadeType)
+			{
+				case FadeTypes.Custom:
+					MMFadeEvent.Trigger(FeedbackDuration, TargetAlpha, Curve, ID, IgnoreTimeScale, _position);
+					break;
+				case FadeTypes.FadeIn:
+					MMFadeInEvent.Trigger(FeedbackDuration, Curve, ID, IgnoreTimeScale, _position);
+					break;
+				case FadeTypes.FadeOut:
+					MMFadeOutEvent.Trigger(FeedbackDuration, Curve, ID, IgnoreTimeScale, _position);
+					break;
+=======
 
 			if (TargetFader != null)
 			{
@@ -137,6 +166,7 @@ namespace MoreMountains.Feedbacks
 						MMFadeOutEvent.Trigger(FeedbackDuration, Curve, ID, IgnoreTimeScale, _position);
 						break;
 				}
+>>>>>>> origin/Dev
 			}
 		}
 
@@ -188,6 +218,10 @@ namespace MoreMountains.Feedbacks
 			}
 			MMFadeStopEvent.Trigger(ID, true);
 		}
+<<<<<<< HEAD
+	}
+}
+=======
 		
 		/// <summary>
 		/// Automatically tries to add a MMFader setup to the scene
@@ -220,3 +254,4 @@ namespace MoreMountains.Feedbacks
 	}
 }
 #endif
+>>>>>>> origin/Dev

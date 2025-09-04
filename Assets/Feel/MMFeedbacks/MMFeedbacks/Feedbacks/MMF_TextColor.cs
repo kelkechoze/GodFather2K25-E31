@@ -1,7 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
+<<<<<<< HEAD
+=======
 using UnityEngine.Scripting.APIUpdating;
 #if MM_UI
+>>>>>>> origin/Dev
 using UnityEngine.UI;
 
 namespace MoreMountains.Feedbacks
@@ -11,7 +14,10 @@ namespace MoreMountains.Feedbacks
 	/// </summary>
 	[AddComponentMenu("")]
 	[FeedbackHelp("This feedback lets you control the color of a target Text over time.")]
+<<<<<<< HEAD
+=======
 	[MovedFrom(false, null, "MoreMountains.Feedbacks")]
+>>>>>>> origin/Dev
 	[FeedbackPath("UI/Text Color")]
 	public class MMF_TextColor : MMF_Feedback
 	{
@@ -113,7 +119,10 @@ namespace MoreMountains.Feedbacks
 					{
 						return;
 					}
+<<<<<<< HEAD
+=======
 					if (_coroutine != null) { Owner.StopCoroutine(_coroutine); }
+>>>>>>> origin/Dev
 					_coroutine = Owner.StartCoroutine(ChangeColor());
 					break;
 				case ColorModes.Interpolate:
@@ -121,7 +130,10 @@ namespace MoreMountains.Feedbacks
 					{
 						return;
 					}
+<<<<<<< HEAD
+=======
 					if (_coroutine != null) { Owner.StopCoroutine(_coroutine); }
+>>>>>>> origin/Dev
 					_coroutine = Owner.StartCoroutine(ChangeColor());
 					break;
 			}
@@ -196,5 +208,9 @@ namespace MoreMountains.Feedbacks
 			TargetText.color = _initialColor;
 		}
 	}
+<<<<<<< HEAD
+}
+=======
 }
 #endif
+>>>>>>> origin/Dev

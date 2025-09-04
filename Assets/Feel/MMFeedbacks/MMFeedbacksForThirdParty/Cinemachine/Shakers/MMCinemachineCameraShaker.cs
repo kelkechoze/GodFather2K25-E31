@@ -2,8 +2,11 @@
 using UnityEngine;
 #if MM_CINEMACHINE
 using Cinemachine;
+<<<<<<< HEAD
+=======
 #elif MM_CINEMACHINE3
 using Unity.Cinemachine;
+>>>>>>> origin/Dev
 #endif
 using MoreMountains.Feedbacks;
 
@@ -15,10 +18,15 @@ namespace MoreMountains.FeedbacksForThirdParty
 	[AddComponentMenu("More Mountains/Feedbacks/Shakers/Cinemachine/MMCinemachineCameraShaker")]
 	#if MM_CINEMACHINE
 	[RequireComponent(typeof(CinemachineVirtualCamera))]
+<<<<<<< HEAD
+	#endif
+	public class MMCinemachineCameraShaker : MonoBehaviour
+=======
 	#elif MM_CINEMACHINE3
 	[RequireComponent(typeof(CinemachineCamera))]
 	#endif
 	public class MMCinemachineCameraShaker : MonoBehaviour 
+>>>>>>> origin/Dev
 	{
 		[Header("Settings")]
 		/// whether to listen on a channel defined by an int or by a MMChannel scriptable object. Ints are simple to setup but can get messy and make it harder to remember what int corresponds to what.
@@ -68,12 +76,20 @@ namespace MoreMountains.FeedbacksForThirdParty
 		[MMFInspectorButton("TestShake")]
 		public bool TestShakeButton;
 
+<<<<<<< HEAD
+		#if MM_CINEMACHINE
+=======
+>>>>>>> origin/Dev
 		public virtual float GetTime() { return (_timescaleMode == TimescaleModes.Scaled) ? Time.time : Time.unscaledTime; }
 		public virtual float GetDeltaTime() { return (_timescaleMode == TimescaleModes.Scaled) ? Time.deltaTime : Time.unscaledDeltaTime; }
 
 		protected TimescaleModes _timescaleMode;
 		protected Vector3 _initialPosition;
 		protected Quaternion _initialRotation;
+<<<<<<< HEAD
+		protected Cinemachine.CinemachineBasicMultiChannelPerlin _perlin;
+		protected Cinemachine.CinemachineVirtualCamera _virtualCamera;
+=======
 		#if MM_CINEMACHINE
 		protected Cinemachine.CinemachineBasicMultiChannelPerlin _perlin;
 		protected Cinemachine.CinemachineVirtualCamera _virtualCamera;
@@ -81,6 +97,7 @@ namespace MoreMountains.FeedbacksForThirdParty
 		protected CinemachineBasicMultiChannelPerlin _perlin;
 		protected CinemachineCamera _virtualCamera;
 		#endif
+>>>>>>> origin/Dev
 		protected float _targetAmplitude;
 		protected float _targetFrequency;
 		private Coroutine _shakeCoroutine;
@@ -90,6 +107,10 @@ namespace MoreMountains.FeedbacksForThirdParty
 		/// </summary>
 		protected virtual void Awake()
 		{
+<<<<<<< HEAD
+			_virtualCamera = this.gameObject.GetComponent<CinemachineVirtualCamera>();
+			_perlin = _virtualCamera.GetCinemachineComponent<Cinemachine.CinemachineBasicMultiChannelPerlin>();
+=======
 			#if MM_CINEMACHINE
 			_virtualCamera = this.gameObject.GetComponent<CinemachineVirtualCamera>();
 			_perlin = _virtualCamera.GetCinemachineComponent<Cinemachine.CinemachineBasicMultiChannelPerlin>();
@@ -97,6 +118,7 @@ namespace MoreMountains.FeedbacksForThirdParty
 			_virtualCamera = this.gameObject.GetComponent<CinemachineCamera>();
 			_perlin = _virtualCamera.GetCinemachineComponent(CinemachineCore.Stage.Noise) as CinemachineBasicMultiChannelPerlin;
 			#endif
+>>>>>>> origin/Dev
 		}
 
 		/// <summary>
@@ -104,6 +126,13 @@ namespace MoreMountains.FeedbacksForThirdParty
 		/// </summary>
 		protected virtual void Start()
 		{
+<<<<<<< HEAD
+			if (_perlin != null)
+			{
+				IdleAmplitude = _perlin.m_AmplitudeGain;
+				IdleFrequency = _perlin.m_FrequencyGain;
+			}            
+=======
 			#if MM_CINEMACHINE || MM_CINEMACHINE3
 			if (_perlin != null)
 			{
@@ -116,6 +145,7 @@ namespace MoreMountains.FeedbacksForThirdParty
 				#endif
 			}            
 			#endif
+>>>>>>> origin/Dev
 
 			_targetAmplitude = IdleAmplitude;
 			_targetFrequency = IdleFrequency;
@@ -123,12 +153,17 @@ namespace MoreMountains.FeedbacksForThirdParty
 
 		protected virtual void Update()
 		{
+<<<<<<< HEAD
+=======
 			#if MM_CINEMACHINE
+>>>>>>> origin/Dev
 			if (_perlin != null)
 			{
 				_perlin.m_AmplitudeGain = _targetAmplitude;
 				_perlin.m_FrequencyGain = Mathf.Lerp(_perlin.m_FrequencyGain, _targetFrequency, GetDeltaTime() * LerpSpeed);
 			}
+<<<<<<< HEAD
+=======
 			#elif MM_CINEMACHINE3
 			if (_perlin != null)
 			{
@@ -136,6 +171,7 @@ namespace MoreMountains.FeedbacksForThirdParty
 				_perlin.FrequencyGain = Mathf.Lerp(_perlin.FrequencyGain, _targetFrequency, GetDeltaTime() * LerpSpeed);
 			}
 			#endif
+>>>>>>> origin/Dev
 		}
 
 		/// <summary>
@@ -228,5 +264,9 @@ namespace MoreMountains.FeedbacksForThirdParty
 		{
 			MMCameraShakeEvent.Trigger(TestDuration, TestAmplitude, TestFrequency, 0f, 0f, 0f, false, new MMChannelData(ChannelMode, Channel, MMChannelDefinition));
 		}
+<<<<<<< HEAD
+		#endif
+=======
+>>>>>>> origin/Dev
 	}
 }

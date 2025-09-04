@@ -1,7 +1,13 @@
+<<<<<<< HEAD
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+=======
 ﻿using MoreMountains.FeedbacksForThirdParty;
 using MoreMountains.Tools;
 using UnityEngine;
 using UnityEngine.Scripting.APIUpdating;
+>>>>>>> origin/Dev
 
 namespace MoreMountains.Feedbacks
 {
@@ -13,7 +19,10 @@ namespace MoreMountains.Feedbacks
 	              "You'll need to add a MMCameraShaker on your camera for this to work (or a MMCinemachineCameraShaker component on your virtual camera if you're using Cinemachine). " +
 	              "Note that although this event and system was built for cameras in mind, you could technically use it to shake other objects as well.")]
 	[FeedbackPath("Camera/Camera Shake")]
+<<<<<<< HEAD
+=======
 	[MovedFrom(false, null, "MoreMountains.Feedbacks")]
+>>>>>>> origin/Dev
 	public class MMF_CameraShake : MMF_Feedback
 	{
 		/// a static bool used to disable all feedbacks of this type at once
@@ -22,8 +31,11 @@ namespace MoreMountains.Feedbacks
 		#if UNITY_EDITOR
 		public override Color FeedbackColor { get { return MMFeedbacksInspectorColors.CameraColor; } }
 		public override string RequiredTargetText => RequiredChannelText;
+<<<<<<< HEAD
+=======
 		public override bool HasCustomInspectors => true;
 		public override bool HasAutomaticShakerSetup => true;
+>>>>>>> origin/Dev
 		#endif
         
 		/// the duration of this feedback is the duration of the shake
@@ -65,6 +77,8 @@ namespace MoreMountains.Feedbacks
 			base.CustomStopFeedback(position, feedbacksIntensity);
 			MMCameraShakeStopEvent.Trigger(ChannelData);
 		}
+<<<<<<< HEAD
+=======
 		
 		/// <summary>
 		/// Automatically tries to add a camera rig if none are present
@@ -112,5 +126,6 @@ namespace MoreMountains.Feedbacks
 			
 			MMDebug.DebugLogInfo( "Added a CameraRig to the main camera. You're all set."); 
 		}
+>>>>>>> origin/Dev
 	}
 }

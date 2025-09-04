@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using MoreMountains.Feedbacks;
+<<<<<<< HEAD
+=======
 using UnityEngine.Scripting.APIUpdating;
+>>>>>>> origin/Dev
 
 namespace MoreMountains.FeedbacksForThirdParty
 {
@@ -11,7 +14,10 @@ namespace MoreMountains.FeedbacksForThirdParty
 	/// </summary>
 	[AddComponentMenu("")]
 	[FeedbackPath("Haptics/Haptics DEPRECATED!")]
+<<<<<<< HEAD
+=======
 	[MovedFrom(false, null, "MoreMountains.Feedbacks.NiceVibrations")]
+>>>>>>> origin/Dev
 	[FeedbackHelp("This feedback has been deprecated, and is just here to avoid errors in case you were to update from an old version. Use any of the new haptic feedbacks instead.")]
 	public class MMF_Haptics : MMF_Feedback
 	{

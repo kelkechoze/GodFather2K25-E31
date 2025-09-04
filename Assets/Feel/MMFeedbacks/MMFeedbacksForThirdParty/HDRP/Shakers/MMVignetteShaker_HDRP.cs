@@ -34,6 +34,8 @@ namespace MoreMountains.FeedbacksForThirdParty
 		[Range(0f, 1f)]
 		public float RemapIntensityOne = 1f;
 
+<<<<<<< HEAD
+=======
 		[MMFInspectorGroup("Vignette Color", true, 60)]
 		/// whether or not to also animate  the vignette's color
 		[Tooltip("whether or not to also animate the vignette's color")]
@@ -53,6 +55,7 @@ namespace MoreMountains.FeedbacksForThirdParty
 		[Tooltip("the color to lerp towards")]
 		public Color TargetColor = Color.red;
 
+>>>>>>> origin/Dev
 		#if MM_HDRP
 		protected Volume _volume;
 		protected Vignette _vignette;
@@ -62,12 +65,15 @@ namespace MoreMountains.FeedbacksForThirdParty
 		protected float _originalRemapIntensityZero;
 		protected float _originalRemapIntensityOne;
 		protected bool _originalRelativeIntensity;
+<<<<<<< HEAD
+=======
 		protected bool _originalInterpolateColor;
 		protected AnimationCurve _originalColorCurve;
 		protected float _originalRemapColorZero;
 		protected float _originalRemapColorOne;
 		protected Color _originalTargetColor;
 		protected Color _initialColor;
+>>>>>>> origin/Dev
 
 		/// <summary>
 		/// On init we initialize our values
@@ -86,12 +92,15 @@ namespace MoreMountains.FeedbacksForThirdParty
 		{
 			float newValue = ShakeFloat(ShakeIntensity, RemapIntensityZero, RemapIntensityOne, RelativeIntensity, _initialIntensity);
 			_vignette.intensity.Override(newValue);
+<<<<<<< HEAD
+=======
 
 			if (InterpolateColor)
 			{
 				float newColorValue = ShakeFloat(ColorCurve, RemapColorZero, RemapColorOne, RelativeIntensity, 0);
 				_vignette.color.Override(Color.Lerp(_initialColor, TargetColor, newColorValue));
 			}
+>>>>>>> origin/Dev
 		}
 
 		/// <summary>
@@ -113,8 +122,12 @@ namespace MoreMountains.FeedbacksForThirdParty
 		/// <param name="channel"></param>
 		public virtual void OnVignetteShakeEvent(AnimationCurve intensity, float duration, float remapMin, float remapMax, bool relativeIntensity = false,
 			float attenuation = 1.0f, MMChannelData channelData = null, bool resetShakerValuesAfterShake = true, bool resetTargetValuesAfterShake = true, 
+<<<<<<< HEAD
+			bool forwardDirection = true, TimescaleModes timescaleMode = TimescaleModes.Scaled, bool stop = false, bool restore = false)
+=======
 			bool forwardDirection = true, TimescaleModes timescaleMode = TimescaleModes.Scaled, bool stop = false, bool restore = false,
 			bool interpolateColor = false, AnimationCurve colorCurve = null, float remapColorZero = 0f, float remapColorOne = 1f, Color targetColor = default(Color))
+>>>>>>> origin/Dev
 		{
 			if (!CheckEventAllowed(channelData) || (!Interruptible && Shaking))
 			{
@@ -143,6 +156,17 @@ namespace MoreMountains.FeedbacksForThirdParty
 				_originalRemapIntensityZero = RemapIntensityZero;
 				_originalRemapIntensityOne = RemapIntensityOne;
 				_originalRelativeIntensity = RelativeIntensity;
+<<<<<<< HEAD
+			}
+
+			TimescaleMode = timescaleMode;
+			ShakeDuration = duration;
+			ShakeIntensity = intensity;
+			RemapIntensityZero = remapMin * attenuation;
+			RemapIntensityOne = remapMax * attenuation;
+			RelativeIntensity = relativeIntensity;
+			ForwardDirection = forwardDirection;
+=======
 				_originalInterpolateColor = InterpolateColor;
 				_originalColorCurve = ColorCurve;
 				_originalRemapColorZero = RemapColorZero;
@@ -165,6 +189,7 @@ namespace MoreMountains.FeedbacksForThirdParty
 				RemapColorOne = remapColorOne;
 				TargetColor = targetColor;
 			}
+>>>>>>> origin/Dev
 
 			Play();
 		}
@@ -189,11 +214,14 @@ namespace MoreMountains.FeedbacksForThirdParty
 			RemapIntensityZero = _originalRemapIntensityZero;
 			RemapIntensityOne = _originalRemapIntensityOne;
 			RelativeIntensity = _originalRelativeIntensity;
+<<<<<<< HEAD
+=======
 			InterpolateColor = _originalInterpolateColor;
 			ColorCurve = _originalColorCurve;
 			RemapColorZero = _originalRemapColorZero;
 			RemapColorOne = _originalRemapColorOne;
 			TargetColor = _originalTargetColor;
+>>>>>>> origin/Dev
 		}
 
 		/// <summary>
@@ -228,6 +256,16 @@ namespace MoreMountains.FeedbacksForThirdParty
 		
 		public delegate void Delegate(AnimationCurve intensity, float duration, float remapMin, float remapMax, bool relativeIntensity = false,
 			float attenuation = 1.0f, MMChannelData channelData = null, bool resetShakerValuesAfterShake = true, bool resetTargetValuesAfterShake = true, 
+<<<<<<< HEAD
+			bool forwardDirection = true, TimescaleModes timescaleMode = TimescaleModes.Scaled, bool stop = false, bool restore = false);
+		
+		static public void Trigger(AnimationCurve intensity, float duration, float remapMin, float remapMax, bool relativeIntensity = false,
+			float attenuation = 1.0f, MMChannelData channelData = null, bool resetShakerValuesAfterShake = true, bool resetTargetValuesAfterShake = true, 
+			bool forwardDirection = true, TimescaleModes timescaleMode = TimescaleModes.Scaled, bool stop = false, bool restore = false)
+		{
+			OnEvent?.Invoke(intensity, duration, remapMin, remapMax, relativeIntensity, attenuation, channelData, resetShakerValuesAfterShake, 
+				resetTargetValuesAfterShake, forwardDirection, timescaleMode, stop, restore);
+=======
 			bool forwardDirection = true, TimescaleModes timescaleMode = TimescaleModes.Scaled, bool stop = false, bool restore = false,
 			bool interpolateColor = false, AnimationCurve colorCurve = null, float remapColorZero = 0f, float remapColorOne = 1f, Color targetColor = default(Color));
 		
@@ -238,6 +276,7 @@ namespace MoreMountains.FeedbacksForThirdParty
 		{
 			OnEvent?.Invoke(intensity, duration, remapMin, remapMax, relativeIntensity, attenuation, channelData, resetShakerValuesAfterShake, 
 				resetTargetValuesAfterShake, forwardDirection, timescaleMode, stop, restore, interpolateColor, colorCurve, remapColorZero, remapColorOne, targetColor);
+>>>>>>> origin/Dev
 		}
 	}
 }

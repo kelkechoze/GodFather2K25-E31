@@ -24,14 +24,21 @@ namespace MoreMountains.Feedbacks
 		public MMF_Player TargetMmfPlayer;
 		protected SerializedProperty _mmfeedbacksList;
 		protected SerializedProperty _mmfeedbacksInitializationMode;
+<<<<<<< HEAD
+		protected SerializedProperty _mmfeedbacksSafeMode;
+=======
 		protected SerializedProperty _mmfeedbacksAutoInitialization;
+>>>>>>> origin/Dev
 		protected SerializedProperty _mmfeedbacksAutoPlayOnStart;
 		protected SerializedProperty _mmfeedbacksAutoPlayOnEnable;
 		protected SerializedProperty _mmfeedbacksDirection;
 		protected SerializedProperty _mmfeedbacksFeedbacksIntensity;
 		protected SerializedProperty _mmfeedbacksAutoChangeDirectionOnEnd;
 		protected SerializedProperty _mmfeedbacksDurationMultiplier;
+<<<<<<< HEAD
+=======
 		protected SerializedProperty _mmfeedbacksTimescaleMultiplier;
+>>>>>>> origin/Dev
 		protected SerializedProperty _mmfeedbacksForceTimescaleMode;
 		protected SerializedProperty _mmfeedbacksForcedTimescaleMode;
 		protected SerializedProperty _mmfeedbacksPlayerTimescaleMode;
@@ -41,7 +48,11 @@ namespace MoreMountains.Feedbacks
 		protected SerializedProperty _mmfeedbacksCanPlay;
 		protected SerializedProperty _mmfeedbacksCanPlayWhileAlreadyPlaying;
 		protected SerializedProperty _mmfeedbacksPerformanceMode;
+<<<<<<< HEAD
+		protected SerializedProperty _mmfeedbacksForceStopFeedbacksOnDisable;
+=======
 		protected SerializedProperty _mmfeedbacksStopFeedbacksOnDisable;
+>>>>>>> origin/Dev
 		protected SerializedProperty _mmfeedbacksPlayCount;
 		protected SerializedProperty _mmfeedbacksEvents;
 		protected SerializedProperty _keepPlayModeChanges;
@@ -179,13 +190,20 @@ namespace MoreMountains.Feedbacks
 			TargetMmfPlayer = target as MMF_Player;
 			_mmfeedbacksList = serializedObject.FindProperty("FeedbacksList");
 			_mmfeedbacksInitializationMode = serializedObject.FindProperty("InitializationMode");
+<<<<<<< HEAD
+			_mmfeedbacksSafeMode = serializedObject.FindProperty("SafeMode");
+=======
 			_mmfeedbacksAutoInitialization = serializedObject.FindProperty("AutoInitialization");
+>>>>>>> origin/Dev
 			_mmfeedbacksAutoPlayOnStart = serializedObject.FindProperty("AutoPlayOnStart");
 			_mmfeedbacksAutoPlayOnEnable = serializedObject.FindProperty("AutoPlayOnEnable");
 			_mmfeedbacksDirection = serializedObject.FindProperty("Direction");
 			_mmfeedbacksAutoChangeDirectionOnEnd = serializedObject.FindProperty("AutoChangeDirectionOnEnd");
 			_mmfeedbacksDurationMultiplier = serializedObject.FindProperty("DurationMultiplier");
+<<<<<<< HEAD
+=======
 			_mmfeedbacksTimescaleMultiplier = serializedObject.FindProperty("TimescaleMultiplier");
+>>>>>>> origin/Dev
 			_mmfeedbacksRandomizeDuration = serializedObject.FindProperty("RandomizeDuration");
 			_mmfeedbacksRandomDurationMultiplier = serializedObject.FindProperty("RandomDurationMultiplier");
 			_mmfeedbacksForceTimescaleMode = serializedObject.FindProperty("ForceTimescaleMode");
@@ -199,7 +217,11 @@ namespace MoreMountains.Feedbacks
 			_mmfeedbacksFeedbacksIntensity = serializedObject.FindProperty("FeedbacksIntensity");
 			_keepPlayModeChanges = serializedObject.FindProperty("KeepPlayModeChanges");
 			_mmfeedbacksPerformanceMode = serializedObject.FindProperty("PerformanceMode");
+<<<<<<< HEAD
+			_mmfeedbacksForceStopFeedbacksOnDisable = serializedObject.FindProperty("ForceStopFeedbacksOnDisable");
+=======
 			_mmfeedbacksStopFeedbacksOnDisable = serializedObject.FindProperty("StopFeedbacksOnDisable");
+>>>>>>> origin/Dev
 			_mmfeedbacksPlayCount = serializedObject.FindProperty("PlayCount");
 			_mmfeedbacksChanceToPlay = serializedObject.FindProperty("ChanceToPlay");
 			
@@ -373,7 +395,10 @@ namespace MoreMountains.Feedbacks
 				EditorGUILayout.PropertyField(_mmfeedbacksInitializationMode);
 				EditorGUILayout.PropertyField(_mmfeedbacksAutoPlayOnStart);
 				EditorGUILayout.PropertyField(_mmfeedbacksAutoPlayOnEnable);
+<<<<<<< HEAD
+=======
 				EditorGUILayout.PropertyField(_mmfeedbacksAutoInitialization);
+>>>>>>> origin/Dev
                 
 				EditorGUILayout.Space(10);
 				EditorGUILayout.LabelField(_directionText, EditorStyles.boldLabel);
@@ -386,6 +411,11 @@ namespace MoreMountains.Feedbacks
                 
 				EditorGUILayout.Space(10);
 				EditorGUILayout.LabelField(_timingText, EditorStyles.boldLabel);
+<<<<<<< HEAD
+				EditorGUILayout.PropertyField(_mmfeedbacksForceTimescaleMode);
+				EditorGUILayout.PropertyField(_mmfeedbacksForcedTimescaleMode);
+=======
+>>>>>>> origin/Dev
 				EditorGUILayout.PropertyField(_mmfeedbacksDurationMultiplier);
 				EditorGUILayout.PropertyField(_mmfeedbacksRandomizeDuration);
 				EditorGUILayout.PropertyField(_mmfeedbacksRandomDurationMultiplier);
@@ -394,9 +424,12 @@ namespace MoreMountains.Feedbacks
 				EditorGUILayout.PropertyField(_mmfeedbacksInitialDelay);
 				EditorGUILayout.PropertyField(_mmfeedbacksChanceToPlay);
 				EditorGUILayout.PropertyField(_mmfeedbacksPlayerTimescaleMode);
+<<<<<<< HEAD
+=======
 				EditorGUILayout.PropertyField(_mmfeedbacksForceTimescaleMode);
 				EditorGUILayout.PropertyField(_mmfeedbacksForcedTimescaleMode);
 				EditorGUILayout.PropertyField(_mmfeedbacksTimescaleMultiplier);
+>>>>>>> origin/Dev
 
 				EditorGUILayout.Space(10);
 				EditorGUILayout.LabelField(_rangeText, EditorStyles.boldLabel);
@@ -420,7 +453,11 @@ namespace MoreMountains.Feedbacks
 				EditorGUILayout.PropertyField(_mmfeedbacksCanPlay);
 				EditorGUILayout.PropertyField(_mmfeedbacksCanPlayWhileAlreadyPlaying);
 				EditorGUILayout.PropertyField(_mmfeedbacksPerformanceMode);
+<<<<<<< HEAD
+				EditorGUILayout.PropertyField(_mmfeedbacksForceStopFeedbacksOnDisable);
+=======
 				EditorGUILayout.PropertyField(_mmfeedbacksStopFeedbacksOnDisable);
+>>>>>>> origin/Dev
 				if (Application.isPlaying)
 				{
 					EditorGUILayout.PropertyField(_mmfeedbacksPlayCount);	
@@ -429,6 +466,8 @@ namespace MoreMountains.Feedbacks
 				EditorGUILayout.Space(10);
 				EditorGUILayout.LabelField(_eventsText, EditorStyles.boldLabel);
 				EditorGUILayout.PropertyField(_mmfeedbacksEvents);
+<<<<<<< HEAD
+=======
 			
 				if (!Application.isPlaying && TargetMmfPlayer.HasAutomaticShakerSetup)
 				{
@@ -438,6 +477,7 @@ namespace MoreMountains.Feedbacks
 						TargetMmfPlayer.AutomaticShakerSetup();
 					}
 				}
+>>>>>>> origin/Dev
 			}
 		}
         
@@ -1070,7 +1110,11 @@ namespace MoreMountains.Feedbacks
 
 		#region Events
 
+<<<<<<< HEAD
+		protected void OnDisable()
+=======
 		protected virtual void OnDisable()
+>>>>>>> origin/Dev
 		{
 			foreach (KeyValuePair<int, MMF_FeedbackInspector> inspector in MMF_FeedbackInspectors)
 			{
@@ -1079,6 +1123,40 @@ namespace MoreMountains.Feedbacks
 			EditorApplication.playModeStateChanged -= ModeChanged;
 		}
 
+<<<<<<< HEAD
+		public void ModeChanged(PlayModeStateChange playModeState)
+		{
+			switch (playModeState)
+			{
+				case PlayModeStateChange.ExitingPlayMode:
+					if (_keepPlayModeChanges.boolValue)
+					{
+						MMF_PlayerCopy.ShouldKeepChanges.Add(TargetMmfPlayer);
+						CopyAll();    
+					}
+					break;
+                
+				case PlayModeStateChange.EnteredEditMode:
+                    
+					if (MMF_PlayerCopy.ShouldKeepChanges.Contains(TargetMmfPlayer))
+					{
+						ReplaceAll();
+						if (MMF_PlayerConfiguration.Instance.AutoDisableKeepPlaymodeChanges)
+						{
+							serializedObject.Update();
+							_keepPlayModeChanges.boolValue = false;    
+							serializedObject.ApplyModifiedProperties();
+						}
+						MMF_PlayerCopy.ShouldKeepChanges.Remove(TargetMmfPlayer);
+					}
+					ForceRepaint();
+                    
+					break;
+			}
+		}
+
+		public void ForceRepaint()
+=======
 		public virtual void ModeChanged(PlayModeStateChange playModeState)
 		{
 			switch (playModeState)
@@ -1090,6 +1168,7 @@ namespace MoreMountains.Feedbacks
 		}
 		
 		public virtual void ForceRepaint()
+>>>>>>> origin/Dev
 		{
 			MMF_FeedbackInspectors.Clear();
 			Initialization();
@@ -1097,7 +1176,11 @@ namespace MoreMountains.Feedbacks
 			Repaint();
 		}
         
+<<<<<<< HEAD
+		void Reset()
+=======
 		protected virtual void Reset()
+>>>>>>> origin/Dev
 		{
 			ForceRepaint();
 		}

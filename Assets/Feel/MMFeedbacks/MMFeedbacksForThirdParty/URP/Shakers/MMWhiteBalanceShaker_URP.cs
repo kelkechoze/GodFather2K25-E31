@@ -139,6 +139,18 @@ namespace MoreMountains.FeedbacksForThirdParty
 				_originalRemapTintOne = RemapTintOne;
 			}
 
+<<<<<<< HEAD
+			TimescaleMode = timescaleMode;
+			ShakeDuration = duration;
+			ShakeTemperature = temperature;
+			RemapTemperatureZero = remapTemperatureMin * attenuation;
+			RemapTemperatureOne = remapTemperatureMax * attenuation;
+			RelativeValues = relativeValues;
+			ShakeTint = tint;
+			RemapTintZero = remapTintMin;
+			RemapTintOne = remapTintMax;
+			ForwardDirection = forwardDirection;
+=======
 			if (!OnlyUseShakerValues)
 			{
 				TimescaleMode = timescaleMode;
@@ -152,6 +164,7 @@ namespace MoreMountains.FeedbacksForThirdParty
 				RemapTintOne = remapTintMax;
 				ForwardDirection = forwardDirection;
 			}
+>>>>>>> origin/Dev
 
 			Play();
 		}

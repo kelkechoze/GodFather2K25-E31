@@ -1,8 +1,14 @@
 ﻿using UnityEngine;
+<<<<<<< HEAD
+#if MM_TEXTMESHPRO
+using TMPro;
+#endif
+=======
 #if (MM_TEXTMESHPRO || MM_UGUI2)
 using TMPro;
 #endif
 using UnityEngine.Scripting.APIUpdating;
+>>>>>>> origin/Dev
 
 namespace MoreMountains.Feedbacks
 {
@@ -11,10 +17,16 @@ namespace MoreMountains.Feedbacks
 	/// </summary>
 	[AddComponentMenu("")]
 	[FeedbackHelp("This feedback will let you change the text of a target TMP text component")]
+<<<<<<< HEAD
+	#if MM_TEXTMESHPRO
+	[FeedbackPath("TextMesh Pro/TMP Text")]
+	#endif
+=======
 	#if (MM_TEXTMESHPRO || MM_UGUI2)
 	[FeedbackPath("TextMesh Pro/TMP Text")]
 	#endif
 	[MovedFrom(false, null, "MoreMountains.Feedbacks.TextMeshPro")]
+>>>>>>> origin/Dev
 	public class MMF_TMPText : MMF_Feedback
 	{
 		/// a static bool used to disable all feedbacks of this type at once
@@ -23,12 +35,20 @@ namespace MoreMountains.Feedbacks
 		public override Color FeedbackColor { get { return MMFeedbacksInspectorColors.TMPColor; } }
 		public override string RequiresSetupText { get { return "This feedback requires that a TargetTMPText be set to be able to work properly. You can set one below."; } }
 		#endif
+<<<<<<< HEAD
+		#if UNITY_EDITOR && MM_TEXTMESHPRO
+=======
 		#if UNITY_EDITOR && (MM_TEXTMESHPRO || MM_UGUI2)
+>>>>>>> origin/Dev
 		public override bool EvaluateRequiresSetup() { return (TargetTMPText == null); }
 		public override string RequiredTargetText { get { return TargetTMPText != null ? TargetTMPText.name : "";  } }
 		#endif
         
+<<<<<<< HEAD
+		#if MM_TEXTMESHPRO
+=======
 		#if (MM_TEXTMESHPRO || MM_UGUI2)
+>>>>>>> origin/Dev
 		public override bool HasAutomatedTargetAcquisition => true;
 		protected override void AutomateTargetAcquisition() => TargetTMPText = FindAutomatedTarget<TMP_Text>();
 
@@ -51,7 +71,11 @@ namespace MoreMountains.Feedbacks
 		/// <param name="feedbacksIntensity"></param>
 		protected override void CustomPlayFeedback(Vector3 position, float feedbacksIntensity = 1.0f)
 		{
+<<<<<<< HEAD
+			#if MM_TEXTMESHPRO
+=======
 			#if (MM_TEXTMESHPRO || MM_UGUI2)
+>>>>>>> origin/Dev
 			if (!Active || !FeedbackTypeAuthorized)
 			{
 				return;
@@ -75,7 +99,11 @@ namespace MoreMountains.Feedbacks
 			{
 				return;
 			}
+<<<<<<< HEAD
+			#if MM_TEXTMESHPRO
+=======
 			#if (MM_TEXTMESHPRO || MM_UGUI2)
+>>>>>>> origin/Dev
 			TargetTMPText.text = _initialText;
 			#endif
 		}

@@ -1,8 +1,14 @@
 ﻿using System.Collections;
+<<<<<<< HEAD
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+=======
 using UnityEngine;
 #if MM_UI
 using UnityEngine.UI;
 using UnityEngine.Scripting.APIUpdating;
+>>>>>>> origin/Dev
 
 namespace MoreMountains.Feedbacks
 {
@@ -11,7 +17,10 @@ namespace MoreMountains.Feedbacks
 	/// </summary>
 	[AddComponentMenu("")]
 	[FeedbackHelp("This feedback will let you change the color of a target Graphic over time.")]
+<<<<<<< HEAD
+=======
 	[MovedFrom(false, null, "MoreMountains.Feedbacks")]
+>>>>>>> origin/Dev
 	[FeedbackPath("UI/Graphic")]
 	public class MMF_Graphic : MMF_Feedback
 	{
@@ -50,7 +59,11 @@ namespace MoreMountains.Feedbacks
 		public bool StartsOff = false;
 		/// if this is true, the target will be disabled when this feedbacks is stopped
 		[Tooltip("if this is true, the target will be disabled when this feedbacks is stopped")] 
+<<<<<<< HEAD
+		public bool DisableOnStop = true;
+=======
 		public bool DisableOnStop = false;
+>>>>>>> origin/Dev
         
 		/// if this is true, calling that feedback will trigger it, even if it's in progress. If it's false, it'll prevent any new Play until the current one is over
 		[Tooltip("if this is true, calling that feedback will trigger it, even if it's in progress. If it's false, it'll prevent any new Play until the current one is over")] 
@@ -114,7 +127,10 @@ namespace MoreMountains.Feedbacks
 					{
 						return;
 					}
+<<<<<<< HEAD
+=======
 					if (_coroutine != null) { Owner.StopCoroutine(_coroutine); }
+>>>>>>> origin/Dev
 					_coroutine = Owner.StartCoroutine(GraphicSequence());
 					break;
 			}
@@ -144,10 +160,13 @@ namespace MoreMountains.Feedbacks
 				Turn(false);
 			}
 			IsPlaying = false;
+<<<<<<< HEAD
+=======
 			if (_coroutine != null)
 			{
 				Owner.StopCoroutine(_coroutine);	
 			}
+>>>>>>> origin/Dev
 			_coroutine = null;
 			yield return null;
 		}
@@ -181,6 +200,8 @@ namespace MoreMountains.Feedbacks
 			{
 				Turn(false);    
 			}
+<<<<<<< HEAD
+=======
 
 			if (_coroutine != null)
 			{
@@ -188,6 +209,7 @@ namespace MoreMountains.Feedbacks
 			}
 
 			_coroutine = null;
+>>>>>>> origin/Dev
 		}
 
 		/// <summary>
@@ -212,5 +234,9 @@ namespace MoreMountains.Feedbacks
 			TargetGraphic.color = _initialColor;
 		}
 	}
+<<<<<<< HEAD
+}
+=======
 }
 #endif
+>>>>>>> origin/Dev

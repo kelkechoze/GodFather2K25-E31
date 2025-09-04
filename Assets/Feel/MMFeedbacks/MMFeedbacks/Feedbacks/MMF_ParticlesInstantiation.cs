@@ -1,10 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+<<<<<<< HEAD
+using UnityEngine;
+using UnityEngine.Assertions;
+using UnityEngine.SceneManagement;
+=======
 using MoreMountains.Tools;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.SceneManagement;
 using UnityEngine.Scripting.APIUpdating;
+>>>>>>> origin/Dev
 
 namespace MoreMountains.Feedbacks
 {
@@ -13,15 +19,24 @@ namespace MoreMountains.Feedbacks
 	/// </summary>
 	[AddComponentMenu("")]
 	[FeedbackHelp("This feedback will instantiate the specified ParticleSystem at the specified position on Start or on Play, optionally nesting them.")]
+<<<<<<< HEAD
+=======
 	[MovedFrom(false, null, "MoreMountains.Feedbacks")]
+>>>>>>> origin/Dev
 	[FeedbackPath("Particles/Particles Instantiation")]
 	public class MMF_ParticlesInstantiation : MMF_Feedback
 	{
 		/// a static bool used to disable all feedbacks of this type at once
 		public static bool FeedbackTypeAuthorized = true;
+<<<<<<< HEAD
+		/// sets the inspector color for this feedback
+		#if UNITY_EDITOR
+		public override float FeedbackDuration { get { return ApplyTimeMultiplier(DeclaredDuration); } set { DeclaredDuration = value;  } }
+=======
 		public override float FeedbackDuration { get { return ApplyTimeMultiplier(DeclaredDuration); } set { DeclaredDuration = value;  } }
 		#if UNITY_EDITOR
 		/// sets the inspector color for this feedback
+>>>>>>> origin/Dev
 		public override Color FeedbackColor { get { return MMFeedbacksInspectorColors.ParticlesColor; } }
 		public override bool EvaluateRequiresSetup() { return (ParticlesPrefab == null); }
 		public override string RequiredTargetText { get { return ParticlesPrefab != null ? ParticlesPrefab.name : "";  } }
@@ -41,7 +56,14 @@ namespace MoreMountains.Feedbacks
 		[MMFInspectorGroup("Particles Instantiation", true, 37, true)]
 		/// whether the particle system should be cached or created on demand the first time
 		[Tooltip("whether the particle system should be cached or created on demand the first time")]
+<<<<<<< HEAD
+		public Modes Mode = Modes.Cached;
+		/// the duration for the player to consider. This won't impact your particle system, but is a way to communicate to the MMF Player the duration of this feedback. Usually you'll want it to match your actual particle system, and setting it can be useful to have this feedback work with holding pauses.
+		[Tooltip("the duration for the player to consider. This won't impact your particle system, but is a way to communicate to the MMF Player the duration of this feedback. Usually you'll want it to match your actual particle system, and setting it can be useful to have this feedback work with holding pauses.")]
+		public float DeclaredDuration = 0f;
+=======
 		public Modes Mode = Modes.Pool;
+>>>>>>> origin/Dev
 		
 		/// the initial and planned size of this object pool
 		[Tooltip("the initial and planned size of this object pool")]
@@ -72,9 +94,12 @@ namespace MoreMountains.Feedbacks
 		/// if this is true, the particle system will be stopped every time the feedback is reset - usually before play
 		[Tooltip("if this is true, the particle system will be stopped every time the feedback is reset - usually before play")]
 		public bool StopOnReset = false;
+<<<<<<< HEAD
+=======
 		/// the duration for the player to consider. This won't impact your particle system, but is a way to communicate to the MMF Player the duration of this feedback. Usually you'll want it to match your actual particle system, and setting it can be useful to have this feedback work with holding pauses.
 		[Tooltip("the duration for the player to consider. This won't impact your particle system, but is a way to communicate to the MMF Player the duration of this feedback. Usually you'll want it to match your actual particle system, and setting it can be useful to have this feedback work with holding pauses.")]
 		public float DeclaredDuration = 0f;
+>>>>>>> origin/Dev
 
 		[MMFInspectorGroup("Position", true, 29)]
 		/// the selected position mode
@@ -102,6 +127,8 @@ namespace MoreMountains.Feedbacks
 		[Tooltip("whether or not to also apply scale")]
 		public bool ApplyScale = false;
 
+<<<<<<< HEAD
+=======
 		[MMFInspectorGroup("Simulation Speed", true, 43, false)]
 		/// whether or not to force a specific simulation speed on the target particle system(s)
 		[Tooltip("whether or not to force a specific simulation speed on the target particle system(s)")]
@@ -111,13 +138,17 @@ namespace MoreMountains.Feedbacks
 		[MMFCondition("ForceSimulationSpeed", true)]
 		public Vector2 ForcedSimulationSpeed = new Vector2(0.1f,1f);
 
+>>>>>>> origin/Dev
 		protected ParticleSystem _instantiatedParticleSystem;
 		protected List<ParticleSystem> _instantiatedRandomParticleSystems;
 
 		protected MMMiniObjectPooler _objectPooler; 
 		protected GameObject _newGameObject;
 		protected bool _poolCreatedOrFound = false;
+<<<<<<< HEAD
+=======
 		protected Vector3 _scriptPosition;
+>>>>>>> origin/Dev
 		
 		/// <summary>
 		/// On init, instantiates the particle system, positions it and nests it if needed
@@ -144,11 +175,14 @@ namespace MoreMountains.Feedbacks
 				return;
 			}
 
+<<<<<<< HEAD
+=======
 			if ((ParticlesPrefab == null) && (RandomParticlePrefabs.Count == 0))
 			{
 				return;
 			}
 
+>>>>>>> origin/Dev
 			if (!_poolCreatedOrFound)
 			{
 				if (_objectPooler != null)
@@ -162,7 +196,10 @@ namespace MoreMountains.Feedbacks
 				_objectPooler = objectPoolGo.AddComponent<MMMiniObjectPooler>();
 				_objectPooler.GameObjectToPool = ParticlesPrefab.gameObject;
 				_objectPooler.PoolSize = ObjectPoolSize;
+<<<<<<< HEAD
+=======
 				_objectPooler.NestWaitingPool = NestParticles;
+>>>>>>> origin/Dev
 				if (ParentTransform != null)
 				{
 					_objectPooler.transform.SetParent(ParentTransform);
@@ -280,7 +317,10 @@ namespace MoreMountains.Feedbacks
 				system.Stop();
 				
 				system.transform.position = GetPosition(Owner.transform.position);
+<<<<<<< HEAD
+=======
 				
+>>>>>>> origin/Dev
 				if (ApplyRotation)
 				{
 					system.transform.rotation = GetRotation(Owner.transform);    
@@ -355,9 +395,15 @@ namespace MoreMountains.Feedbacks
 				case PositionModes.WorldPosition:
 					return TargetWorldPosition + Offset;
 				case PositionModes.Script:
+<<<<<<< HEAD
+					return position + Offset;
+				default:
+					return position + Offset;
+=======
 					return _scriptPosition + Offset;
 				default:
 					return _scriptPosition + Offset;
+>>>>>>> origin/Dev
 			}
 		}
 
@@ -373,8 +419,11 @@ namespace MoreMountains.Feedbacks
 				return;
 			}
 
+<<<<<<< HEAD
+=======
 			_scriptPosition = position;
 			
+>>>>>>> origin/Dev
 			if (Mode == Modes.Pool)
 			{
 				if (_objectPooler != null)
@@ -408,9 +457,13 @@ namespace MoreMountains.Feedbacks
 				}
 				_instantiatedParticleSystem.Stop();
 				_instantiatedParticleSystem.transform.position = GetPosition(position);
+<<<<<<< HEAD
+				_instantiatedParticleSystem.Play();
+=======
 				PositionParticleSystem(_instantiatedParticleSystem);
 				_instantiatedParticleSystem.gameObject.SetActive(true);
 				PlayTargetParticleSystem(_instantiatedParticleSystem);
+>>>>>>> origin/Dev
 			}
 
 			if ((_instantiatedRandomParticleSystems != null) && (_instantiatedRandomParticleSystems.Count > 0))
@@ -426,6 +479,12 @@ namespace MoreMountains.Feedbacks
 					system.transform.position = GetPosition(position);
 				}
 				int random = Random.Range(0, _instantiatedRandomParticleSystems.Count);
+<<<<<<< HEAD
+				_instantiatedRandomParticleSystems[random].Play();
+			}
+		}
+
+=======
 				PlayTargetParticleSystem(_instantiatedRandomParticleSystems[random]);
 			}
 		}
@@ -447,6 +506,7 @@ namespace MoreMountains.Feedbacks
 		/// <summary>
 		/// Grabs and stores a random particle prefab
 		/// </summary>
+>>>>>>> origin/Dev
 		protected virtual void GrabCachedParticleSystem()
 		{
 			if (RandomParticlePrefabs.Count > 0)

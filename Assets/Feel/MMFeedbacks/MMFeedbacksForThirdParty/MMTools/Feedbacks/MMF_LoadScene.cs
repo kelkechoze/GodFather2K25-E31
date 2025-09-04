@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using MoreMountains.Tools;
 using UnityEngine.SceneManagement;
+<<<<<<< HEAD
+=======
 using UnityEngine.Scripting.APIUpdating;
+>>>>>>> origin/Dev
 
 namespace MoreMountains.Feedbacks
 {
@@ -12,7 +15,10 @@ namespace MoreMountains.Feedbacks
 	/// </summary>
 	[AddComponentMenu("")]
 	[FeedbackHelp("This feedback will request the load of a new scene, using the method of your choice")]
+<<<<<<< HEAD
+=======
 	[MovedFrom(false, null, "MoreMountains.Feedbacks.MMTools")]
+>>>>>>> origin/Dev
 	[FeedbackPath("Scene/Load Scene")]
 	public class MMF_LoadScene : MMF_Feedback
 	{
@@ -53,6 +59,12 @@ namespace MoreMountains.Feedbacks
 		/// the priority to use when loading the new scenes
 		[Tooltip("the priority to use when loading the new scenes")]
 		public ThreadPriority Priority = ThreadPriority.High;
+<<<<<<< HEAD
+		/// whether or not to interpolate progress (slower, but usually looks better and smoother)
+		[Tooltip("whether or not to interpolate progress (slower, but usually looks better and smoother)")]
+		public bool InterpolateProgress = true;
+=======
+>>>>>>> origin/Dev
 		/// whether or not to perform extra checks to make sure the loading screen and destination scene are in the build settings
 		[Tooltip("whether or not to perform extra checks to make sure the loading screen and destination scene are in the build settings")]
 		public bool SecureLoad = true;
@@ -84,6 +96,13 @@ namespace MoreMountains.Feedbacks
 		/// the duration (in seconds) of the exit fade
 		[Tooltip("the duration (in seconds) of the exit fade")]
 		public float ExitFadeDuration = 0.2f;
+<<<<<<< HEAD
+        
+		[MMFInspectorGroup("Transitions", true, 59)] 
+		/// the speed at which the progress bar should move if interpolated
+		[Tooltip("the speed at which the progress bar should move if interpolated")]
+		public float ProgressInterpolationSpeed = 5f;
+=======
 		
 		[MMFInspectorGroup("Speed", true, 59)] 
 		/// whether or not to interpolate progress (slower, but usually looks better and smoother)
@@ -97,6 +116,7 @@ namespace MoreMountains.Feedbacks
 		public List<MMSceneLoadingSpeedInterval> SpeedIntervals;
         
 		[MMFInspectorGroup("Transitions", true, 59)]
+>>>>>>> origin/Dev
 		/// the order in which to play fades (really depends on the type of fader you have in your loading screen
 		[Tooltip("the order in which to play fades (really depends on the type of fader you have in your loading screen")]
 		public MMAdditiveSceneLoadingManager.FadeModes FadeMode = MMAdditiveSceneLoadingManager.FadeModes.FadeInThenOut;
@@ -136,8 +156,12 @@ namespace MoreMountains.Feedbacks
 						AfterEntryFadeDelay,
 						BeforeExitFadeDelay, ExitFadeDuration,
 						EntryFadeTween, ExitFadeTween,
+<<<<<<< HEAD
+						ProgressInterpolationSpeed, FadeMode, UnloadMethod, AntiSpillSceneName);
+=======
 						ProgressInterpolationSpeed, FadeMode, UnloadMethod, AntiSpillSceneName,
 						SpeedIntervals);
+>>>>>>> origin/Dev
 					break;
 			}
 		}

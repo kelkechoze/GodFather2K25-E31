@@ -1,7 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+<<<<<<< HEAD
+using UnityEngine;
+=======
 using UnityEngine;using UnityEngine.Scripting.APIUpdating;
 
+>>>>>>> origin/Dev
 namespace MoreMountains.Feedbacks
 {
 	/// <summary>
@@ -9,7 +13,10 @@ namespace MoreMountains.Feedbacks
 	/// </summary>
 	[AddComponentMenu("")]
 	[FeedbackHelp("This feedback will let you turn the BlocksRaycast parameter of a target CanvasGroup on or off on play")]
+<<<<<<< HEAD
+=======
 	[MovedFrom(false, null, "MoreMountains.Feedbacks")]
+>>>>>>> origin/Dev
 	[FeedbackPath("UI/CanvasGroup BlocksRaycasts")]
 	public class MMF_CanvasGroupBlocksRaycasts : MMF_Feedback
 	{

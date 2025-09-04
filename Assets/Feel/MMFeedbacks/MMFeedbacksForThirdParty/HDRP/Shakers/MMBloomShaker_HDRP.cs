@@ -133,6 +133,18 @@ namespace MoreMountains.FeedbacksForThirdParty
 				_originalRemapThresholdOne = RemapThresholdOne;
 			}
 
+<<<<<<< HEAD
+			TimescaleMode = timescaleMode;
+			ShakeDuration = duration;
+			ShakeIntensity = intensity;
+			RemapIntensityZero = remapMin * attenuation;
+			RemapIntensityOne = remapMax * attenuation;
+			RelativeValues = relativeIntensity;
+			ShakeThreshold = threshold;
+			RemapThresholdZero = remapThresholdMin;
+			RemapThresholdOne = remapThresholdMax;
+			ForwardDirection = forwardDirection;
+=======
 			if (!OnlyUseShakerValues)
 			{
 				TimescaleMode = timescaleMode;
@@ -146,6 +158,7 @@ namespace MoreMountains.FeedbacksForThirdParty
 				RemapThresholdOne = remapThresholdMax;
 				ForwardDirection = forwardDirection;
 			}
+>>>>>>> origin/Dev
 
 			Play();
 		}

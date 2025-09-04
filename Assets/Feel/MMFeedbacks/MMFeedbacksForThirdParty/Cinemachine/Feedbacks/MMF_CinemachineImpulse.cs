@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using MoreMountains.Feedbacks;
+<<<<<<< HEAD
+#if MM_CINEMACHINE
+using Cinemachine;
+#endif
+=======
 using MoreMountains.Tools;
 #if MM_CINEMACHINE
 using Cinemachine;
@@ -9,14 +14,21 @@ using Cinemachine;
 using Unity.Cinemachine;
 #endif
 using UnityEngine.Scripting.APIUpdating;
+>>>>>>> origin/Dev
 
 namespace MoreMountains.FeedbacksForThirdParty
 {
 	[AddComponentMenu("")]
+<<<<<<< HEAD
+	#if MM_CINEMACHINE
+	[FeedbackPath("Camera/Cinemachine Impulse")]
+	#endif
+=======
 	#if MM_CINEMACHINE || MM_CINEMACHINE3
 	[FeedbackPath("Camera/Cinemachine Impulse")]
 	#endif
 	[MovedFrom(false, null, "MoreMountains.Feedbacks.Cinemachine")]
+>>>>>>> origin/Dev
 	[FeedbackHelp("This feedback lets you trigger a Cinemachine Impulse event. You'll need a Cinemachine Impulse Listener on your camera for this to work.")]
 	public class MMF_CinemachineImpulse : MMF_Feedback
 	{
@@ -25,6 +37,16 @@ namespace MoreMountains.FeedbacksForThirdParty
 		/// sets the inspector color for this feedback
 		#if UNITY_EDITOR
 		public override Color FeedbackColor { get { return MMFeedbacksInspectorColors.CameraColor; } }
+<<<<<<< HEAD
+		#endif
+		public override bool HasRandomness => true;
+
+		#if MM_CINEMACHINE
+		[MMFInspectorGroup("Cinemachine Impulse", true, 28)]
+		/// the impulse definition to broadcast
+		[Tooltip("the impulse definition to broadcast")]
+		public CinemachineImpulseDefinition m_ImpulseDefinition;
+=======
 		public override bool HasCustomInspectors => true;
 		public override bool HasAutomaticShakerSetup => true;
 		#endif
@@ -35,12 +57,18 @@ namespace MoreMountains.FeedbacksForThirdParty
 		/// the impulse definition to broadcast
 		[Tooltip("the impulse definition to broadcast")]
 		public CinemachineImpulseDefinition m_ImpulseDefinition = new CinemachineImpulseDefinition();
+>>>>>>> origin/Dev
 		/// the velocity to apply to the impulse shake
 		[Tooltip("the velocity to apply to the impulse shake")]
 		public Vector3 Velocity;
 		/// whether or not to clear impulses (stopping camera shakes) when the Stop method is called on that feedback
 		[Tooltip("whether or not to clear impulses (stopping camera shakes) when the Stop method is called on that feedback")]
 		public bool ClearImpulseOnStop = false;
+<<<<<<< HEAD
+
+		/// the duration of this feedback is the duration of the impulse
+		public override float FeedbackDuration { get { return m_ImpulseDefinition != null ? m_ImpulseDefinition.m_TimeEnvelope.Duration : 0f; } }
+=======
 		#endif
 		
 		[Header("Gizmos")]
@@ -54,6 +82,7 @@ namespace MoreMountains.FeedbacksForThirdParty
 		#elif MM_CINEMACHINE3
 		/// the duration of this feedback is the duration of the impulse
 		public override float FeedbackDuration { get { return m_ImpulseDefinition != null ? m_ImpulseDefinition.TimeEnvelope.Duration : 0f; } }
+>>>>>>> origin/Dev
 		#endif
 
 		protected override void CustomPlayFeedback(Vector3 position, float feedbacksIntensity = 1.0f)
@@ -63,7 +92,11 @@ namespace MoreMountains.FeedbacksForThirdParty
 				return;
 			}
 
+<<<<<<< HEAD
+			#if MM_CINEMACHINE
+=======
 			#if MM_CINEMACHINE || MM_CINEMACHINE3
+>>>>>>> origin/Dev
 			CinemachineImpulseManager.Instance.IgnoreTimeScale = !InScaledTimescaleMode;
 			float intensityMultiplier = ComputeIntensity(feedbacksIntensity, position);
 			m_ImpulseDefinition.CreateEvent(position, Velocity * intensityMultiplier);
@@ -77,7 +110,11 @@ namespace MoreMountains.FeedbacksForThirdParty
 		/// <param name="feedbacksIntensity"></param>
 		protected override void CustomStopFeedback(Vector3 position, float feedbacksIntensity = 1)
 		{
+<<<<<<< HEAD
+			#if MM_CINEMACHINE
+=======
 			#if MM_CINEMACHINE || MM_CINEMACHINE3
+>>>>>>> origin/Dev
 			if (!Active || !FeedbackTypeAuthorized || !ClearImpulseOnStop)
 			{
 				return;
@@ -86,6 +123,8 @@ namespace MoreMountains.FeedbacksForThirdParty
 			CinemachineImpulseManager.Instance.Clear();
 			#endif
 		}
+<<<<<<< HEAD
+=======
 
 		/// <summary>
 		/// When adding the feedback we initialize its cinemachine impulse definition
@@ -161,5 +200,6 @@ namespace MoreMountains.FeedbacksForThirdParty
 		{
 			MMCinemachineHelpers.AutomaticCinemachineShakersSetup(Owner, "CinemachineImpulse");
 		}
+>>>>>>> origin/Dev
 	}
 }

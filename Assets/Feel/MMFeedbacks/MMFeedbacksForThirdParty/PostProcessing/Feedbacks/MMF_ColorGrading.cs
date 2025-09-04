@@ -1,9 +1,16 @@
+<<<<<<< HEAD
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using MoreMountains.Feedbacks;
+=======
 ﻿using UnityEngine;
 using MoreMountains.Feedbacks;
 using UnityEngine.Scripting.APIUpdating;
 #if MM_POSTPROCESSING
 using UnityEngine.Rendering.PostProcessing;
 #endif
+>>>>>>> origin/Dev
 
 namespace MoreMountains.FeedbacksForThirdParty
 {
@@ -16,7 +23,10 @@ namespace MoreMountains.FeedbacksForThirdParty
 	#if MM_POSTPROCESSING
 	[FeedbackPath("PostProcess/Color Grading")]
 	#endif
+<<<<<<< HEAD
+=======
 	[MovedFrom(false, null, "MoreMountains.Feedbacks.PostProcessing")]
+>>>>>>> origin/Dev
 	[FeedbackHelp("This feedback allows you to control color grading post exposure, hue shift, saturation and contrast over time. " +
 	              "It requires you have in your scene an object with a PostProcessVolume " +
 	              "with Color Grading active, and a MMColorGradingShaker component.")]
@@ -28,8 +38,11 @@ namespace MoreMountains.FeedbacksForThirdParty
 		#if UNITY_EDITOR
 		public override Color FeedbackColor { get { return MMFeedbacksInspectorColors.PostProcessColor; } }
 		public override string RequiredTargetText => RequiredChannelText;
+<<<<<<< HEAD
+=======
 		public override bool HasCustomInspectors => true;
 		public override bool HasAutomaticShakerSetup => true;
+>>>>>>> origin/Dev
 		#endif
 
 		/// the duration of this feedback is the duration of the shake
@@ -101,6 +114,8 @@ namespace MoreMountains.FeedbacksForThirdParty
 		[Range(-100f, 100f)]
 		public float RemapContrastOne = 100f;
 
+<<<<<<< HEAD
+=======
 		[MMFInspectorGroup("Color Filter", true, 50)]
 		/// if this is true, the color filter will be animated over the gradient below
 		[Tooltip("if this is true, the color filter will be animated over the gradient below")]
@@ -110,6 +125,7 @@ namespace MoreMountains.FeedbacksForThirdParty
 		[GradientUsage(true)]
 		public Gradient ColorFilterGradient;
 		
+>>>>>>> origin/Dev
 		/// <summary>
 		/// Triggers a color grading shake
 		/// </summary>
@@ -127,7 +143,10 @@ namespace MoreMountains.FeedbacksForThirdParty
 				ShakeHueShift, RemapHueShiftZero, RemapHueShiftOne, 
 				ShakeSaturation, RemapSaturationZero, RemapSaturationOne, 
 				ShakeContrast, RemapContrastZero, RemapContrastOne, 
+<<<<<<< HEAD
+=======
 				ShakeColorFilter, ColorFilterGradient,
+>>>>>>> origin/Dev
 				FeedbackDuration,                     
 				RelativeIntensity, intensityMultiplier, ChannelData, ResetShakerValuesAfterShake, ResetTargetValuesAfterShake, NormalPlayDirection, ComputedTimescaleMode);
             
@@ -150,7 +169,10 @@ namespace MoreMountains.FeedbacksForThirdParty
 				ShakeHueShift, RemapHueShiftZero, RemapHueShiftOne, 
 				ShakeSaturation, RemapSaturationZero, RemapSaturationOne, 
 				ShakeContrast, RemapContrastZero, RemapContrastOne, 
+<<<<<<< HEAD
+=======
 				ShakeColorFilter, ColorFilterGradient,
+>>>>>>> origin/Dev
 				FeedbackDuration,                     
 				stop:true);
 		}
@@ -169,6 +191,11 @@ namespace MoreMountains.FeedbacksForThirdParty
 				ShakeHueShift, RemapHueShiftZero, RemapHueShiftOne, 
 				ShakeSaturation, RemapSaturationZero, RemapSaturationOne, 
 				ShakeContrast, RemapContrastZero, RemapContrastOne, 
+<<<<<<< HEAD
+				FeedbackDuration,                     
+				restore:true);
+		}
+=======
 				ShakeColorFilter, ColorFilterGradient,
 				FeedbackDuration,                     
 				restore:true);
@@ -183,5 +210,6 @@ namespace MoreMountains.FeedbacksForThirdParty
 			MMPostProcessingHelpers.GetOrCreateVolume<ColorGrading, MMColorGradingShaker>(Owner, "Color Grading");
 			#endif
 		}
+>>>>>>> origin/Dev
 	}
 }

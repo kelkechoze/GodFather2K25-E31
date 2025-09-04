@@ -1,9 +1,16 @@
+<<<<<<< HEAD
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using MoreMountains.Feedbacks;
+=======
 ﻿using UnityEngine;
 using MoreMountains.Feedbacks;
 using UnityEngine.Scripting.APIUpdating;
 #if MM_URP
 using UnityEngine.Rendering.Universal;
 #endif
+>>>>>>> origin/Dev
 
 namespace MoreMountains.FeedbacksForThirdParty
 {
@@ -16,7 +23,10 @@ namespace MoreMountains.FeedbacksForThirdParty
 	#if MM_URP
 	[FeedbackPath("PostProcess/Film Grain URP")]
 	#endif
+<<<<<<< HEAD
+=======
 	[MovedFrom(false, null, "MoreMountains.Feedbacks.URP")]
+>>>>>>> origin/Dev
 	[FeedbackHelp("This feedback allows you to control Film Grain intensity over time. " +
 	              "It requires you have in your scene an object with a Volume " +
 	              "with Film Grain active, and a MMFilmGrainShaker_URP component.")]
@@ -27,8 +37,11 @@ namespace MoreMountains.FeedbacksForThirdParty
 		/// sets the inspector color for this feedback
 		#if UNITY_EDITOR
 		public override Color FeedbackColor { get { return MMFeedbacksInspectorColors.PostProcessColor; } }
+<<<<<<< HEAD
+=======
 		public override bool HasCustomInspectors => true;
 		public override bool HasAutomaticShakerSetup => true;
+>>>>>>> origin/Dev
 		#endif
 
 		/// the duration of this feedback is the duration of the shake
@@ -109,6 +122,8 @@ namespace MoreMountains.FeedbacksForThirdParty
 			
 			MMFilmGrainShakeEvent_URP.Trigger(Intensity, FeedbackDuration, RemapIntensityZero, RemapIntensityOne, RelativeIntensity, restore:true, channelData: ChannelData);
 		}
+<<<<<<< HEAD
+=======
 		
 		/// <summary>
 		/// Automaticall sets up the post processing profile and shaker
@@ -119,5 +134,6 @@ namespace MoreMountains.FeedbacksForThirdParty
 			MMURPHelpers.GetOrCreateVolume<FilmGrain, MMFilmGrainShaker_URP>(Owner, "FilmGrain");
 			#endif
 		}
+>>>>>>> origin/Dev
 	}
 }
